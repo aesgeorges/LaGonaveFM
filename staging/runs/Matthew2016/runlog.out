@@ -6,3 +6,4 @@ id						dt						type						comment
 030924-2121			80.142686			 coldstart-full [Laptop]            Fail - MPI_ABORT? May need to check my adcirc compilation on laptop
 030924-2125			80.142686			 coldstart-full [PC]                Fail - not enough cores
 030924-2126			80.142686			 coldstart-full [PC]                Success - Please visualize  
+030924-2249			80.142686			 coldstart-full [Laptop]            Fail - looking for fort.63.nc??
