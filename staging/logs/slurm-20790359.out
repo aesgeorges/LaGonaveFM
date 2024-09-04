@@ -1,0 +1,540 @@
+mkdir: cannot create directory ‘../../../logs/20790359’: No such file or directory
+cp: cannot create regular file '../../../logs/20790359/fort.15': No such file or directory
+ INFO: Processing --np
+ INFO: Processing --partmesh
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ from alloc_main1: 
+  
+ memory currently allocated =              17604904  bytes
+ memory high water mark     =              34383640  bytes
+  
+  
+ memory currently allocated =              19765264  bytes
+ memory high water mark     =              34383640  bytes
+  
+ Global Grid file read successfully.
+INFO: This mesh has 0 weir node pairs.
+INFO: Maximum number of duals for any weir node is 0.
+ maximum co-nodes for any node =           18
+ edge count =        89861
+ 
+ Grid Partition Data
+ METIS 4.0 will require approximately        22896480905624  bytes
+ Total Edges Cut =        18931
+INFO: Writing mesh partition to partmesh.txt.
+ INFO: METIS has partitioned nodes successfully.
+  
+ memory currently allocated =              19765264  bytes
+ memory high water mark     =              34383640  bytes
+  
+ INFO: Processing --np
+ INFO: Processing --prepall
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ File fort.15                                                     
+ WAS FOUND!  Opening & Processing file
+
+ INFO: The metControl namelist was not found.
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+ MET Station Locations Contained in fort.15
+ NHSTAR =            5
+ *****************************************************
+ *   Based on input and information extracted from   *
+ *   the ADCIRC UNIT 14 and 15 (grid and horiz run   *
+ *   info) files the following paramter values will  *
+ *   be set:                                         *
+ *                                                   *
+ *       MNPROC =    24                             *
+ *       MNE =    58369      MNP =    31435          *
+ *       MNEI =      10                               *
+ *       MNOPE =      1      MNETA =    103          *
+ *       MNBOU =     59      MNVEL =   4573          *
+ *       MNTIF =      8      MNBFR =      8          *
+ *       MNSTAE =     1      MNSTAV =     1          *
+ *       MNSTAC =     1      MNSTAM =     1          *
+ *       MNWP =   31435                               *
+ *       MNWLAT =     1      MNWLON =     1          *
+ *       MNFFR =      1                              *
+ *                                                   *
+ *   Also, NWS=+-8 Holland wind forcing is used,     *
+ *   means and variance calculation will NOT be made,*
+ *   the GWCE matrix will be left in consistent form *
+ *   and an iterative solver will be used            *
+ *****************************************************
+
+ from alloc_main1: 
+  
+ memory currently allocated =              17670648  bytes
+ memory high water mark     =              34515128  bytes
+  
+  
+ memory currently allocated =              19831008  bytes
+ memory high water mark     =              34515128  bytes
+  
+ Global Grid file read successfully.
+ INFO: Opening file partmesh.txt
+ INFO: Closed partmesh.txt file.
+ INFO: Start reading in fort.15.
+ nstae=           0
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+ MET Station Locations Contained in fort.15
+  
+ memory currently allocated =              19831016  bytes
+ memory high water mark     =              34515128  bytes
+  
+ INFO: Fulldomain fort.15 file read successfully.
+ INFO: Initializing the netCDF output files.
+  
+ Determine the parameters MNPP and MNEP
+  Setting MNPP =         1437
+  Setting MNEP =         2590
+ Allocate arrays dimensioned by MNPP and MNEP
+ from alloc_main2: 
+  
+ memory currently allocated =              20966118  bytes
+ memory high water mark     =              34515128  bytes
+  
+  
+ Decomposition of grid begins
+ Decomposition Data
+ DOMAIN  RES_NODES  GHOST_NODES  TOT_NODES  ELEMENTS
+ ------  ---------  -----------  ---------  --------
+ GLOBAL                             31435      58369
+ PE0000      1397         40         1437       2285
+ PE0001      1261         71         1332       2442
+ PE0002      1319         64         1383       2535
+ PE0003      1358         41         1399       2454
+ PE0004      1335         64         1399       2575
+ PE0005      1309         89         1398       2590
+ PE0006      1304         36         1340       2460
+ PE0007      1269         62         1331       2430
+ PE0008      1278         90         1368       2450
+ PE0009      1265         73         1338       2446
+ PE0010      1348         62         1410       2546
+ PE0011      1282         64         1346       2453
+ PE0012      1308        103         1411       2539
+ PE0013      1353         74         1427       2562
+ PE0014      1343         63         1406       2571
+ PE0015      1345         38         1383       2535
+ PE0016      1309         52         1361       2430
+ PE0017      1303         58         1361       2510
+ PE0018      1278        104         1382       2446
+ PE0019      1313        106         1419       2584
+ PE0020      1318         48         1366       2566
+ PE0021      1309         59         1368       2548
+ PE0022      1265         61         1326       2500
+ PE0023      1266        111         1377       2469
+ Decomposition successful
+ Writing Local UNIT 14 (Grid) File for each PE
+  
+ Boundary Node Decomposition Data
+ DOMAIN      NOPE    NETA    NBOU  NVEL    NWEIR
+ GLOBAL       1     103      59    4514       0
+ PE0000       0       0       5     561       0
+ PE0001       0       0       2     154       0
+ PE0002       0       0       5     179       0
+ PE0003       0       0       6     318       0
+ PE0004       0       0       1     159       0
+ PE0005       0       0       1     117       0
+ PE0006       1      22       1     163       0
+ PE0007       0       0       1     170       0
+ PE0008       0       0       4     205       0
+ PE0009       0       0       2     160       0
+ PE0010       0       0       6     228       0
+ PE0011       0       0       3     181       0
+ PE0012       0       0       1     180       0
+ PE0013       0       0       4     227       0
+ PE0014       0       0       1     180       0
+ PE0015       1      37       1     157       0
+ PE0016       0       0       2     243       0
+ PE0017       0       0       2     157       0
+ PE0018       0       0      12     248       0
+ PE0019       1      26       8     146       0
+ PE0020       1      24      17     145       0
+ PE0021       0       0       1     129       0
+ PE0022       0       0       3      97       0
+ PE0023       0       0       9     198       0
+ Writing Local UNIT 15 (Run Info) File for each PE
+  
+ Station Data
+ DOMAIN      NSTAE   NSTAV    NSTAC    NSTAM
+ GLOBAL       0       0       0       0
+ PE0000       0       0       0       0
+ PE0001       0       0       0       0
+ PE0002       0       0       0       0
+ PE0003       0       0       0       0
+ PE0004       0       0       0       0
+ PE0005       0       0       0       0
+ PE0006       0       0       0       0
+ PE0007       0       0       0       0
+ PE0008       0       0       0       0
+ PE0009       0       0       0       0
+ PE0010       0       0       0       0
+ PE0011       0       0       0       0
+ PE0012       0       0       0       0
+ PE0013       0       0       0       0
+ PE0014       0       0       0       0
+ PE0015       0       0       0       0
+ PE0016       0       0       0       0
+ PE0017       0       0       0       0
+ PE0018       0       0       0       0
+ PE0019       0       0       0       0
+ PE0020       0       0       0       0
+ PE0021       0       0       0       0
+ PE0022       0       0       0       0
+ PE0023       0       0       0       0
+ Writing Message-Passing Info Files for each PE
+  
+ Communication Data
+ DOMAIN  COMM_PE  %(SURF/VOL)
+ ------  -------  -----------
+ PE0000        2      2.86
+ PE0001        5      5.63
+ PE0002        5      4.85
+ PE0003        3      3.02
+ PE0004        3      4.79
+ PE0005        5      6.80
+ PE0006        2      2.76
+ PE0007        3      4.89
+ PE0008        5      7.04
+ PE0009        3      5.77
+ PE0010        5      4.60
+ PE0011        4      4.99
+ PE0012        6      7.87
+ PE0013        6      5.47
+ PE0014        2      4.69
+ PE0015        3      2.83
+ PE0016        3      3.97
+ PE0017        2      4.45
+ PE0018        4      8.14
+ PE0019        6      8.07
+ PE0020        3      3.64
+ PE0021        3      4.51
+ PE0022        2      4.82
+ PE0023        5      8.77
+  
+ memory currently allocated =              20966118  bytes
+ memory high water mark     =              34515128  bytes
+  
+
+
+ Writing subdomain Nodal Attributes (unit 13)
+ file for each PE.
+File fort.13 
+ WAS FOUND!  Opening & Processing file.
+
+     Finished processing primitive_weighting_in_continuity_equation                                      
+ for processor range            1  to           24
+     Finished processing mannings_n_at_sea_floor                                                         
+ for processor range            1  to           24
+  
+ memory currently allocated =              20966110  bytes
+ memory high water mark     =              34515128  bytes
+  
+ Writing domain-decomposition file for post-processor
+ 
+ INFO: Finished pre-processing input files.
+  
+ memory currently allocated =              20966110  bytes
+ memory high water mark     =              34515128  bytes
+  
+ INFO: Searching for ADCIRC subdomain directories:
+ INFO: Looking for './PE0000/fort.14' ...
+ INFO: File './PE0000/fort.14' was found!
+ INFO: The search for the subdomain directory was completed successfully.
+ INFO: The ROOTDIR is  '.'.
+ INFO: The INPUTDIR is './PE0000'.
+ INFO: The GBLINPUTDIR is '.'.
+ INFO: The GLOBALDIR is '.'.
+ INFO: The LOCALDIR is './PE0000'.
+WARNING: read14FindDims: Number of land boundary nodes was set to 561 but 557 were found.
+
+ _______________________________________________________________________________
+
+
+                   PROGRAM ADCIRC   VERSION v56.0.1-8-g13aa6bf
+
+     AN ADVANCED CIRCULATION MODEL FOR SHELVES, COASTAL SEAS AND ESTUARIES
+
+
+       -  DEVELOPED BY
+
+          R.A. LUETTICH, JR
+            UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL
+            INSTITUTE OF MARINE SCIENCES
+
+          J.J. WESTERINK 
+            DEPARTMENT OF CIVIL ENGINEERING AND GEOLOGICAL SCIENCES
+            UNIVERSITY OF NOTRE DAME
+
+
+       -  THE ADCIRC SOURCE CODE IS COPYRIGHTED BY
+
+          R.A. LUETTICH, JR. AND J.J. WESTERINK, 1994-2006
+
+       NO PART OF THIS CODE MAY BE REPRODUCED OR REDISTRIBUTED
+          WITHOUT THE WRITTEN PERMISSION OF THE AUTHORS
+
+
+
+ _______________________________________________________________________________
+INFO: initializeMesh: THE NEIGHBOR TABLE IS BEING COMPUTED.
+INFO: initializeMesh: THE NEIGHBOR TABLE IS COMPLETED. THE MINIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 3. 1+THE MAXIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 9. THE PARAMETER MNEI CAN BE SET AS SMALL AS 9.
+ADCIRC Version is v56.0.1-8-g13aa6bf                                                              
+ADCIRC Commit hash is 13aa6bfb926a7684309f0bb7de1ca93a17d34269                                        
+
+ _______________________________________________________________________________
+
+ WIND (AND PRESSURE) INFORMATION READ.
+
+
+ _______________________________________________________________________________
+
+
+ LIMITED RUNTIME INFORMATION SECTION 
+
+
+INFO: ADCIRC_Run: Begin timestepping.
+ TIME STEP =     100   0.84% COMPLETE     ITERATIONS =   23     TIME =  0.80142686E+04
+  ELMAX = -2.1537E-004 AT NODE       14  SPEEDMAX =  4.1467E-004 AT NODE      886  ON MYPROC =    0
+ TIME STEP =     200   1.69% COMPLETE     ITERATIONS =   22     TIME =  0.16028537E+05
+  ELMAX = -5.8262E-004 AT NODE     1051  SPEEDMAX =  2.3267E-003 AT NODE      886  ON MYPROC =    0
+ TIME STEP =     300   2.53% COMPLETE     ITERATIONS =   23     TIME =  0.24042806E+05
+  ELMAX =  2.3262E-003 AT NODE      593  SPEEDMAX =  1.7048E-002 AT NODE      886  ON MYPROC =    0
+ TIME STEP =     400   3.37% COMPLETE     ITERATIONS =   22     TIME =  0.32057074E+05
+  ELMAX =  4.1379E-003 AT NODE     1051  SPEEDMAX =  3.0269E-002 AT NODE      886  ON MYPROC =    0
+ TIME STEP =     500   4.22% COMPLETE     ITERATIONS =   22     TIME =  0.40071343E+05
+  ELMAX =  4.9186E-003 AT NODE     1433  SPEEDMAX =  1.5622E-002 AT NODE      845  ON MYPROC =    0
+ TIME STEP =     600   5.06% COMPLETE     ITERATIONS =   23     TIME =  0.48085612E+05
+  ELMAX =  4.3267E-003 AT NODE     1051  SPEEDMAX =  5.0041E-002 AT NODE      886  ON MYPROC =    0
+ TIME STEP =     700   5.90% COMPLETE     ITERATIONS =   21     TIME =  0.56099880E+05
+  ELMAX = -1.6418E-002 AT NODE     1051  SPEEDMAX =  7.2984E-002 AT NODE      886  ON MYPROC =    0
+ TIME STEP =     800   6.75% COMPLETE     ITERATIONS =   23     TIME =  0.64114149E+05
+  ELMAX =  1.3595E-002 AT NODE     1012  SPEEDMAX =  5.2225E-002 AT NODE      845  ON MYPROC =    0
+ TIME STEP =     900   7.59% COMPLETE     ITERATIONS =   22     TIME =  0.72128417E+05
+  ELMAX =  1.1683E-002 AT NODE     1355  SPEEDMAX =  1.2898E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    1000   8.43% COMPLETE     ITERATIONS =   22     TIME =  0.80142686E+05
+  ELMAX =  2.3307E-002 AT NODE     1434  SPEEDMAX =  9.1044E-002 AT NODE      889  ON MYPROC =    0
+ TIME STEP =    1100   9.28% COMPLETE     ITERATIONS =   24     TIME =  0.88156955E+05
+  ELMAX =  2.1951E-002 AT NODE     1390  SPEEDMAX =  1.1958E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    1200  10.12% COMPLETE     ITERATIONS =   21     TIME =  0.96171223E+05
+  ELMAX = -2.2176E-002 AT NODE     1375  SPEEDMAX =  1.9263E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    1300  10.96% COMPLETE     ITERATIONS =   23     TIME =  0.10418549E+06
+  ELMAX = -3.5760E-002 AT NODE     1433  SPEEDMAX =  1.3569E-001 AT NODE      889  ON MYPROC =    0
+ TIME STEP =    1400  11.81% COMPLETE     ITERATIONS =   23     TIME =  0.11219976E+06
+  ELMAX = -3.3540E-002 AT NODE     1390  SPEEDMAX =  1.5061E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    1500  12.65% COMPLETE     ITERATIONS =   21     TIME =  0.12021403E+06
+  ELMAX =  2.6364E-002 AT NODE     1436  SPEEDMAX =  2.2320E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    1600  13.49% COMPLETE     ITERATIONS =   24     TIME =  0.12822830E+06
+  ELMAX =  2.6285E-002 AT NODE      906  SPEEDMAX =  1.0239E-001 AT NODE      889  ON MYPROC =    0
+ TIME STEP =    1700  14.34% COMPLETE     ITERATIONS =   22     TIME =  0.13624257E+06
+  ELMAX =  4.2313E-002 AT NODE      964  SPEEDMAX =  1.6576E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    1800  15.18% COMPLETE     ITERATIONS =   22     TIME =  0.14425683E+06
+  ELMAX =  3.6848E-002 AT NODE     1085  SPEEDMAX =  1.9828E-001 AT NODE      889  ON MYPROC =    0
+ TIME STEP =    1900  16.02% COMPLETE     ITERATIONS =   23     TIME =  0.15227110E+06
+  ELMAX = -3.2013E-002 AT NODE      389  SPEEDMAX =  1.7363E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    2000  16.87% COMPLETE     ITERATIONS =   22     TIME =  0.16028537E+06
+  ELMAX = -5.5210E-002 AT NODE      964  SPEEDMAX =  2.3944E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    2100  17.71% COMPLETE     ITERATIONS =   22     TIME =  0.16829964E+06
+  ELMAX =  4.1003E-002 AT NODE     1433  SPEEDMAX =  1.5984E-001 AT NODE      919  ON MYPROC =    0
+ TIME STEP =    2200  18.55% COMPLETE     ITERATIONS =   23     TIME =  0.17631391E+06
+  ELMAX =  5.8152E-002 AT NODE      389  SPEEDMAX =  1.8281E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    2300  19.40% COMPLETE     ITERATIONS =   21     TIME =  0.18432818E+06
+  ELMAX =  7.7991E-002 AT NODE      964  SPEEDMAX =  2.5118E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    2400  20.24% COMPLETE     ITERATIONS =   22     TIME =  0.19234245E+06
+  ELMAX =  3.2420E-002 AT NODE      969  SPEEDMAX =  1.4406E-001 AT NODE      579  ON MYPROC =    0
+ TIME STEP =    2500  21.08% COMPLETE     ITERATIONS =   23     TIME =  0.20035671E+06
+  ELMAX = -7.7316E-002 AT NODE      892  SPEEDMAX =  1.7132E-001 AT NODE      919  ON MYPROC =    0
+ TIME STEP =    2600  21.93% COMPLETE     ITERATIONS =   21     TIME =  0.20837098E+06
+  ELMAX = -7.9196E-002 AT NODE     1085  SPEEDMAX =  1.7943E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    2700  22.77% COMPLETE     ITERATIONS =   24     TIME =  0.21638525E+06
+  ELMAX =  4.0098E-002 AT NODE      259  SPEEDMAX =  1.9205E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    2800  23.61% COMPLETE     ITERATIONS =   22     TIME =  0.22439952E+06
+  ELMAX =  8.2911E-002 AT NODE      964  SPEEDMAX =  3.0052E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    2900  24.46% COMPLETE     ITERATIONS =   21     TIME =  0.23241379E+06
+  ELMAX = -5.8296E-002 AT NODE     1356  SPEEDMAX =  1.9533E-001 AT NODE      889  ON MYPROC =    0
+ TIME STEP =    3000  25.30% COMPLETE     ITERATIONS =   23     TIME =  0.24042806E+06
+  ELMAX = -9.1464E-002 AT NODE      577  SPEEDMAX =  1.8696E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    3100  26.14% COMPLETE     ITERATIONS =   22     TIME =  0.24844233E+06
+  ELMAX = -1.2212E-001 AT NODE      964  SPEEDMAX =  3.2430E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    3200  26.99% COMPLETE     ITERATIONS =   22     TIME =  0.25645660E+06
+  ELMAX = -6.3488E-002 AT NODE      969  SPEEDMAX =  2.2726E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    3300  27.83% COMPLETE     ITERATIONS =   22     TIME =  0.26447086E+06
+  ELMAX =  1.1034E-001 AT NODE      577  SPEEDMAX =  1.4348E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    3400  28.67% COMPLETE     ITERATIONS =   21     TIME =  0.27248513E+06
+  ELMAX =  1.3747E-001 AT NODE      964  SPEEDMAX =  1.7593E-001 AT NODE      855  ON MYPROC =    0
+ TIME STEP =    3500  29.52% COMPLETE     ITERATIONS =   22     TIME =  0.28049940E+06
+  ELMAX =  7.0652E-002 AT NODE     1047  SPEEDMAX =  1.8676E-001 AT NODE      579  ON MYPROC =    0
+ TIME STEP =    3600  30.36% COMPLETE     ITERATIONS =   22     TIME =  0.28851367E+06
+  ELMAX = -8.8497E-002 AT NODE      892  SPEEDMAX =  2.2814E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    3700  31.20% COMPLETE     ITERATIONS =   21     TIME =  0.29652794E+06
+  ELMAX = -7.8869E-002 AT NODE     1085  SPEEDMAX =  1.7835E-001 AT NODE      393  ON MYPROC =    0
+ TIME STEP =    3800  32.05% COMPLETE     ITERATIONS =   23     TIME =  0.30454221E+06
+  ELMAX =  7.6791E-002 AT NODE      389  SPEEDMAX =  3.0630E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    3900  32.89% COMPLETE     ITERATIONS =   22     TIME =  0.31255648E+06
+  ELMAX =  1.2281E-001 AT NODE      964  SPEEDMAX =  4.9070E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    4000  33.73% COMPLETE     ITERATIONS =   21     TIME =  0.32057074E+06
+  ELMAX = -9.5303E-002 AT NODE     1436  SPEEDMAX =  3.4121E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    4100  34.58% COMPLETE     ITERATIONS =   23     TIME =  0.32858501E+06
+  ELMAX = -1.6852E-001 AT NODE      577  SPEEDMAX =  1.7090E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    4200  35.42% COMPLETE     ITERATIONS =   22     TIME =  0.33659928E+06
+  ELMAX = -2.0286E-001 AT NODE      964  SPEEDMAX =  3.1369E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    4300  36.26% COMPLETE     ITERATIONS =   22     TIME =  0.34461355E+06
+  ELMAX = -1.2550E-001 AT NODE     1047  SPEEDMAX =  3.2845E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    4400  37.11% COMPLETE     ITERATIONS =   22     TIME =  0.35262782E+06
+  ELMAX =  1.3773E-001 AT NODE      577  SPEEDMAX =  1.9047E-001 AT NODE      892  ON MYPROC =    0
+ TIME STEP =    4500  37.95% COMPLETE     ITERATIONS =   22     TIME =  0.36064209E+06
+  ELMAX =  1.7127E-001 AT NODE      964  SPEEDMAX =  2.1885E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    4600  38.79% COMPLETE     ITERATIONS =   22     TIME =  0.36865636E+06
+  ELMAX =  1.0398E-001 AT NODE     1047  SPEEDMAX =  2.7639E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    4700  39.64% COMPLETE     ITERATIONS =   22     TIME =  0.37667062E+06
+  ELMAX =  1.0588E-001 AT NODE     1427  SPEEDMAX =  2.8352E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    4800  40.48% COMPLETE     ITERATIONS =   21     TIME =  0.38468489E+06
+  ELMAX =  1.1956E-001 AT NODE     1433  SPEEDMAX =  2.0552E-001 AT NODE      393  ON MYPROC =    0
+ TIME STEP =    4900  41.32% COMPLETE     ITERATIONS =   23     TIME =  0.39269916E+06
+  ELMAX =  1.2506E-001 AT NODE      389  SPEEDMAX =  3.9348E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5000  42.17% COMPLETE     ITERATIONS =   23     TIME =  0.40071343E+06
+  ELMAX =  1.6606E-001 AT NODE      964  SPEEDMAX =  6.0000E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5100  43.01% COMPLETE     ITERATIONS =   22     TIME =  0.40872770E+06
+  ELMAX = -1.1920E-001 AT NODE       84  SPEEDMAX =  4.7172E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5200  43.85% COMPLETE     ITERATIONS =   22     TIME =  0.41674197E+06
+  ELMAX = -2.2352E-001 AT NODE      577  SPEEDMAX =  3.1104E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    5300  44.70% COMPLETE     ITERATIONS =   22     TIME =  0.42475624E+06
+  ELMAX = -2.6010E-001 AT NODE      964  SPEEDMAX =  2.3335E-001 AT NODE      393  ON MYPROC =    0
+ TIME STEP =    5400  45.54% COMPLETE     ITERATIONS =   23     TIME =  0.43277050E+06
+  ELMAX = -1.8031E-001 AT NODE     1047  SPEEDMAX =  3.0851E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5500  46.38% COMPLETE     ITERATIONS =   22     TIME =  0.44078477E+06
+  ELMAX =  1.2702E-001 AT NODE      577  SPEEDMAX =  2.8213E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5600  47.23% COMPLETE     ITERATIONS =   22     TIME =  0.44879904E+06
+  ELMAX =  1.6471E-001 AT NODE      964  SPEEDMAX =  3.3861E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    5700  48.07% COMPLETE     ITERATIONS =   24     TIME =  0.45681331E+06
+  ELMAX =  1.0794E-001 AT NODE      967  SPEEDMAX =  4.2185E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5800  48.91% COMPLETE     ITERATIONS =   22     TIME =  0.46482758E+06
+  ELMAX =  1.3782E-001 AT NODE     1375  SPEEDMAX =  4.2219E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    5900  49.76% COMPLETE     ITERATIONS =   22     TIME =  0.47284185E+06
+  ELMAX =  1.6682E-001 AT NODE     1433  SPEEDMAX =  2.2063E-001 AT NODE      320  ON MYPROC =    0
+ TIME STEP =    6000  50.60% COMPLETE     ITERATIONS =   23     TIME =  0.48085612E+06
+  ELMAX =  1.7175E-001 AT NODE      389  SPEEDMAX =  3.9093E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    6100  51.44% COMPLETE     ITERATIONS =   22     TIME =  0.48887038E+06
+  ELMAX =  2.0330E-001 AT NODE      964  SPEEDMAX =  6.7894E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    6200  52.29% COMPLETE     ITERATIONS =   24     TIME =  0.49688465E+06
+  ELMAX = -1.3488E-001 AT NODE      111  SPEEDMAX =  5.8458E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    6300  53.13% COMPLETE     ITERATIONS =   23     TIME =  0.50489892E+06
+  ELMAX = -2.5501E-001 AT NODE      577  SPEEDMAX =  4.1987E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    6400  53.97% COMPLETE     ITERATIONS =   22     TIME =  0.51291319E+06
+  ELMAX = -2.9107E-001 AT NODE      964  SPEEDMAX =  2.4268E-001 AT NODE      393  ON MYPROC =    0
+ TIME STEP =    6500  54.82% COMPLETE     ITERATIONS =   24     TIME =  0.52092746E+06
+  ELMAX = -2.1370E-001 AT NODE     1047  SPEEDMAX =  2.6932E-001 AT NODE      579  ON MYPROC =    0
+ TIME STEP =    6600  55.66% COMPLETE     ITERATIONS =   23     TIME =  0.52894173E+06
+  ELMAX =  1.1789E-001 AT NODE      577  SPEEDMAX =  3.5667E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    6700  56.50% COMPLETE     ITERATIONS =   22     TIME =  0.53695600E+06
+  ELMAX =  1.5728E-001 AT NODE      964  SPEEDMAX =  4.2298E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    6800  57.35% COMPLETE     ITERATIONS =   23     TIME =  0.54497026E+06
+  ELMAX =  1.1809E-001 AT NODE      593  SPEEDMAX =  5.2288E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    6900  58.19% COMPLETE     ITERATIONS =   22     TIME =  0.55298453E+06
+  ELMAX =  1.5281E-001 AT NODE     1375  SPEEDMAX =  4.9046E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    7000  59.03% COMPLETE     ITERATIONS =   21     TIME =  0.56099880E+06
+  ELMAX =  1.8584E-001 AT NODE     1433  SPEEDMAX =  2.8750E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    7100  59.88% COMPLETE     ITERATIONS =   23     TIME =  0.56901307E+06
+  ELMAX =  1.9127E-001 AT NODE      577  SPEEDMAX =  3.9835E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    7200  60.72% COMPLETE     ITERATIONS =   22     TIME =  0.57702734E+06
+  ELMAX =  2.1306E-001 AT NODE      964  SPEEDMAX =  7.1971E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    7300  61.56% COMPLETE     ITERATIONS =   23     TIME =  0.58504161E+06
+  ELMAX = -1.5303E-001 AT NODE      111  SPEEDMAX =  6.5749E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    7400  62.41% COMPLETE     ITERATIONS =   22     TIME =  0.59305588E+06
+  ELMAX = -2.7925E-001 AT NODE      577  SPEEDMAX =  5.0826E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    7500  63.25% COMPLETE     ITERATIONS =   22     TIME =  0.60107015E+06
+  ELMAX = -3.1573E-001 AT NODE      964  SPEEDMAX =  3.0657E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    7600  64.09% COMPLETE     ITERATIONS =   22     TIME =  0.60908441E+06
+  ELMAX = -2.4360E-001 AT NODE      969  SPEEDMAX =  2.7404E-001 AT NODE      579  ON MYPROC =    0
+ TIME STEP =    7700  64.94% COMPLETE     ITERATIONS =   22     TIME =  0.61709868E+06
+  ELMAX = -1.1964E-001 AT NODE     1158  SPEEDMAX =  4.3131E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    7800  65.78% COMPLETE     ITERATIONS =   22     TIME =  0.62511295E+06
+  ELMAX =  1.5057E-001 AT NODE      964  SPEEDMAX =  5.4614E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    7900  66.62% COMPLETE     ITERATIONS =   22     TIME =  0.63312722E+06
+  ELMAX =  1.4198E-001 AT NODE      593  SPEEDMAX =  6.2523E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    8000  67.47% COMPLETE     ITERATIONS =   22     TIME =  0.64114149E+06
+  ELMAX =  1.7862E-001 AT NODE     1087  SPEEDMAX =  5.6581E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    8100  68.31% COMPLETE     ITERATIONS =   24     TIME =  0.64915576E+06
+  ELMAX =  2.1409E-001 AT NODE     1436  SPEEDMAX =  3.5223E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    8200  69.15% COMPLETE     ITERATIONS =   22     TIME =  0.65717003E+06
+  ELMAX =  2.1127E-001 AT NODE      577  SPEEDMAX =  4.1157E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    8300  69.99% COMPLETE     ITERATIONS =   22     TIME =  0.66518429E+06
+  ELMAX =  2.2539E-001 AT NODE      964  SPEEDMAX =  7.5310E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    8400  70.84% COMPLETE     ITERATIONS =   23     TIME =  0.67319856E+06
+  ELMAX = -1.5695E-001 AT NODE       84  SPEEDMAX =  7.3756E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    8500  71.68% COMPLETE     ITERATIONS =   22     TIME =  0.68121283E+06
+  ELMAX = -2.8684E-001 AT NODE      577  SPEEDMAX =  6.3202E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    8600  72.52% COMPLETE     ITERATIONS =   22     TIME =  0.68922710E+06
+  ELMAX = -3.3061E-001 AT NODE      964  SPEEDMAX =  4.1261E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    8700  73.37% COMPLETE     ITERATIONS =   21     TIME =  0.69724137E+06
+  ELMAX = -2.7505E-001 AT NODE      969  SPEEDMAX =  2.6733E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    8800  74.21% COMPLETE     ITERATIONS =   22     TIME =  0.70525564E+06
+  ELMAX = -1.4963E-001 AT NODE     1158  SPEEDMAX =  4.7282E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    8900  75.05% COMPLETE     ITERATIONS =   22     TIME =  0.71326991E+06
+  ELMAX =  1.2716E-001 AT NODE      964  SPEEDMAX =  6.4304E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9000  75.90% COMPLETE     ITERATIONS =   22     TIME =  0.72128417E+06
+  ELMAX =  1.6434E-001 AT NODE      593  SPEEDMAX =  7.2646E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9100  76.74% COMPLETE     ITERATIONS =   22     TIME =  0.72929844E+06
+  ELMAX =  2.0195E-001 AT NODE      974  SPEEDMAX =  6.4353E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9200  77.58% COMPLETE     ITERATIONS =   21     TIME =  0.73731271E+06
+  ELMAX =  2.3222E-001 AT NODE     1433  SPEEDMAX =  4.3052E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    9300  78.43% COMPLETE     ITERATIONS =   22     TIME =  0.74532698E+06
+  ELMAX =  2.1858E-001 AT NODE      892  SPEEDMAX =  3.8850E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =    9400  79.27% COMPLETE     ITERATIONS =   22     TIME =  0.75334125E+06
+  ELMAX =  2.2431E-001 AT NODE      964  SPEEDMAX =  7.5044E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9500  80.11% COMPLETE     ITERATIONS =   22     TIME =  0.76135552E+06
+  ELMAX = -1.4041E-001 AT NODE       84  SPEEDMAX =  7.9481E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9600  80.96% COMPLETE     ITERATIONS =   23     TIME =  0.76936979E+06
+  ELMAX = -2.7716E-001 AT NODE      389  SPEEDMAX =  7.3056E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9700  81.80% COMPLETE     ITERATIONS =   22     TIME =  0.77738405E+06
+  ELMAX = -3.3187E-001 AT NODE      892  SPEEDMAX =  5.2179E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =    9800  82.64% COMPLETE     ITERATIONS =   21     TIME =  0.78539832E+06
+  ELMAX = -3.0012E-001 AT NODE     1085  SPEEDMAX =  3.0387E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =    9900  83.49% COMPLETE     ITERATIONS =   22     TIME =  0.79341259E+06
+  ELMAX = -1.7097E-001 AT NODE     1409  SPEEDMAX =  4.3466E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10000  84.33% COMPLETE     ITERATIONS =   22     TIME =  0.80142686E+06
+  ELMAX = -1.2098E-001 AT NODE     1158  SPEEDMAX =  6.9474E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10100  85.17% COMPLETE     ITERATIONS =   21     TIME =  0.80944113E+06
+  ELMAX =  1.4673E-001 AT NODE      593  SPEEDMAX =  7.5148E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10200  86.02% COMPLETE     ITERATIONS =   22     TIME =  0.81745540E+06
+  ELMAX =  2.1007E-001 AT NODE     1011  SPEEDMAX =  6.8131E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10300  86.86% COMPLETE     ITERATIONS =   21     TIME =  0.82546967E+06
+  ELMAX =  2.3884E-001 AT NODE     1436  SPEEDMAX =  4.7583E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =   10400  87.70% COMPLETE     ITERATIONS =   22     TIME =  0.83348393E+06
+  ELMAX =  2.0910E-001 AT NODE     1409  SPEEDMAX =  3.6242E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =   10500  88.55% COMPLETE     ITERATIONS =   23     TIME =  0.84149820E+06
+  ELMAX =  2.1374E-001 AT NODE      964  SPEEDMAX =  6.8070E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10600  89.39% COMPLETE     ITERATIONS =   20     TIME =  0.84951247E+06
+  ELMAX =  1.1100E-001 AT NODE     1047  SPEEDMAX =  8.0003E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10700  90.23% COMPLETE     ITERATIONS =   22     TIME =  0.85752674E+06
+  ELMAX = -2.4034E-001 AT NODE      209  SPEEDMAX =  7.8059E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10800  91.08% COMPLETE     ITERATIONS =   22     TIME =  0.86554101E+06
+  ELMAX = -3.1122E-001 AT NODE      892  SPEEDMAX =  5.9726E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   10900  91.92% COMPLETE     ITERATIONS =   21     TIME =  0.87355528E+06
+  ELMAX = -3.0823E-001 AT NODE     1085  SPEEDMAX =  3.5314E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =   11000  92.76% COMPLETE     ITERATIONS =   22     TIME =  0.88156955E+06
+  ELMAX = -1.9129E-001 AT NODE     1047  SPEEDMAX =  4.1737E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =   11100  93.61% COMPLETE     ITERATIONS =   22     TIME =  0.88958381E+06
+  ELMAX = -1.3287E-001 AT NODE     1158  SPEEDMAX =  6.9624E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   11200  94.45% COMPLETE     ITERATIONS =   21     TIME =  0.89759808E+06
+  ELMAX =  1.4492E-001 AT NODE     1085  SPEEDMAX =  7.2476E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   11300  95.29% COMPLETE     ITERATIONS =   22     TIME =  0.90561235E+06
+  ELMAX =  1.8918E-001 AT NODE     1012  SPEEDMAX =  6.3612E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   11400  96.14% COMPLETE     ITERATIONS =   22     TIME =  0.91362662E+06
+  ELMAX =  2.1287E-001 AT NODE     1436  SPEEDMAX =  4.7293E-001 AT NODE      886  ON MYPROC =    0
+ TIME STEP =   11500  96.98% COMPLETE     ITERATIONS =   21     TIME =  0.92164089E+06
+  ELMAX =  1.9440E-001 AT NODE     1391  SPEEDMAX =  3.1027E-001 AT NODE      845  ON MYPROC =    0
+ TIME STEP =   11600  97.82% COMPLETE     ITERATIONS =   24     TIME =  0.92965516E+06
+  ELMAX =  1.6476E-001 AT NODE     1158  SPEEDMAX =  5.8200E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   11700  98.67% COMPLETE     ITERATIONS =   21     TIME =  0.93766943E+06
+  ELMAX = -1.3598E-001 AT NODE     1011  SPEEDMAX =  8.1084E-001 AT NODE      856  ON MYPROC =    0
+ TIME STEP =   11800  99.51% COMPLETE     ITERATIONS =   21     TIME =  0.94568369E+06
+  ELMAX = -2.0763E-001 AT NODE      111  SPEEDMAX =  7.9880E-001 AT NODE      856  ON MYPROC =    0
+ MPI terminated with Status =            0
+mv: cannot move 'slurm-20790359.out' to '../../../logs/20790359/slurm-20790359.out': No such file or directory
