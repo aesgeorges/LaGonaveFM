@@ -6,3 +6,6 @@ id						dt						type						comment
 030924-2121			80.142686			 coldstart-full [Laptop]            Fail - MPI_ABORT? May need to check my adcirc compilation on laptop
 030924-2125			80.142686			 coldstart-full [PC]                Fail - not enough cores
 030924-2126			80.142686			 coldstart-full [PC]                Success - Please visualize  
+20790326			80.142686			 coldstart-full [Savio]             Fail - Netcdf not loaded?
+20790359			80.142686			 coldstart-full [Savio]             Success but no logs due to mistake in slurmcold.sh - rerun
+20790361			80.142686			 coldstart-full [Savio]             Success!

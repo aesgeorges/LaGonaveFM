@@ -1,0 +1,6 @@
+mkdir: cannot create directory ‘../../../logs/20790326’: No such file or directory
+cp: cannot create regular file '../../../logs/20790326/fort.15': No such file or directory
+adcprep: error while loading shared libraries: libnetcdf.so.19: cannot open shared object file: No such file or directory
+adcprep: error while loading shared libraries: libnetcdf.so.19: cannot open shared object file: No such file or directory
+/var/spool/slurmd/job20790326/slurm_script: line 23: mpirun: command not found
+mv: cannot move 'slurm-20790326.out' to '../../../logs/20790326/slurm-20790326.out': No such file or directory
