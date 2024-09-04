@@ -15,11 +15,11 @@ dt=$(sed -n '20p' fort.15 | awk '{print $1}')
 log="$SLURM_JOB_ID\t\t\t$dt\t\t\t coldstart-full"
 echo -e $log >> runlog.out 
 
-mkdir logs/$SLURM_JOB_ID
-cp fort.15 logs/$SLURM_JOB_ID/fort.15
+mkdir ../../../logs/$SLURM_JOB_ID
+cp fort.15 ../../../logs/$SLURM_JOB_ID/fort.15
 
 adcprep --np 24 --partmesh
 adcprep --np 24 --prepall
 mpirun -np 24 padcirc
 
-mv slurm-$SLURM_JOB_ID.out logs/$SLURM_JOB_ID/slurm-$SLURM_JOB_ID.out
+mv slurm-$SLURM_JOB_ID.out ../../../logs/$SLURM_JOB_ID/slurm-$SLURM_JOB_ID.out

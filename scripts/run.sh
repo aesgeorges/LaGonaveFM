@@ -9,7 +9,7 @@ current_dir=$(pwd)
 folder_name=$(basename $current_dir)
 
 mkdir ../../logs/$folder_name/$dateid
-cp fort.15 logs/$folder_name/$dateid/fort.15
+cp fort.15 ../../logs/$folder_name/$dateid/fort.15
 
 adcprep --np 6 --partmesh > ../../logs/$folder_name/$dateid/dateid.out
 adcprep --np 6 --prepall >> ../../logs/$folder_name/$dateid/dateid.out

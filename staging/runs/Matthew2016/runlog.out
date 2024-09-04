@@ -1,0 +1,6 @@
+Logs of run attempts and their parameters.
+Hurricane Matthew2016
+------------------------------------------
+id						dt						type						comment
+030924-2119			80.142686			 coldstart-full                     Fail - wrong log directory
+030924-2121			80.142686			 coldstart-full
