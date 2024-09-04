@@ -106,7 +106,7 @@ For any questions or suggestions:
 
 Alexandre E. S. Georges - alexandre_georges@berkeley.edu
 
-GitHub - aesgeorges
+GitHub - https://github.com/aesgeorges
 
 
 ## License
