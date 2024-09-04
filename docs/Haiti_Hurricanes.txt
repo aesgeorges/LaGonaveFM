@@ -1,0 +1,12 @@
+Compilation of hurricanes of interest and their respective dates.
+Data from NOAA
+https://coast.noaa.gov/hurricanes/#map=5.65/19.071/-73.429&search=eyJzZWFyY2hTdHJpbmciOiJIYWl0aSIsInNlYXJjaFR5cGUiOiJnZW9jb2RlZCIsIm9zbUlEIjoiMzA3ODI5IiwiY2F0ZWdvcmllcyI6WyJINCIsIkgzIiwiSDIiLCJIMSIsIlRTIl0sInllYXJzIjpbIjIwMjAiLCIyMDE5IiwiMjAxOCIsIjIwMTciLCIyMDE2IiwiMjAxNSIsIjIwMTQiLCIyMDEzIiwiMjAxMiIsIjIwMTEiLCIyMDEwIl0sIm1vbnRocyI6W10sImVuc28iOltdLCJwcmVzc3VyZSI6eyJyYW5nZSI6WzAsMTAzMF0sImluY2x1ZGVVbmtub3duUHJlc3N1cmUiOmZhbHNlfSwiYnVmZmVyIjo2MCwiYnVmZmVyVW5pdCI6WyJOYXV0aWNhbCBNaWxlcyJdLCJzb3J0U2VsZWN0aW9uIjp7InZhbHVlIjoieWVhcnNfbmV3ZXN0IiwibGFiZWwiOiJZZWFyIChOZXdlc3QpIn0sImFwcGx5VG9BT0kiOnRydWUsImlzU3Rvcm1MYWJlbHNWaXNpYmxlIjp0cnVlfQ==
+
+Jeanne 2004 (09/13 - 09/29) [First hurricane I was consciously aware of. I was 7.]
+Tomas 2010 (10/29 - 11/10)
+Irene 2011 (08/21 - 08/30)
+Emily 2011 (08/02 - 08/07)
+Isaac 2012 (08/20 - 09/01)
+- Matthew 2016 (09/28 - 10/10)
+Laura 2020 (07/28 - 08/05)
+Isaias 2020 (08/20 - 08/29)
