@@ -47,6 +47,7 @@ Ensure you have the following software installed:
 - Fortran compiler (e.g., `gfortran`)
 - Python 3.x
 - Required Python packages (listed in `requirements.txt`)
+
 Scripts for automation and visualization:
 - Kalpana 
 - adcircpy
@@ -89,9 +90,8 @@ Then modify and run using either run.sh, slurmcold.sh or slurmhot.sh based on ne
 ## Monitoring and Logging
 Simulations can be monitored by viewing the log files in the logs/ directory:
 
-    ```bash
     tail -f logs/stage/id.log
-    ```
+
 Where stage is the current project stage you are working in (staging, chapter2 or chapter3), and id is your run id. 
 
 Logs of every runs and their configuration file (fort.15) are recorded under that same path. 
@@ -105,6 +105,7 @@ While this is a work in progress for my thesis, contributions are welcome! Pleas
 For any questions or suggestions:
 
 Alexandre E. S. Georges - alexandre_georges@berkeley.edu
+
 GitHub - aesgeorges
 
 
