@@ -15,14 +15,15 @@ primitive_weighting_in_continuity_equation
 mannings_n_at_sea_floor
 1                                                               ! NCOR                                - VARIABLE CORIOLIS IN SPACE OPTION PARAMETER
 1                                                               ! NTIP                                - TIDAL POTENTIAL OPTION PARAMETER
-0                                                               ! NWS                                 - WIND STRESS AND BAROMETRIC PRESSURE OPTION PARAMETER
+8                                                               ! NWS                                 - WIND STRESS AND BAROMETRIC PRESSURE OPTION PARAMETER
 1                                                               ! NRAMP                               - RAMP FUNCTION OPTION
 9.81                                                            ! G                                   - ACCELERATION DUE TO GRAVITY - DETERMINES UNITS
 -3                                                              ! TAU0                                - WEIGHTING FACTOR IN GWCE; original, 0.005
 80.142686                                                       ! DTDP                                - TIME STEP (IN SECONDS)
 0                                                               ! STATIM                              - STARTING TIME (IN DAYS)
 0                                                               ! REFTIM                              - REFERENCE TIME (IN DAYS)
-15                                                              ! RNDAY                               - TOTAL LENGTH OF SIMULATION (IN DAYS)
+2004 09 13 18 1 0.7 1                                           ! IREFYR IREFMO IREFDAY IREFHR StormNumber BLAdj GEOFACTOR
+11                                                              ! RNDAY                               - TOTAL LENGTH OF SIMULATION (IN DAYS)
 15                                                              ! DRAMP                               - DURATION OF RAMP FUNCTION (IN DAYS)
 0.5 0.5 0                                                       ! A00 B00 C00                         - TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
 0.01 0 0 0.01                                                   ! H0 NODEDRYMIN NODEWETRMP VELMIN    
@@ -897,12 +898,15 @@ K2
 3.08161560e-02 1.99710598e+01
 3.08999991e-02 2.00599995e+01
 110                                                             ! ANGINN                              - INNER ANGLE THRESHOLD
+0 0 0 0                                                         ! NOUTM TOUTSM TOUTFM NSPOOLM         - MET STATION OUTPUT INFO (UNIT 71 and 72)
+0                                                               ! NSTAM
 0 0 0 0                                                         ! NOUTE TOUTSE TOUTFE NSPOOLE         - ELEV STATION OUTPUT INFO (UNIT 61)
 0                                                               ! NSTAE                               - TOTAL NUMBER OF ELEVATION RECORDING STATIONS
 0 0 0 0                                                         ! NOUTV TOUTSV TOUTFV NSPOOLV         - VELOCITY STATION OUTPUT INFO (UNIT 62)
 0                                                               ! NSTAV                               - TOTAL NUMBER OF VELOCITY RECORDING STATIONS
-0 0.000000 0.000000 0                                           ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
-0 0.000000 0.000000 0                                           ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
+-3 0.000000 15.000000 20                              ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
+-3 0.000000 15.000000 20                              ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
+-3 0.000000 15.000000 20                              ! NOUTGW TOUTSGW TOUTFGW NSPOOLGW     - GLOBAL WIND STRESS AND ATM PRESSURE OUTPUT INFO (UNIT 73 and 74)
 0                                                               ! NFREQ                              
 0 0 0 0                                                         ! THAS THAF NHAINC FMV                - HARMONIC ANALYSIS PARAMETERS
 0 0 0 0                                                         ! NHASE NHASV NHAGE NHAGV             - CONTROL HARMONIC ANALYSIS AND OUTPUT TO UNITS 51,52,53,54
