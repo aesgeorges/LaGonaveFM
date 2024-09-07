@@ -25,11 +25,6 @@ echo -e $log_header2 >> runlog.out
 echo -e $log_header3 >> runlog.out
 echo -e $log_header4 >> runlog.out
 
-# call aswip to format fort.22 proper
-aswip -n 20 -m 4 -z 2
-mv fort.22 ../../logs/$folder_name/fort.22
-mv NWS_20_fort.22 fort.22
-
 cp ../../../scripts/run.sh run.sh
 cp ../../../scripts/slurmcold.sh slurmcold.sh
 cp ../../../scripts/slurmhot.sh slurmhot.sh

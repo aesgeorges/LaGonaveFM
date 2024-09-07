@@ -1,0 +1,1183 @@
+
+ _______________________________________________________________________________
+
+ _______________________________________________________________________________
+
+
+                   PROGRAM ADCIRC   VERSION v56.0.1-8-g13aa6bf
+
+     AN ADVANCED CIRCULATION MODEL FOR SHELVES, COASTAL SEAS AND ESTUARIES
+
+
+       -  DEVELOPED BY
+
+          R.A. LUETTICH, JR
+            UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL
+            INSTITUTE OF MARINE SCIENCES
+
+          J.J. WESTERINK 
+            DEPARTMENT OF CIVIL ENGINEERING AND GEOLOGICAL SCIENCES
+            UNIVERSITY OF NOTRE DAME
+
+
+       -  THE ADCIRC SOURCE CODE IS COPYRIGHTED BY
+
+          R.A. LUETTICH, JR. AND J.J. WESTERINK, 1994-2006
+
+       NO PART OF THIS CODE MAY BE REPRODUCED OR REDISTRIBUTED
+          WITHOUT THE WRITTEN PERMISSION OF THE AUTHORS
+
+
+
+ _______________________________________________________________________________
+
+
+ THE ADCIRC SOURCE CODE HAS BEEN CONFIGURED BY THE PREPROCESSOR AS FOLLOWS:
+
+       - CODE OPTIMIZED FOR A SCALAR COMPUTER
+       - dmw202401 THIS CODE USES A VELCHECKER
+       - dmw202401 THIS CODE USES THE FIX FOR SUBGRID BARRIERS
+       - dmw202401 adcirc-noaa e8aef69945a44c50fbc51350eddf26d8f559348c
+
+ _______________________________________________________________________________
+INFO: openFileForRead: Searching for file to open on unit 14...
+INFO: openFileForRead: The file './PE0020/fort.14' was found. The file will be opened.
+INFO: openFileForRead: The file './PE0020/fort.14' was opened successfully.
+INFO: read14FindDims: Mesh file comment line: eastcoast_95d_ll_select.grd
+INFO: read14FindDims: Reading mesh file dimensions.
+WARNING: read14FindDims: Number of land boundary nodes was set to 145 but 128 were found.
+INFO: read14FindDims: Finished reading mesh file dimensions.
+INFO: read14: Reading mesh file coordinates,  connectivity, and boundary data.
+INFO: read14: Finished reading mesh file coordinates, connectivity, and boundary data.
+INFO: openFileForRead: Searching for file to open on unit 15...
+INFO: openFileForRead: The file './PE0020/fort.15' was found. The file will be opened.
+INFO: openFileForRead: The file './PE0020/fort.15' was opened successfully.
+INFO: logNameListReadStatus: End-of-file when searching for TimeBathyControl.
+ECHO: read_input: found_tbc_nml=F nddt=0 btiminc= 0.00000000E+00 bchgtiminc= 0.00000000E+00
+INFO: logNameListReadStatus: End-of-file when searching for subdomainModeling.
+ECHO: read_input:  subdomainOn= F
+INFO: logNameListReadStatus: The metControl namelist was found.
+ECHO: read_input:  WindDragLimit=   2.5000000000000001E-003  DragLawString=default    rhoAir=   1.2929999999999999       invertedBarometerOnElevationBoundary= F  outputWindDrag= F  nPowellSearchDomains=          -1
+INFO: logNameListReadStatus: End-of-file when searching for owiWindNetcdf.
+ECHO: read_input:  NWS13File=fort.22.nc NWS13ColdStartString=99999999.999999 NWS13WindMultiplier=1.0 NWS13GroupForPowell=0
+INFO: read_input: The tvwControl namelist was not found.
+INFO: logNameListReadStatus: End-of-file when searching for waveCoupling.
+ECHO: read_input:  WaveWindMultiplier=   1.0000000000000000
+ECHO: read_input:  Limit_WaveStressGrad= F
+ECHO: read_input:  WaveStressGrad_Cap=   1000.0000000000000
+INFO: logNameListReadStatus: End-of-file when searching for wetDryControl.
+ECHO: read_input: outputNodeCode=F
+ECHO: read_input: outputNOFF=F
+ECHO: read_input: noffActive=T
+ECHO: read_input: StatPartWetFix=F
+ECHO: read_input: How2FixStatPartWet=0
+ECHO: read_input: slim= 0.10000000E+10
+ECHO: read_input: windLim=F
+ECHO: read_input: directvelWD=F
+ECHO: read_input: useHF=F
+INFO: logNameListReadStatus: End-of-file when searching for inundationOutputControl.
+ECHO: read_input: inundationOutput=F
+ECHO: read_input: inunThresh= 0.60000000E+00
+INFO: logNameListReadStatus: End-of-file when searching for subgridControl.
+ECHO: read_input:  subgridFilename=null
+ECHO: read_input:  level0= F
+ECHO: read_input:  level1= F
+INFO: logNameListReadStatus: End-of-file when searching for Smag_Control.
+ECHO: read_input:  FOUND_SMAG_NML=F SMAG_COMP_FLAG=F SMAG_UPPER_LIM= 0.10000000E+03 SMAG_LOWER_LIM= 0.10000000E-07
+INFO: logNameListReadStatus: End-of-file when searching for dynamicWaterLevelCorrectionControl.
+ECHO: read_input: dynamicWaterLevelCorrectionMethod=default
+ECHO: read_input: dynamicWaterLevelCorrectionSkipSnaps=0
+ECHO: read_input: dynamicWaterLevelCorrectionMultiplier=      1.0000000
+ECHO: read_input: dynamicWaterLevelCorrectionRampStart=      0.0000000
+ECHO: read_input: dynamicWaterLevelCorrectionRampEnd=      0.0000000
+ECHO: read_input: dynamicWaterLevelCorrectionRampReferenceTime=hotstart
+INFO: logNameListReadStatus: End-of-file when searching for VEW1DChannelControl.
+ECHO: read_input: activateVEW1DChannelWetPerimeter=F
+INFO: logNameListReadStatus: End-of-file when searching for WarnElevControl.
+ECHO: read_input: WarnElev=     20.0000000
+ECHO: read_input: WarnElevDump=F
+ECHO: read_input: WarnElevDumpLimit=50
+ECHO: read_input: ErrorElev=   1000.0000000
+INFO: logNameListReadStatus: End-of-file when searching for AliDispersionControl.
+ECHO: read_input: CAliDisp=F
+ECHO: read_input: Speed of sound=   1500.0000000
+ECHO: read_input: Speed of sound squared= 0.22500000E+07
+ECHO: read_input: Ad coefficient=      0.0050189
+ECHO: read_input: Bd coefficient=      0.2339400
+INFO: logNameListReadStatus: End-of-file when searching for densityControl.
+ECHO: read_input: densityRunType=none
+ECHO: read_input: densityForcingType=SigmaT
+ECHO: read_input: densityFileName=fort.11.nc
+ECHO: read_input: densityTimeIterator=1
+
+
+ RUN DESCRIPTION : created on 2024-09-05 15:21                                     ! RUNDES        
+
+ RUN IDENTIFICATION : eastcoast_95d_ll_select.grd                                     ! RUNID         
+
+ _______________________________________________________________________________
+
+
+ GENERAL RUN INFORMATION
+
+     NFOVER =  1
+         IF NON-FATAL INPUT ERRORS ARE DETECTED, THEY WILL BE CORRECTED AND EXECUTION CONTINUED
+     NABOUT =  1
+         ABREVIATED OUTPUT WILL BE PROVIDED TO UNIT 16
+         UNIT 14, 21, 22 INPUT DATA WILL NOT BE ECHO PRINTED
+
+
+     NSCREEN =    100
+         SCREEN OUTPUT WILL NOT BE PROVIDED
+
+INFO: read_input: ADCIRC will be cold started.
+
+     ICS =  2
+         Governing equations are in Spherical coordinates
+         mapped using a CPP cylindrical projection. 
+     NOTE: Curvature of Earth IS NOT accounted for
+  
+     IM =       511113
+  
+     ADCIRC is configured for a 2DDI run using
+     the new GWCE routine and:
+         2 Part, velocity based lateral symmetric stress in GWCE
+         Non conservative advection in GWCE
+         Integration by parts, velocity based lateral stress in Momentum Eqs.
+         Non conservative advection in Momentum Eqs.
+         Corrected Area Integration in Momentum Eqs.
+         Consistent GWCE mass matrix
+         w/ implicit finite-amplitude term
+  
+      The ADCIRC logical variables are set to:
+          C2DDI            =  T
+          C3D              =  F
+          C3DDSS           =  F
+          C3DVS            =  F
+          C2D_BTrans       =  F
+          C2D_PTrans       =  F
+          C3D_PTrans       =  F
+          CBaroclinic      =  F
+          CGWCE_Lump       =  F
+          CGWCE_LS_KGQ     =  F
+          CGWCE_LS_2PartQ  =  F
+          CGWCE_LS_2PartV  =  F
+          CGWCE_LS_2PartSQ =  F
+          CGWCE_LS_2PartSV =  T
+          CGWCE_Advec_NC   =  T
+          CGWCE_Advec_C1   =  F
+          CGWCE_Advec_C2   =  F
+          CGWCE_HDP        =  T
+          CME_Orig         =  F
+          CME_New_NC       =  T
+          CME_New_C1       =  F
+          CME_New_C2       =  F
+          CME_LS_IBPQ      =  F
+          CME_LS_IBPV      =  T
+          CME_LS_IBPSQ     =  F
+          CME_LS_IBPSV     =  F
+          CME_LS_2PartQ    =  F
+          CME_LS_2PartV    =  F
+          CME_AreaInt_Orig =  F
+          CME_AreaInt_Corr =  T
+          CTIP             =  F
+          CHARMV           =  F
+
+     NOLIBF =   1
+         THE MODEL WILL USE NONLINEAR BOTTOM FRICTION
+
+     NOLIFA =   2
+         THE MODEL WILL USE FINITE AMPLITUDE TERMS AND WETTING AND DRYING
+
+     NOLICA =   1
+         THE MODEL WILL USE SPATIAL DERIVATIVE COMPONENTS OF THE ADVECTIVE TERMS
+
+     NOLICAT =   1
+         THE MODEL WILL USE TIME DERIVATIVE COMPONENTS 
+         OF THE ADVECTIVE TERMS IN THE GWCE
+
+         Need to load  2 nodal attribute(s):
+              primitive_weighting_in_continuity_equation                                      
+              mannings_n_at_sea_floor                                                         
+
+     NWP =  2
+         Must read Nodal Attributes File (unit 13).
+
+         Nodal Attributes File (unit 13) was found. Opening file.
+
+         User comment line from unit 13:
+              eastcoast_95d_ll_select.grd nodal attributes                                    
+
+         primitive_weighting_in_continuity_equation                                      
+              was found!
+
+         mannings_n_at_sea_floor                                                         
+              was found!
+
+
+         Now reading  2 nodal attribute(s).
+
+         Attribute  1:
+              primitive_weighting_in_continuity_equation                                      
+
+          Finished loading primitive_weighting_in_continuity_equation                                      
+
+         Attribute  2:
+              mannings_n_at_sea_floor                                                         
+
+          Finished loading mannings_n_at_sea_floor                                                         
+
+     NCOR =  1
+         SPATIALLY VARYING CORIOLIS VALUES WILL BE COMPUTED FROM INPUT LATITUDES
+
+     NTIP =  1
+         TIDAL POTENTIAL FORCING IS USED IN THE COMPUTATION BASED ON INPUT LONGITUDES/LATITUDES
+
+     NWS =   0
+         WIND STRESS OR SURFACE PRESSURE ARE NOT USED TO FORCE THE COMPUTATION
+
+     NRS =   0
+         WAVE RADIATION STRESS IS NOT USED TO FORCE THE COMPUTATION
+
+     NCICE =  0
+         ICE CONCENTRATION FIELDS ARE NOT USED TO ADJUST WIND STRESS COMPUTATIONS
+
+     NDDT =  0
+         A TIME VARYING BATHYMETRY IS NOT USED DURING THE COMPUTATION
+
+     NRAMP =  1
+         HYPERBOLIC TANGENT RAMP(S) WILL BE APPLIED TO THE FORCING FUNCTIONS
+
+
+
+     GRAVITATIONAL CONSTANT G =   9.81000
+
+
+ _______________________________________________________________________________
+
+
+ TIME INTEGRATION INFORMATION
+
+
+  ADCIRC is configured for a 2DDI run 
+  without the predictor-corrector algorithm and
+  the ADCIRC logical variable is set to:  
+          CPRECOR           =  F
+     TIME STEP =   80.142686     SECONDS
+
+     STARTING TIME FOR SIMULATION =       0.000000 DAYS
+
+     Harmonic REFERENCE TIME =       0.000000 DAYS
+
+     TOTAL LENGTH OF NUMERICAL SIMULATION =     11.0000     DAYS
+
+     NUMBER OF TIME STEPS  =   11858
+
+
+     VALUE FOR DRAMP USED IN RAMP EVALUATION =     15.0000     DAYS
+
+            DAYS OF SIMULATION   TIME          RAMP VALUE
+
+                   0.00          0.00        0.0000000
+                   0.50          0.50        0.0665681
+                   1.00          1.00        0.1325488
+                   1.50          1.50        0.1973753
+                   2.00          2.00        0.2605204
+                   2.50          2.50        0.3215127
+                   3.00          3.00        0.3799490
+                   3.50          3.50        0.4355021
+                   4.00          4.00        0.4879250
+                   4.50          4.50        0.5370496
+                   5.00          5.00        0.5827829
+                   5.50          5.50        0.6251004
+                   6.00          6.00        0.6640368
+                   6.50          6.50        0.6996766
+                   7.00          7.00        0.7321442
+                   7.50          7.50        0.7615942
+                   8.00          8.00        0.7882021
+                   8.50          8.50        0.8121570
+                   9.00          9.00        0.8336546
+                   9.50          9.50        0.8528916
+                  10.00         10.00        0.8700617
+                  10.50         10.50        0.8853516
+                  11.00         11.00        0.8989397
+                  11.50         11.50        0.9109933
+                  12.00         12.00        0.9216686
+                  12.50         12.50        0.9311096
+                  13.00         13.00        0.9394486
+                  13.50         13.50        0.9468060
+                  14.00         14.00        0.9532910
+                  14.50         14.50        0.9590020
+                  15.00         15.00        0.9640276
+                  15.50         15.50        0.9684471
+                  16.00         16.00        0.9723312
+                  16.50         16.50        0.9757431
+                  17.00         17.00        0.9787388
+                  17.50         17.50        0.9813681
+                  18.00         18.00        0.9836749
+                  18.50         18.50        0.9856981
+         DRAMPExtFlux =      15.0000
+         FluxSettlingTime =       0.0000
+         DRampIntFLux =      15.0000
+         DRampElev =      15.0000
+         DRampTip =      15.0000
+         DRampMete =      15.0000
+         DRampWRad =      15.0000
+         DUnRampMete =       0.0000
+
+
+
+     TIME WEIGHTING FACTORS IN THE WAVE EQUATION :
+
+         AT TIME LEVEL K+1 :  0.50000
+         AT TIME LEVEL K   :  0.50000
+         AT TIME LEVEL K-1 :  0.00000
+
+
+
+     DRYING WILL OCCUR WHEN THE WATER DEPTH < H0
+     H0 =   0.010000
+     AND NODEREP > NODEWETMIN =      0 TIME STEPS
+     NODEREP = NUMBER OF TIME STEPS SINCE A NODE CHANGED STATE (EITHER WETTED OR DRIED)
+
+     WETTING WILL OCCUR WHEN THERE IS A FAVORABLE PRESSURE GRADIENT THAT
+     WOULD DRIVE A STEADY VELOCITY TOWARDS A DRY NODE
+     THAT IS GREATER THAN VELMIN =    0.01000
+     AND NODEREP > NODEDRYMIN =      0 TIME STEPS
+
+
+ _______________________________________________________________________________
+
+
+ GRID INFORMATION
+
+
+INFO: initializeMesh: THE NEIGHBOR TABLE IS BEING COMPUTED.
+INFO: initializeMesh: THE NEIGHBOR TABLE IS COMPLETED. THE MINIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 3. 1+THE MAXIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 9. THE PARAMETER MNEI CAN BE SET AS SMALL AS 9.
+
+ _______________________________________________________________________________
+
+
+ BOTTOM FRICTION INFORMATION
+
+
+     NONLINEAR FRICTION COEFFICIENT CF =  0.00250000
+
+
+     GRID IDENTIFICATION : eastcoast_95d_ll_select.grd                                                     
+
+     TOTAL NUMBER OF NODES =    1366
+
+     TOTAL NUMBER OF ELEMENTS =    2566
+
+     LONGITUDE ABOUT WHICH CYLINDRICAL PROJECTION IS  CENTERED  SLAM0 =  -76.7251 DEGREES
+     LATITUDE ABOUT WHICH CYLINDRICAL PROJECTION IS CENTERED  SFEA0 =   26.5833 DEGREES
+
+
+     NODAL COORDINATES AND BATHYMETRY INFORMATION IS AVAILABLE IN THE
+      UNIT 14 INPUT FILE
+
+     THE GLOBAL CONNECTIVITY TABLE INFORMATION IS AVAILABLE IN THE
+      UNIT 14 INPUT FILE
+     Smagorinski lateral stress coefficient with constant = 0.20000000E+00
+
+
+
+ _______________________________________________________________________________
+
+
+ CORIOLIS INFORMATION 
+
+
+
+     LATITUDES ARE USED TO COMPUTE VARIABLE CORIOLIS
+       AND ARE BASED ON INPUT NODAL COORDINATES
+
+
+ _______________________________________________________________________________
+
+
+ TIDAL POTENTIAL FORCING INFORMATION 
+
+
+
+ TIDAL POTENTIAL IS FORCED FOR     8 CONSTITUENT(S) 
+
+ AMPLITUDE    FREQUENCY         ETRF      NODAL FACTOR  EQU.ARG(DEG) CONSTITUENT
+
+  0.0192560  0.000064958500   0.6950000      0.8201170    311.808       Q1   
+  0.1005140  0.000067597700   0.6950000      0.8201170     61.918       O1   
+  0.0468430  0.000072522900   0.7060000      1.0000000    352.055       P1   
+  0.1415650  0.000072921200   0.7360000      0.8901800    184.562       K1   
+  0.0463980  0.000137880000   0.6930000      1.0357000    134.503       N2   
+  0.2423340  0.000140519000   0.6930000      1.0357000    244.612       M2   
+  0.1128410  0.000145444000   0.6930000      1.0000000    180.000       S2   
+  0.0307040  0.000145842000   0.6930000      0.7602920    189.744       K2   
+
+     LONGITUDES AND LATITUDES ARE USED TO COMPUTE THE TIDAL POTENTIAL FUNCTION
+       AND ARE BASED ON INPUT NODAL COORDINATES 
+
+
+ _______________________________________________________________________________
+
+
+ ELEVATION SPECIFIED BOUNDARY FORCING INFORMATION 
+
+
+
+     NUMBER OF PERIODIC, ELEVATION SPECIFIED CONSTITUENTS =    8
+
+       CONSTITUENT #    FREQUENCY    NODAL FACTOR   EQU.ARG (DEG)  CONSTITUENT
+
+             1        0.000064958500   0.8201170     311.808          Q1   
+             2        0.000067597700   0.8201170      61.918          O1   
+             3        0.000072522900   1.0000000     352.055          P1   
+             4        0.000072921200   0.8901800     184.562          K1   
+             5        0.000137880000   1.0357000     134.503          N2   
+             6        0.000140519000   1.0357000     244.612          M2   
+             7        0.000145444000   1.0000000     180.000          S2   
+             8        0.000145842000   0.7602920     189.744          K2   
+
+ _______________________________________________________________________________
+
+
+     ANGINN =   110.00 DEGREES
+     ALL FLOW BOUNDARY NODES WITH NORMAL FLOW AS AN ESSENTIAL B.C. AND 
+         INNER ANGLES LESS THAN ANGINN WILL HAVE BOTH NORMAL 
+         AND TANGENTIAL VELOCITY COMPONENTS ZEROED
+
+           792
+           793
+           794
+           900
+           987
+          1076
+          1163
+          1245
+          1246
+          1313
+          1345
+          1301
+          1234
+          1155
+          1070
+           984
+           897
+           791
+           679
+           568
+           463
+           376
+           300
+           301
+
+ _______________________________________________________________________________
+
+
+ FLOW BOUNDARY INFORMATION 
+
+
+
+     THE TOTAL NUMBER OF FLOW BOUNDARY SEGMENTS = 17
+
+     THE TOTAL NUMBER OF FLOW BOUNDARY NODES = 145
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  1  =  16
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+      1      1      1        765      1          0.2776E+03    0.91938932E+00  -0.22157361E+00    0.70903036E+04
+      2      2      2        764      1          0.1697E+03   -0.98411407E-01  -0.99453640E+00    0.58622432E+04
+      3      3      3        653      1          0.1858E+03   -0.52396606E-01  -0.99845424E+00    0.62647883E+04
+      4      4      4        543      1          0.1847E+03   -0.13814043E+00  -0.98920462E+00    0.52278701E+04
+      5      5      5        440      1          0.1929E+03   -0.30083485E+00  -0.94770283E+00    0.64508394E+04
+      6      6      6        357      1          0.1738E+03   -0.34849277E+00  -0.92911454E+00    0.53984056E+04
+      7      7      7        284      1          0.2413E+03   -0.72103417E+00  -0.64378890E+00    0.58253405E+04
+      8      8      8        221      1          0.1741E+03   -0.91578627E+00  -0.23365930E+00    0.52223198E+04
+      9      9      9        165      1          0.2638E+03   -0.79475066E+00   0.53612408E+00    0.72860472E+04
+     10     10     10        118      1          0.1646E+03   -0.51341035E+00   0.83814674E+00    0.77359830E+04
+     11     11     11         88      1          0.1554E+03   -0.75052378E+00   0.60310304E+00    0.77983101E+04
+     12     12     12         63      1          0.2170E+03   -0.68087439E+00   0.68976674E+00    0.78843947E+04
+     13     13     13         61      1          0.2066E+03   -0.25402269E+00   0.96280413E+00    0.62285961E+04
+     14     14     14         62      1          0.1570E+03   -0.18102858E+00   0.98128569E+00    0.52447191E+04
+     15     15     15         60      1          0.1951E+03   -0.25766920E+00   0.96169431E+00    0.59102247E+04
+     16     16     16         39      1          0.2807E+03    0.93501527E+00   0.10192717E+00    0.40087278E+05
+     17     16     16        765      1          0.2776E+03    0.94183947E+00  -0.45699373E-01    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  2  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     18     17     18        116      1          0.2859E+03    0.63928406E+00   0.73360391E+00    0.51037998E+04
+     19     18     19        164      1          0.2568E+03    0.50114739E+00  -0.84641275E+00    0.81917303E+04
+     20     19     20        218      1          0.2251E+03   -0.21111724E+00  -0.97451404E+00    0.47994030E+04
+     21     20     21        163      1          0.3059E+03   -0.77207989E+00   0.57151079E+00    0.71618229E+04
+     22     21     22        161      1          0.1862E+03   -0.17479770E+00   0.98258657E+00    0.55368169E+04
+     23     21     22        116      1          0.2859E+03   -0.11435073E+00   0.99258432E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  3  =  7
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     24     22     24        154      1          0.2842E+03    0.51884967E+00   0.83332829E+00    0.57324978E+04
+     25     23     25        156      1          0.2509E+03    0.68189083E+00  -0.68751627E+00    0.72482586E+04
+     26     24     26        211      1          0.2159E+03   -0.24635089E-01  -0.99965591E+00    0.63176686E+04
+     27     25     27        272      1          0.1585E+03   -0.14263082E+00  -0.98839643E+00    0.85621711E+04
+     28     26     28        209      1          0.3370E+03   -0.90941529E+00  -0.24908356E+00    0.84767433E+04
+     29     27     29        208      1          0.1997E+03   -0.25516184E+00   0.96235135E+00    0.71448503E+04
+     30     28     30        155      1          0.1739E+03   -0.12597184E+00   0.99095483E+00    0.70903829E+04
+     31     28     30        154      1          0.2842E+03   -0.17819473E+00   0.98181363E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  4  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     32     29     32        433      1          0.2054E+03    0.20705272E+00   0.97554830E+00    0.63845232E+04
+     33     30     33        435      1          0.3317E+03    0.93462886E+00  -0.12704818E+00    0.62425469E+04
+     34     31     34        537      1          0.2160E+03   -0.20710497E+00  -0.97554830E+00    0.56555702E+04
+     35     32     35        534      1          0.3270E+03   -0.93444853E+00   0.12704818E+00    0.51836674E+04
+     36     32     35        433      1          0.2054E+03   -0.34568356E-01   0.99932655E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  5  =  11
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     37     33     37        480      1          0.1907E+03    0.90713802E+00   0.20619806E+00    0.59211155E+04
+     38     34     38        481      1          0.1588E+03    0.87999161E+00   0.31567036E+00    0.73857738E+04
+     39     35     39        482      1          0.1897E+03    0.85579932E+00   0.38625825E+00    0.72687659E+04
+     40     36     40        483      1          0.2390E+03    0.91408566E+00  -0.17386975E+00    0.74073993E+04
+     41     37     41        592      1          0.2567E+03    0.16252791E+00  -0.98456342E+00    0.80944612E+04
+     42     38     42        706      1          0.2141E+03   -0.63437297E+00  -0.73010587E+00    0.64722577E+04
+     43     39     43        814      1          0.2005E+03   -0.87678530E+00  -0.32762156E+00    0.53386332E+04
+     44     40     44        920      1          0.1973E+03   -0.92768279E+00  -0.16674659E-02    0.58358392E+04
+     45     41     45        813      1          0.1769E+03   -0.92229736E+00   0.10411242E+00    0.71025502E+04
+     46     42     46        705      1          0.2454E+03   -0.75269122E+00   0.58360280E+00    0.66729467E+04
+     47     43     47        591      1          0.2710E+03    0.27938544E+00   0.95347866E+00    0.50653473E+04
+     48     43     47        480      1          0.1907E+03    0.88521985E+00   0.29703171E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  6  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     49     44     49        498      1          0.2803E+03    0.21930720E+00   0.97201279E+00    0.66860969E+04
+     50     45     50        499      1          0.2630E+03    0.93316764E+00  -0.38851101E-01    0.58572532E+04
+     51     46     51        608      1          0.2844E+03   -0.21945725E+00  -0.97201279E+00    0.65991655E+04
+     52     47     52        607      1          0.2524E+03   -0.93305370E+00   0.38851101E-01    0.50894921E+04
+     53     47     52        498      1          0.2803E+03   -0.69705379E+00   0.66515731E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  7  =  7
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     54     48     54        508      1          0.1632E+03    0.40311151E+00   0.90261544E+00    0.77163577E+04
+     55     49     55        509      1          0.2070E+03    0.49234135E+00   0.85071041E+00    0.70528035E+04
+     56     50     56        510      1          0.2925E+03    0.93562900E+00   0.54291195E-01    0.49368948E+04
+     57     51     57        618      1          0.2284E+03   -0.13252680E+00  -0.98995049E+00    0.83576908E+04
+     58     52     58        733      1          0.2297E+03   -0.65623527E+00  -0.71371370E+00    0.48850198E+04
+     59     53     59        732      1          0.1550E+03   -0.83716214E+00  -0.44834304E+00    0.52779025E+04
+     60     54     60        617      1          0.3442E+03   -0.70646923E+00   0.65624760E+00    0.52051317E+04
+     61     54     60        508      1          0.1632E+03    0.54974281E+00   0.80957045E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  8  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     62     55     62        533      1          0.2352E+03   -0.21650925E+00   0.97322730E+00    0.39973782E+04
+     63     56     63        535      1          0.3127E+03    0.93157755E+00   0.14882386E+00    0.39209739E+04
+     64     57     64        647      1          0.2160E+03    0.21656490E+00  -0.97322730E+00    0.39553903E+04
+     65     58     65        641      1          0.3162E+03   -0.93170194E+00  -0.14882386E+00    0.45108528E+04
+     66     58     65        533      1          0.2352E+03   -0.60915347E+00   0.76276717E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  9  =  14
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     67     59     67        582      1          0.2928E+03    0.83895333E+00   0.41838364E+00    0.82532245E+04
+  697    THE INNER ANGLE =    79.77 TANGENTIAL SLIP WILL BE ZEROED
+     68     60     68        697     11          0.7977E+02    0.88962227E+00   0.27050012E+00    0.84283903E+04
+     69     61     69        696      1          0.2104E+03    0.58711298E+00   0.77234251E+00    0.59448947E+04
+     70     62     70        698      1          0.1938E+03    0.83246922E+00   0.43509847E+00    0.61745119E+04
+     71     63     71        699      1          0.2090E+03    0.91857823E+00   0.11677392E+00    0.54458350E+04
+     72     64     72        700      1          0.2681E+03    0.39020006E+00  -0.90671722E+00    0.87132925E+04
+     73     65     73        807      1          0.2122E+03   -0.36107879E+00  -0.92069229E+00    0.79421163E+04
+     74     66     74        911      1          0.1443E+03   -0.37624188E+00  -0.91351277E+00    0.64039122E+04
+     75     67     75       1000      1          0.2916E+03   -0.85095459E+00  -0.39165757E+00    0.80076086E+04
+     76     68     76       1085      1          0.1112E+03   -0.90423728E+00  -0.20780667E+00    0.91331254E+04
+     77     69     77        999      1          0.2088E+03   -0.79165157E+00  -0.51575605E+00    0.60627885E+04
+     78     70     78        910      1          0.2205E+03   -0.91865414E+00   0.10439928E+00    0.70731677E+04
+     79     71     79        806      1          0.2746E+03   -0.22997635E+00   0.96848534E+00    0.77578278E+04
+     80     72     80        695      1          0.1628E+03    0.34531408E+00   0.92747219E+00    0.88963155E+04
+     81     72     80        582      1          0.2928E+03    0.21522820E+00   0.97247409E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  10  =  22
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+     82     73     82        599      1          0.2195E+03    0.88816963E+00   0.29850259E+00    0.68936302E+04
+     83     74     83        600      1          0.1732E+03    0.92950445E+00   0.57266051E-01    0.55978305E+04
+     84     75     84        601      1          0.1827E+03    0.92713889E+00   0.95386631E-01    0.60982661E+04
+     85     76     85        602      1          0.2519E+03    0.79854341E+00  -0.51529382E+00    0.61693639E+04
+     86     77     86        715      1          0.2272E+03   -0.19759985E-01  -0.99977519E+00    0.62828421E+04
+     87     78     87        824      1          0.1820E+03   -0.42348661E+00  -0.89074561E+00    0.51207878E+04
+  931    THE INNER ANGLE =    84.76 TANGENTIAL SLIP WILL BE ZEROED
+     88     79     88        931     11          0.8476E+02    0.57328558E+00  -0.78823486E+00    0.88206158E+04
+     89     80     89        932      1          0.1554E+03    0.91845972E+00  -0.17067539E+00    0.69199010E+04
+     90     81     90       1022      1          0.2705E+03    0.71776579E+00  -0.63846225E+00    0.64037716E+04
+     91     82     91       1107      1          0.2733E+03   -0.61717491E+00  -0.74970283E+00    0.59505565E+04
+     92     83     92       1189      1          0.1400E+03   -0.87627628E+00  -0.34120780E+00    0.68346557E+04
+     93     84     93       1263      1          0.1482E+03   -0.54370490E+00  -0.81214596E+00    0.72130721E+04
+     94     85     94       1262      1          0.1948E+03   -0.41943611E+00  -0.89293962E+00    0.58005346E+04
+     95     86     95       1188      1          0.3233E+03   -0.76567673E+00   0.56951334E+00    0.73804233E+04
+     96     87     96       1105      1          0.1660E+03   -0.18735603E+00   0.97956255E+00    0.87246789E+04
+     97     88     97       1021      1          0.2112E+03   -0.24114538E-01   0.99966471E+00    0.90497607E+04
+  1106    THE INNER ANGLE =   100.22 TANGENTIAL SLIP WILL BE ZEROED
+     98     89     98       1106     11          0.1002E+03   -0.27529521E+00   0.95532495E+00    0.62552226E+04
+     99     90     99       1020      1          0.1438E+03   -0.92800385E+00   0.81173473E-01    0.70488928E+04
+    100     91    100        929      1          0.2128E+03   -0.93023424E+00   0.29495806E-01    0.51689236E+04
+    101     92    101        822      1          0.2161E+03   -0.73442546E+00   0.61385031E+00    0.55504177E+04
+    102     93    102        713      1          0.2465E+03   -0.31171073E-01   0.99943830E+00    0.50120350E+04
+    103     94    103        714      1          0.1966E+03    0.64842147E+00   0.71707919E+00    0.56958413E+04
+    104     94    103        599      1          0.2195E+03    0.73335526E+00   0.61561318E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  11  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    105     95    105        614      1          0.2839E+03    0.66251082E+00   0.70614321E+00    0.56724602E+04
+    106     96    106        616      1          0.2699E+03    0.68759307E+00  -0.67852781E+00    0.44470526E+04
+    107     97    107        729      1          0.2609E+03   -0.66276419E+00  -0.70614321E+00    0.43921250E+04
+    108     98    108        615      1          0.2653E+03   -0.68735547E+00   0.67852781E+00    0.52661811E+04
+    109     98    108        614      1          0.2839E+03   -0.15850642E+00   0.98554630E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  12  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    110     99    110        754      1          0.3060E+03    0.38752648E+00   0.91153695E+00    0.30243847E+04
+    111    100    111        865      1          0.2265E+03    0.68807743E+00  -0.68347135E+00    0.42820197E+04
+    112    101    112        866      1          0.2446E+03    0.00000000E+00  -0.10000000E+01    0.31607950E+04
+    113    102    113        756      1          0.2982E+03   -0.92809476E+00   0.17476416E+00    0.33664732E+04
+    114    103    114        755      1          0.1846E+03   -0.35967769E+00   0.92431820E+00    0.42619928E+04
+    115    103    114        754      1          0.3060E+03   -0.32709486E+00   0.93783108E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  13  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    116    104    116        819      1          0.2466E+03    0.34139344E-01   0.99932558E+00    0.53904009E+04
+    117    105    117        820      1          0.2535E+03    0.89971491E+00   0.25281719E+00    0.55129311E+04
+    118    106    118        927      1          0.2478E+03    0.52294288E+00  -0.82703252E+00    0.58932464E+04
+    119    107    119       1016      1          0.2536E+03   -0.55082747E+00  -0.80584579E+00    0.58605122E+04
+    120    108    120        926      1          0.2585E+03   -0.85856590E+00   0.38411415E+00    0.61154416E+04
+    121    108    120        819      1          0.2466E+03   -0.47270147E+00   0.86109737E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  14  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    122    109    122        958      1          0.2446E+03    0.90491920E-01   0.99535996E+00    0.55043391E+04
+    123    110    123        959      1          0.3020E+03    0.90338291E+00  -0.27882956E+00    0.68335898E+04
+    124    111    124       1049      1          0.2606E+03   -0.90534361E-01  -0.99535996E+00    0.42852439E+04
+    125    112    125       1048      1          0.2728E+03   -0.90332645E+00   0.27882956E+00    0.46811596E+04
+    126    112    125        958      1          0.2446E+03   -0.49111109E+00   0.85281954E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  15  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    127    113    127        960      1          0.3299E+03    0.89641905E+00   0.30499157E+00    0.70527499E+04
+    128    114    128       1052      1          0.2190E+03    0.43759450E+00  -0.88545928E+00    0.60193746E+04
+    129    115    129       1137      1          0.3273E+03   -0.89681487E+00  -0.30499157E+00    0.63564938E+04
+    130    116    130       1050      1          0.2038E+03   -0.43747718E+00   0.88545928E+00    0.62060462E+04
+    131    116    130        960      1          0.3299E+03   -0.24715798E+00   0.96491009E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  16  =  6
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    132    117    132       1029      1          0.2430E+03    0.65258035E+00   0.71631026E+00    0.63634246E+04
+    133    118    133       1030      1          0.2540E+03    0.89425712E+00  -0.29409190E+00    0.56846500E+04
+    134    119    134       1115      1          0.2379E+03    0.17540035E-01  -0.99982435E+00    0.69209612E+04
+    135    120    135       1200      1          0.2225E+03   -0.65925410E+00  -0.70960787E+00    0.54698703E+04
+    136    121    136       1199      1          0.2720E+03   -0.84191696E+00   0.43557199E+00    0.59803245E+04
+    137    122    137       1114      1          0.2105E+03   -0.10244260E+00   0.99398168E+00    0.56374543E+04
+    138    122    137       1029      1          0.2430E+03    0.16897726E+00   0.98354164E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  17  =  6
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    139    123    139       1299      1          0.2121E+03   -0.92322228E+00  -0.17854625E+00    0.51118355E+04
+    140    124    140       1344      1          0.2862E+03   -0.41580434E+00   0.89636588E+00    0.57751875E+04
+    141    125    141       1365      1          0.2214E+03    0.64421546E+00   0.72691838E+00    0.56467581E+04
+    142    126    142       1364      1          0.2192E+03    0.92547637E+00   0.16574504E+00    0.43653447E+04
+    143    127    143       1342      1          0.2764E+03    0.35480193E+00  -0.92582665E+00    0.54420331E+04
+    144    128    144       1300      1          0.2247E+03   -0.62325915E+00  -0.74772317E+00    0.51836355E+04
+    145    128    144       1299      1          0.2121E+03   -0.84807506E+00  -0.42786476E+00    0.00000000E+00
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER1 DESIGNATED : Q1   
+         VERIFICATION OF CONSTITUENT : Q1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.01274         204.454
+               793           0.01270         203.561
+               794           0.01270         202.099
+               900           0.01251         201.684
+               987           0.01240         201.232
+              1076           0.01230         200.617
+              1163           0.01227         199.856
+              1245           0.01227         198.839
+              1246           0.01210         198.603
+              1313           0.01197         198.216
+              1345           0.01189         197.733
+              1301           0.01180         197.198
+              1234           0.01170         196.610
+              1155           0.01170         195.978
+              1070           0.01160         195.294
+               984           0.01160         194.567
+               897           0.01160         193.747
+               791           0.01159         192.823
+               679           0.01140         191.961
+               568           0.01130         190.665
+               463           0.01120         189.380
+               376           0.01110         187.925
+               300           0.01100         186.468
+               301           0.01089         185.030
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER2 DESIGNATED : O1   
+         VERIFICATION OF CONSTITUENT : O1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.06895         226.652
+               793           0.06863         226.180
+               794           0.06848         225.669
+               900           0.06767         225.446
+               987           0.06697         225.217
+              1076           0.06642         224.948
+              1163           0.06591         224.629
+              1245           0.06555         224.342
+              1246           0.06479         223.888
+              1313           0.06416         223.410
+              1345           0.06361         222.907
+              1301           0.06311         222.397
+              1234           0.06260         221.877
+              1155           0.06216         221.373
+              1070           0.06171         220.889
+               984           0.06136         220.439
+               897           0.06110         220.054
+               791           0.06028         219.258
+               679           0.05899         218.202
+               568           0.05773         216.942
+               463           0.05678         215.839
+               376           0.05595         214.965
+               300           0.05484         213.382
+               301           0.05379         211.651
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER3 DESIGNATED : P1   
+         VERIFICATION OF CONSTITUENT : P1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.03008         232.289
+               793           0.02967         232.088
+               794           0.02932         231.859
+               900           0.02895         231.536
+               987           0.02852         231.152
+              1076           0.02819         230.761
+              1163           0.02784         230.331
+              1245           0.02748         229.898
+              1246           0.02720         229.441
+              1313           0.02688         228.932
+              1345           0.02652         228.369
+              1301           0.02627         227.805
+              1234           0.02592         227.247
+              1155           0.02566         226.679
+              1070           0.02538         226.089
+               984           0.02506         225.489
+               897           0.02480         224.877
+               791           0.02439         223.935
+               679           0.02391         222.850
+               568           0.02326         221.391
+               463           0.02276         219.975
+               376           0.02235         218.517
+               300           0.02177         216.764
+               301           0.02119         214.944
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER4 DESIGNATED : K1   
+         VERIFICATION OF CONSTITUENT : K1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.08476         236.384
+               793           0.08378         235.994
+               794           0.08289         235.563
+               900           0.08187         235.273
+               987           0.08084         234.935
+              1076           0.07982         234.536
+              1163           0.07872         234.042
+              1245           0.07760         233.493
+              1246           0.07659         232.859
+              1313           0.07554         232.099
+              1345           0.07446         231.024
+              1301           0.07361         230.498
+              1234           0.07265         230.060
+              1155           0.07179         229.448
+              1070           0.07091         228.759
+               984           0.07007         228.037
+               897           0.06921         227.276
+               791           0.06798         226.115
+               679           0.06672         224.741
+               568           0.06539         222.908
+               463           0.06465         221.198
+               376           0.06226         219.108
+               300           0.06031         216.830
+               301           0.05871         214.581
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER5 DESIGNATED : N2   
+         VERIFICATION OF CONSTITUENT : N2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.04939         202.297
+               793           0.04651         202.893
+               794           0.04451         203.476
+               900           0.04204         204.296
+               987           0.03963         205.277
+              1076           0.03773         206.470
+              1163           0.03570         207.900
+              1245           0.03361         209.562
+              1246           0.03148         211.356
+              1313           0.02940         213.502
+              1345           0.02717         216.221
+              1301           0.02486         219.600
+              1234           0.02270         223.644
+              1155           0.02074         228.581
+              1070           0.01897         234.605
+               984           0.01754         241.727
+               897           0.01644         250.232
+               791           0.01567         262.689
+               679           0.01595         275.719
+               568           0.01745         291.125
+               463           0.01982         303.242
+               376           0.02249         311.495
+               300           0.02611         317.473
+               301           0.02986         321.413
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER6 DESIGNATED : M2   
+         VERIFICATION OF CONSTITUENT : M2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.21813         219.053
+               793           0.20259         219.323
+               794           0.19067         219.471
+               900           0.17987         219.857
+               987           0.16992         220.341
+              1076           0.16125         221.244
+              1163           0.15130         222.329
+              1245           0.14127         223.667
+              1246           0.13130         225.373
+              1313           0.12161         227.582
+              1345           0.11180         230.476
+              1301           0.10165         233.610
+              1234           0.09157         237.493
+              1155           0.08215         242.585
+              1070           0.07383         249.016
+               984           0.06699         256.877
+               897           0.06208         266.237
+               791           0.05887         281.962
+               679           0.06141         299.344
+               568           0.07135         316.995
+               463           0.08451         328.247
+               376           0.10016         335.841
+               300           0.11769         341.331
+               301           0.13462         344.990
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER7 DESIGNATED : S2   
+         VERIFICATION OF CONSTITUENT : S2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.07052         237.882
+               793           0.06635         238.348
+               794           0.06346         238.581
+               900           0.05994         238.874
+               987           0.05669         239.177
+              1076           0.05404         239.682
+              1163           0.05128         240.423
+              1245           0.04859         241.345
+              1246           0.04563         242.468
+              1313           0.04285         243.809
+              1345           0.03984         245.363
+              1301           0.03658         247.295
+              1234           0.03352         249.667
+              1155           0.03060         252.593
+              1070           0.02774         256.176
+               984           0.02520         260.492
+               897           0.02293         265.589
+               791           0.02013         275.727
+               679           0.01821         290.404
+               568           0.01770         310.953
+               463           0.01912         329.418
+               376           0.02169         341.926
+               300           0.02581         352.023
+               301           0.03024         358.694
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER8 DESIGNATED : K2   
+         VERIFICATION OF CONSTITUENT : K2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+               792           0.01904         240.151
+               793           0.01797         240.763
+               794           0.01723         241.203
+               900           0.01632         241.683
+               987           0.01557         242.176
+              1076           0.01484         242.676
+              1163           0.01415         243.471
+              1245           0.01352         244.485
+              1246           0.01273         245.705
+              1313           0.01200         247.138
+              1345           0.01124         248.776
+              1301           0.01044         250.791
+              1234           0.00968         253.220
+              1155           0.00899         256.079
+              1070           0.00830         259.415
+               984           0.00770         263.230
+               897           0.00717         267.416
+               791           0.00643         275.711
+               679           0.00591         287.504
+               568           0.00563         303.762
+               463           0.00574         319.332
+               376           0.00610         330.897
+               300           0.00693         342.106
+               301           0.00794         350.184
+
+ _______________________________________________________________________________
+
+
+ OUTPUT INFORMATION WILL BE PROVIDED AS FOLLOWS :
+
+
+
+ ELEVATION RECORDING STATION OUTPUT : 
+
+     NOUTE =  0
+INFO: read_input: NO OUTPUT WILL BE SPOOLED AT ELEVATION RECORDING STATIONS.
+
+
+
+     NUMBER OF INPUT ELEVATION RECORDING STATIONS =     0
+
+
+
+
+ VELOCITY RECORDING STATION OUTPUT : 
+
+     NOUTV =  0
+INFO: read_input: NO OUTPUT WILL BE SPOOLED AT VELOCITY RECORDING STATIONS
+
+
+
+
+     NUMBER OF INPUT VELOCITY RECORDING STATIONS =     0
+
+
+
+
+ GLOBAL NODAL ELEVATION INFORMATION OUTPUT: 
+
+     NOUTGE = -3
+INFO: read_input: UNIT 63 FORMAT WILL BE NETCDF CLASSIC MODEL / NETCDF3 FORMAT.
+
+     DATA RECORDS WILL START AFTER TOUTSGE =   0.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR        0 TIME STEPS INTO THE SIMULATION
+
+     DATA RECORDS WILL STOP AFTER TOUTFGE =  15.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR    11858 TIME STEPS INTO THE SIMULATION
+
+     INFORMATION WILL BE SPOOLED TO UNIT 63 EVERY NSPOOLGE =      20 TIME STEPS
+
+
+
+
+ GLOBAL NODAL VELOCITY INFORMATION OUTPUT : 
+
+     NOUTGV = -3
+INFO: read_input: UNIT 64 FORMAT WILL BE NETCDF CLASSIC MODEL / NETCDF3 FORMAT.
+
+     DATA RECORDS WILL START AFTER TOUTSGV =   0.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR        0 TIME STEPS INTO THE SIMULATION
+
+     DATA RECORDS WILL STOP AFTER TOUTFGV =  15.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR    11858 TIME STEPS INTO THE SIMULATION
+
+     INFORMATION WILL BE SPOOLED TO UNIT 64 EVERY NSPOOLGV =      20 TIME STEPS
+
+
+
+
+ HARMONIC ANALYSIS INFORMATION OUTPUT : 
+
+     HARMONIC ANALYSIS PERFORMED FOR    0 CONSTITUENTS
+
+
+
+
+     NO HARMONIC ANALYSIS WILL BE DONE
+INFO: read_input: HOT START OUTPUT INFORMATION :
+INFO: read_input: HOT START OUTPUT WILL BE GENERATED IN PORTABLE NETCDF CLASSIC / NETCDF4 (HDF5) FORMAT.
+
+     HOT START OUTPUT WILL BE WRITTEN TO UNIT 67 OR 68 EVERY      16171 TIME STEPS
+
+
+ SOLVER INFORMATION OUTPUT : 
+
+     A SPATIALLY TEMPORALLY VARIABLE OPTIMIZED 
+      WEIGHTING COEFFICIENT (Tau0) WILL BE USED 
+      IN THE GENERALIZED WAVE CONTINUITY EQUATION.
+
+ *****************************************************
+ *   Based on information extracted from the ADCIRC  *
+ *   UNIT 14 and 15 (grid and horiz run info) files  *
+ *   the following paramter values will be set:      *
+ *                                                   *
+ *       MNPROC =    24      MWPROC =     0          *
+ *       MWPROH =     0                              *
+ *       MNE =     2566      MNP  =     1366         *
+ *       MNEI =      10                              *
+ *       MNOPE =      1      MNETA =     24          *
+ *       MNBOU =     17      MNVEL =    290          *
+ *       MNTIF =      8      MNBFR =      8          *
+ *       MNSTAE =     1      MNSTAV =     1          *
+ *       MNSTAC =     0      MNSTAM =     0          *
+ *       MNWLAT =     0      MNWLON =     0          *
+ *       MNHARF =     1      MNFFR =      0          *
+ *                                                   *
+ *   Also, NO wind forcing will be used,             *
+ *   means and variance calculation will NOT be made,*
+ *   the GWCE matrix will be left in consistent form *
+ *   and an iterative solver will be used            *
+ *****************************************************
+
+INFO: read_input: Now reading metadata from fort.15 file for use in NetCDF files.
+
+ _______________________________________________________________________________
+
+
+ LIMITED RUNTIME INFORMATION SECTION 
+
+
+INFO: ADCIRC_Run: Begin timestepping.
+ dmw202401 THIS CODE IS NOW MAKING ITS FIRST SAVE ON H1
