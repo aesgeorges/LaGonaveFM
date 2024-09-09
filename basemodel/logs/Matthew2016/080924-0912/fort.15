@@ -1,9 +1,9 @@
-created on 2024-09-08 10:22                                     ! RUNDES                              - 32 CHARACTER ALPHANUMERIC RUN DESCRIPTION
+created on 2024-09-05 15:21                                     ! RUNDES                              - 32 CHARACTER ALPHANUMERIC RUN DESCRIPTION
 eastcoast_95d_ll_select.grd                                     ! RUNID                               - 24 CHARACTER ALPANUMERIC RUN IDENTIFICATION
 1                                                               ! NFOVER                              - NONFATAL ERROR OVERRIDE OPTION
 1                                                               ! NABOUT                              - ABREVIATED OUTPUT OPTION PARAMETER
 100                                                             ! NSCREEN                             - UNIT 6 OUTPUT OPTION PARAMETER
-567                                                             ! IHOT                                - HOT START PARAMETER
+0                                                               ! IHOT                                - HOT START PARAMETER
 2                                                               ! ICS                                 - COORDINATE SYSTEM SELECTION PARAMETER
 511113                                                          ! IM                                  - MODEL SELECTION PARAMETER
 1                                                               ! NOLIBF                              - BOTTOM FRICTION TERM SELECTION PARAM; before NWP==1, '2' was used
@@ -16,14 +16,14 @@ mannings_n_at_sea_floor
 1                                                               ! NCOR                                - VARIABLE CORIOLIS IN SPACE OPTION PARAMETER
 1                                                               ! NTIP                                - TIDAL POTENTIAL OPTION PARAMETER
 0                                                               ! NWS                                 - WIND STRESS AND BAROMETRIC PRESSURE OPTION PARAMETER
-8                                                               ! NRAMP                               - RAMP FUNCTION OPTION
+1                                                               ! NRAMP                               - RAMP FUNCTION OPTION
 9.81                                                            ! G                                   - ACCELERATION DUE TO GRAVITY - DETERMINES UNITS
 -3                                                              ! TAU0                                - WEIGHTING FACTOR IN GWCE; original, 0.005
 80.142686                                                       ! DTDP                                - TIME STEP (IN SECONDS)
 0                                                               ! STATIM                              - STARTING TIME (IN DAYS)
 0                                                               ! REFTIM                              - REFERENCE TIME (IN DAYS)
-35                                                              ! RNDAY                               - TOTAL LENGTH OF SIMULATION (IN DAYS)
-15.000 0.000 0.000 0.000 15.000 15.000 1.000 0.000 15.000       ! DRAMP                               - DURATION OF RAMP FUNCTION (IN DAYS)
+11                                                              ! RNDAY                               - TOTAL LENGTH OF SIMULATION (IN DAYS)
+15                                                              ! DRAMP                               - DURATION OF RAMP FUNCTION (IN DAYS)
 0.5 0.5 0                                                       ! A00 B00 C00                         - TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
 0.01 0 0 0.01                                                   ! H0 NODEDRYMIN NODEWETRMP VELMIN    
 -76.725105 26.58329                                             ! SLAM0 SFEA0                         - CENTER OF CPP PROJECTION (NOT USED IF ICS=1, NTIP=0, NCOR=0)
@@ -32,38 +32,38 @@ mannings_n_at_sea_floor
 0                                                               ! CORI                                - CORIOLIS PARAMETER - IGNORED IF NCOR = 1
 8                                                               ! NTIF                                - NUMBER OF TIDAL POTENTIAL CONSTITUENTS BEING FORCED starting 2008082300
 Q1
-0.019256 6.49585E-05 0.695 0.820272 67.6852
+0.019256 6.49585E-05 0.695 0.820117 311.808
 O1
-0.100514 6.75977E-05 0.695 0.820272 138.043
+0.100514 6.75977E-05 0.695 0.820117 61.918
 P1
-0.046843 7.25229E-05 0.706 1 355.012
+0.046843 7.25229E-05 0.706 1 352.055
 K1
-0.141565 7.29212E-05 0.736 0.890273 181.587
+0.141565 7.29212E-05 0.736 0.89018 184.562
 N2
-0.046398 0.00013788 0.693 1.03568 247.396
+0.046398 0.00013788 0.693 1.0357 134.503
 M2
-0.242334 0.000140519 0.693 1.03568 317.753
+0.242334 0.000140519 0.693 1.0357 244.612
 S2
 0.112841 0.000145444 0.693 1 180
 K2
-0.030704 0.000145842 0.693 0.760438 183.798
+0.030704 0.000145842 0.693 0.760292 189.744
 8
 Q1
-6.49585E-05 0.820272 67.6852
+6.49585E-05 0.820117 311.808
 O1
-6.75977E-05 0.820272 138.043
+6.75977E-05 0.820117 61.918
 P1
-7.25229E-05 1 355.012
+7.25229E-05 1 352.055
 K1
-7.29212E-05 0.890273 181.587
+7.29212E-05 0.89018 184.562
 N2
-0.00013788 1.03568 247.396
+0.00013788 1.0357 134.503
 M2
-0.000140519 1.03568 317.753
+0.000140519 1.0357 244.612
 S2
 0.000145444 1 180
 K2
-0.000145842 0.760438 183.798
+0.000145842 0.760292 189.744
 Q1
 1.46000004e-02 2.19089996e+02
 1.46644307e-02 2.19408683e+02
@@ -901,12 +901,12 @@ K2
 0                                                               ! NSTAE                               - TOTAL NUMBER OF ELEVATION RECORDING STATIONS
 0 0 0 0                                                         ! NOUTV TOUTSV TOUTFV NSPOOLV         - VELOCITY STATION OUTPUT INFO (UNIT 62)
 0                                                               ! NSTAV                               - TOTAL NUMBER OF VELOCITY RECORDING STATIONS
-0 0.000000 0.000000 0                                           ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
-0 0.000000 0.000000 0                                           ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
+-3 0.000000 15.000000 20                              ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
+-3 0.000000 15.000000 20                              ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
 0                                                               ! NFREQ                              
 0 0 0 0                                                         ! THAS THAF NHAINC FMV                - HARMONIC ANALYSIS PARAMETERS
 0 0 0 0                                                         ! NHASE NHASV NHAGE NHAGV             - CONTROL HARMONIC ANALYSIS AND OUTPUT TO UNITS 51,52,53,54
-0 0                                                             ! NHSTAR NHSINC                       - HOT START FILE GENERATION PARAMETERS
+5 16171                                                         ! NHSTAR NHSINC                       - HOT START FILE GENERATION PARAMETERS
 1 0 1E-08 25                                                    ! ITITER ISLDIA CONVCR ITMAX          - ALGEBRAIC SOLUTION PARAMETERS
                                                                 ! NCPROJ                              - PROJECT TITLE
                                                                 ! NCINST                              - PROJECT INSTITUTION
@@ -917,5 +917,5 @@ K2
                                                                 ! NCHOST                              - PROJECT HOST
                                                                 ! NCONV                               - CONVENTIONS
                                                                 ! NCCONT                              - CONTACT INFORMATION
-2016-09-10 18:00                                                ! NCDATE                              - forcing start date
+2016-09-13 18:00                                                ! NCDATE                              - forcing start date
 &metControl WindDragLimit=0.0025, DragLawString=default, outputWindDrag=F, invertedBarometerOnElevationBoundary=T \
