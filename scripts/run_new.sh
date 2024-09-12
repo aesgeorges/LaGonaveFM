@@ -14,7 +14,6 @@ main() {
     mkdir ../../logs/$folder_name/$dateid
     # cp fort.15 ../../logs/$folder_name/$dateid/fort.15
 
-    SECONDS=0
     echo -e "Cold start spinup run with tides ................ " > ../../logs/$folder_name/$dateid/dateid.out
     run_cold_spinup
     echo -e "Hot start run with wind/hurricane forcing ................ " >> ../../logs/$folder_name/$dateid/dateid.out
@@ -53,7 +52,7 @@ run_hot_wind() {
     ln -sf ../fort.15.hotstart ./fort.15
     ln -sf ../coldstart/fort.67.nc
     ln -sf ../fort.22 ./fort.22
-    aswip
+    aswip -n 20 -m 4 -z 2
     mv NWS_20_fort.22 fort.22
 
     adcprep --np $nprocs --partmesh >> ../../../logs/$folder_name/$dateid/dateid.out
