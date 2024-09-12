@@ -1,0 +1,2002 @@
+
+ _______________________________________________________________________________
+
+ _______________________________________________________________________________
+
+
+                   PROGRAM ADCIRC   VERSION v56.0.1-10-g4b5be3a
+
+     AN ADVANCED CIRCULATION MODEL FOR SHELVES, COASTAL SEAS AND ESTUARIES
+
+
+       -  DEVELOPED BY
+
+          R.A. LUETTICH, JR
+            UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL
+            INSTITUTE OF MARINE SCIENCES
+
+          J.J. WESTERINK 
+            DEPARTMENT OF CIVIL ENGINEERING AND GEOLOGICAL SCIENCES
+            UNIVERSITY OF NOTRE DAME
+
+
+       -  THE ADCIRC SOURCE CODE IS COPYRIGHTED BY
+
+          R.A. LUETTICH, JR. AND J.J. WESTERINK, 1994-2006
+
+       NO PART OF THIS CODE MAY BE REPRODUCED OR REDISTRIBUTED
+          WITHOUT THE WRITTEN PERMISSION OF THE AUTHORS
+
+
+
+ _______________________________________________________________________________
+
+
+ THE ADCIRC SOURCE CODE HAS BEEN CONFIGURED BY THE PREPROCESSOR AS FOLLOWS:
+
+       - CODE OPTIMIZED FOR A SCALAR COMPUTER
+       - dmw202401 THIS CODE USES A VELCHECKER
+       - dmw202401 THIS CODE USES THE FIX FOR SUBGRID BARRIERS
+       - dmw202401 adcirc-noaa e8aef69945a44c50fbc51350eddf26d8f559348c
+
+ _______________________________________________________________________________
+INFO: openFileForRead: Searching for file to open on unit 14...
+INFO: openFileForRead: The file './PE0000/fort.14' was found. The file will be opened.
+INFO: openFileForRead: The file './PE0000/fort.14' was opened successfully.
+INFO: read14FindDims: Mesh file comment line: eastcoast_95d_ll_select.grd
+INFO: read14FindDims: Reading mesh file dimensions.
+WARNING: read14FindDims: Number of land boundary nodes was set to 734 but 714 were found.
+INFO: read14FindDims: Finished reading mesh file dimensions.
+INFO: read14: Reading mesh file coordinates,  connectivity, and boundary data.
+INFO: read14: Finished reading mesh file coordinates, connectivity, and boundary data.
+INFO: openFileForRead: Searching for file to open on unit 15...
+INFO: openFileForRead: The file './PE0000/fort.15' was found. The file will be opened.
+INFO: openFileForRead: The file './PE0000/fort.15' was opened successfully.
+INFO: logNameListReadStatus: End-of-file when searching for TimeBathyControl.
+ECHO: read_input: found_tbc_nml=F nddt=0 btiminc= 0.00000000E+00 bchgtiminc= 0.00000000E+00
+INFO: logNameListReadStatus: End-of-file when searching for subdomainModeling.
+ECHO: read_input:  subdomainOn= F
+INFO: logNameListReadStatus: The metControl namelist was found.
+ECHO: read_input:  WindDragLimit=   2.5000000000000001E-003  DragLawString=default    rhoAir=   1.2929999999999999       invertedBarometerOnElevationBoundary= F  outputWindDrag= F  nPowellSearchDomains=          -1
+INFO: logNameListReadStatus: End-of-file when searching for owiWindNetcdf.
+ECHO: read_input:  NWS13File=fort.22.nc NWS13ColdStartString=99999999.999999 NWS13WindMultiplier=1.0 NWS13GroupForPowell=0
+INFO: read_input: The tvwControl namelist was not found.
+INFO: logNameListReadStatus: End-of-file when searching for waveCoupling.
+ECHO: read_input:  WaveWindMultiplier=   1.0000000000000000
+ECHO: read_input:  Limit_WaveStressGrad= F
+ECHO: read_input:  WaveStressGrad_Cap=   1000.0000000000000
+INFO: logNameListReadStatus: End-of-file when searching for wetDryControl.
+ECHO: read_input: outputNodeCode=F
+ECHO: read_input: outputNOFF=F
+ECHO: read_input: noffActive=T
+ECHO: read_input: StatPartWetFix=F
+ECHO: read_input: How2FixStatPartWet=0
+ECHO: read_input: slim= 0.10000000E+10
+ECHO: read_input: windLim=F
+ECHO: read_input: directvelWD=F
+ECHO: read_input: useHF=F
+INFO: logNameListReadStatus: End-of-file when searching for inundationOutputControl.
+ECHO: read_input: inundationOutput=F
+ECHO: read_input: inunThresh= 0.60000000E+00
+INFO: logNameListReadStatus: End-of-file when searching for subgridControl.
+ECHO: read_input:  subgridFilename=null
+ECHO: read_input:  level0= F
+ECHO: read_input:  level1= F
+INFO: logNameListReadStatus: End-of-file when searching for Smag_Control.
+ECHO: read_input:  FOUND_SMAG_NML=F SMAG_COMP_FLAG=F SMAG_UPPER_LIM= 0.10000000E+03 SMAG_LOWER_LIM= 0.10000000E-07
+INFO: logNameListReadStatus: End-of-file when searching for dynamicWaterLevelCorrectionControl.
+ECHO: read_input: dynamicWaterLevelCorrectionMethod=default
+ECHO: read_input: dynamicWaterLevelCorrectionSkipSnaps=0
+ECHO: read_input: dynamicWaterLevelCorrectionMultiplier=      1.0000000
+ECHO: read_input: dynamicWaterLevelCorrectionRampStart=      0.0000000
+ECHO: read_input: dynamicWaterLevelCorrectionRampEnd=      0.0000000
+ECHO: read_input: dynamicWaterLevelCorrectionRampReferenceTime=hotstart
+INFO: logNameListReadStatus: End-of-file when searching for VEW1DChannelControl.
+ECHO: read_input: activateVEW1DChannelWetPerimeter=F
+INFO: logNameListReadStatus: End-of-file when searching for WarnElevControl.
+ECHO: read_input: WarnElev=     20.0000000
+ECHO: read_input: WarnElevDump=F
+ECHO: read_input: WarnElevDumpLimit=50
+ECHO: read_input: ErrorElev=   1000.0000000
+INFO: logNameListReadStatus: End-of-file when searching for AliDispersionControl.
+ECHO: read_input: CAliDisp=F
+ECHO: read_input: Speed of sound=   1500.0000000
+ECHO: read_input: Speed of sound squared= 0.22500000E+07
+ECHO: read_input: Ad coefficient=      0.0050189
+ECHO: read_input: Bd coefficient=      0.2339400
+INFO: logNameListReadStatus: End-of-file when searching for densityControl.
+ECHO: read_input: densityRunType=none
+ECHO: read_input: densityForcingType=SigmaT
+ECHO: read_input: densityFileName=fort.11.nc
+ECHO: read_input: densityTimeIterator=1
+
+
+ RUN DESCRIPTION : created on 2024-09-08 10:21                                     ! RUNDES        
+
+ RUN IDENTIFICATION : eastcoast_95d_ll_select.grd                                     ! RUNID         
+
+ _______________________________________________________________________________
+
+
+ GENERAL RUN INFORMATION
+
+     NFOVER =  1
+         IF NON-FATAL INPUT ERRORS ARE DETECTED, THEY WILL BE CORRECTED AND EXECUTION CONTINUED
+     NABOUT =  1
+         ABREVIATED OUTPUT WILL BE PROVIDED TO UNIT 16
+         UNIT 14, 21, 22 INPUT DATA WILL NOT BE ECHO PRINTED
+
+     NSCREEN =    100
+         SCREEN OUTPUT WILL BE PROVIDED TO UNIT 6
+         EVERY NSCREEN TIME STEPS.
+
+INFO: read_input: ADCIRC will be cold started.
+
+     ICS =  2
+         Governing equations are in Spherical coordinates
+         mapped using a CPP cylindrical projection. 
+     NOTE: Curvature of Earth IS NOT accounted for
+  
+     IM =       511113
+  
+     ADCIRC is configured for a 2DDI run using
+     the new GWCE routine and:
+         2 Part, velocity based lateral symmetric stress in GWCE
+         Non conservative advection in GWCE
+         Integration by parts, velocity based lateral stress in Momentum Eqs.
+         Non conservative advection in Momentum Eqs.
+         Corrected Area Integration in Momentum Eqs.
+         Consistent GWCE mass matrix
+         w/ implicit finite-amplitude term
+  
+      The ADCIRC logical variables are set to:
+          C2DDI            =  T
+          C3D              =  F
+          C3DDSS           =  F
+          C3DVS            =  F
+          C2D_BTrans       =  F
+          C2D_PTrans       =  F
+          C3D_PTrans       =  F
+          CBaroclinic      =  F
+          CGWCE_Lump       =  F
+          CGWCE_LS_KGQ     =  F
+          CGWCE_LS_2PartQ  =  F
+          CGWCE_LS_2PartV  =  F
+          CGWCE_LS_2PartSQ =  F
+          CGWCE_LS_2PartSV =  T
+          CGWCE_Advec_NC   =  T
+          CGWCE_Advec_C1   =  F
+          CGWCE_Advec_C2   =  F
+          CGWCE_HDP        =  T
+          CME_Orig         =  F
+          CME_New_NC       =  T
+          CME_New_C1       =  F
+          CME_New_C2       =  F
+          CME_LS_IBPQ      =  F
+          CME_LS_IBPV      =  T
+          CME_LS_IBPSQ     =  F
+          CME_LS_IBPSV     =  F
+          CME_LS_2PartQ    =  F
+          CME_LS_2PartV    =  F
+          CME_AreaInt_Orig =  F
+          CME_AreaInt_Corr =  T
+          CTIP             =  F
+          CHARMV           =  F
+
+     NOLIBF =   1
+         THE MODEL WILL USE NONLINEAR BOTTOM FRICTION
+
+     NOLIFA =   2
+         THE MODEL WILL USE FINITE AMPLITUDE TERMS AND WETTING AND DRYING
+
+     NOLICA =   1
+         THE MODEL WILL USE SPATIAL DERIVATIVE COMPONENTS OF THE ADVECTIVE TERMS
+
+     NOLICAT =   1
+         THE MODEL WILL USE TIME DERIVATIVE COMPONENTS 
+         OF THE ADVECTIVE TERMS IN THE GWCE
+
+         Need to load  2 nodal attribute(s):
+              primitive_weighting_in_continuity_equation                                      
+              mannings_n_at_sea_floor                                                         
+
+     NWP =  2
+         Must read Nodal Attributes File (unit 13).
+
+         Nodal Attributes File (unit 13) was found. Opening file.
+
+         User comment line from unit 13:
+              eastcoast_95d_ll_select.grd nodal attributes                                    
+
+         primitive_weighting_in_continuity_equation                                      
+              was found!
+
+         mannings_n_at_sea_floor                                                         
+              was found!
+
+
+         Now reading  2 nodal attribute(s).
+
+         Attribute  1:
+              primitive_weighting_in_continuity_equation                                      
+
+          Finished loading primitive_weighting_in_continuity_equation                                      
+
+         Attribute  2:
+              mannings_n_at_sea_floor                                                         
+
+          Finished loading mannings_n_at_sea_floor                                                         
+
+     NCOR =  1
+         SPATIALLY VARYING CORIOLIS VALUES WILL BE COMPUTED FROM INPUT LATITUDES
+
+     NTIP =  1
+         TIDAL POTENTIAL FORCING IS USED IN THE COMPUTATION BASED ON INPUT LONGITUDES/LATITUDES
+
+     NWS =   0
+         WIND STRESS OR SURFACE PRESSURE ARE NOT USED TO FORCE THE COMPUTATION
+
+     NRS =   0
+         WAVE RADIATION STRESS IS NOT USED TO FORCE THE COMPUTATION
+
+     NCICE =  0
+         ICE CONCENTRATION FIELDS ARE NOT USED TO ADJUST WIND STRESS COMPUTATIONS
+
+     NDDT =  0
+         A TIME VARYING BATHYMETRY IS NOT USED DURING THE COMPUTATION
+
+     NRAMP =  1
+         HYPERBOLIC TANGENT RAMP(S) WILL BE APPLIED TO THE FORCING FUNCTIONS
+
+
+
+     GRAVITATIONAL CONSTANT G =   9.81000
+
+
+ _______________________________________________________________________________
+
+
+ TIME INTEGRATION INFORMATION
+
+
+  ADCIRC is configured for a 2DDI run 
+  without the predictor-corrector algorithm and
+  the ADCIRC logical variable is set to:  
+          CPRECOR           =  F
+     TIME STEP =   80.142686     SECONDS
+
+     STARTING TIME FOR SIMULATION =       0.000000 DAYS
+
+     Harmonic REFERENCE TIME =       0.000000 DAYS
+
+     TOTAL LENGTH OF NUMERICAL SIMULATION =     30.0000     DAYS
+
+     NUMBER OF TIME STEPS  =   32342
+
+
+     VALUE FOR DRAMP USED IN RAMP EVALUATION =     15.0000     DAYS
+
+            DAYS OF SIMULATION   TIME          RAMP VALUE
+
+                   0.00          0.00        0.0000000
+                   0.50          0.50        0.0665681
+                   1.00          1.00        0.1325488
+                   1.50          1.50        0.1973753
+                   2.00          2.00        0.2605204
+                   2.50          2.50        0.3215127
+                   3.00          3.00        0.3799490
+                   3.50          3.50        0.4355021
+                   4.00          4.00        0.4879250
+                   4.50          4.50        0.5370496
+                   5.00          5.00        0.5827829
+                   5.50          5.50        0.6251004
+                   6.00          6.00        0.6640368
+                   6.50          6.50        0.6996766
+                   7.00          7.00        0.7321442
+                   7.50          7.50        0.7615942
+                   8.00          8.00        0.7882021
+                   8.50          8.50        0.8121570
+                   9.00          9.00        0.8336546
+                   9.50          9.50        0.8528916
+                  10.00         10.00        0.8700617
+                  10.50         10.50        0.8853516
+                  11.00         11.00        0.8989397
+                  11.50         11.50        0.9109933
+                  12.00         12.00        0.9216686
+                  12.50         12.50        0.9311096
+                  13.00         13.00        0.9394486
+                  13.50         13.50        0.9468060
+                  14.00         14.00        0.9532910
+                  14.50         14.50        0.9590020
+                  15.00         15.00        0.9640276
+                  15.50         15.50        0.9684471
+                  16.00         16.00        0.9723312
+                  16.50         16.50        0.9757431
+                  17.00         17.00        0.9787388
+                  17.50         17.50        0.9813681
+                  18.00         18.00        0.9836749
+                  18.50         18.50        0.9856981
+         DRAMPExtFlux =      15.0000
+         FluxSettlingTime =       0.0000
+         DRampIntFLux =      15.0000
+         DRampElev =      15.0000
+         DRampTip =      15.0000
+         DRampMete =      15.0000
+         DRampWRad =      15.0000
+         DUnRampMete =       0.0000
+
+
+
+     TIME WEIGHTING FACTORS IN THE WAVE EQUATION :
+
+         AT TIME LEVEL K+1 :  0.50000
+         AT TIME LEVEL K   :  0.50000
+         AT TIME LEVEL K-1 :  0.00000
+
+
+
+     DRYING WILL OCCUR WHEN THE WATER DEPTH < H0
+     H0 =   0.010000
+     AND NODEREP > NODEWETMIN =      0 TIME STEPS
+     NODEREP = NUMBER OF TIME STEPS SINCE A NODE CHANGED STATE (EITHER WETTED OR DRIED)
+
+     WETTING WILL OCCUR WHEN THERE IS A FAVORABLE PRESSURE GRADIENT THAT
+     WOULD DRIVE A STEADY VELOCITY TOWARDS A DRY NODE
+     THAT IS GREATER THAN VELMIN =    0.01000
+     AND NODEREP > NODEDRYMIN =      0 TIME STEPS
+
+
+ _______________________________________________________________________________
+
+
+ GRID INFORMATION
+
+
+INFO: initializeMesh: THE NEIGHBOR TABLE IS BEING COMPUTED.
+INFO: initializeMesh: THE NEIGHBOR TABLE IS COMPLETED. THE MINIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 3. 1+THE MAXIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 9. THE PARAMETER MNEI CAN BE SET AS SMALL AS 9.
+
+ _______________________________________________________________________________
+
+
+ BOTTOM FRICTION INFORMATION
+
+
+     NONLINEAR FRICTION COEFFICIENT CF =  0.00250000
+
+
+     GRID IDENTIFICATION : eastcoast_95d_ll_select.grd                                                     
+
+     TOTAL NUMBER OF NODES =    5434
+
+     TOTAL NUMBER OF ELEMENTS =   10055
+
+     LONGITUDE ABOUT WHICH CYLINDRICAL PROJECTION IS  CENTERED  SLAM0 =  -76.7251 DEGREES
+     LATITUDE ABOUT WHICH CYLINDRICAL PROJECTION IS CENTERED  SFEA0 =   26.5833 DEGREES
+
+
+     NODAL COORDINATES AND BATHYMETRY INFORMATION IS AVAILABLE IN THE
+      UNIT 14 INPUT FILE
+
+     THE GLOBAL CONNECTIVITY TABLE INFORMATION IS AVAILABLE IN THE
+      UNIT 14 INPUT FILE
+     Smagorinski lateral stress coefficient with constant = 0.20000000E+00
+
+
+
+ _______________________________________________________________________________
+
+
+ CORIOLIS INFORMATION 
+
+
+
+     LATITUDES ARE USED TO COMPUTE VARIABLE CORIOLIS
+       AND ARE BASED ON INPUT NODAL COORDINATES
+
+
+ _______________________________________________________________________________
+
+
+ TIDAL POTENTIAL FORCING INFORMATION 
+
+
+
+ TIDAL POTENTIAL IS FORCED FOR     8 CONSTITUENT(S) 
+
+ AMPLITUDE    FREQUENCY         ETRF      NODAL FACTOR  EQU.ARG(DEG) CONSTITUENT
+
+  0.0192560  0.000064958500   0.6950000      0.8202720     67.685       Q1   
+  0.1005140  0.000067597700   0.6950000      0.8202720    138.043       O1   
+  0.0468430  0.000072522900   0.7060000      1.0000000    355.012       P1   
+  0.1415650  0.000072921200   0.7360000      0.8902730    181.587       K1   
+  0.0463980  0.000137880000   0.6930000      1.0356800    247.396       N2   
+  0.2423340  0.000140519000   0.6930000      1.0356800    317.753       M2   
+  0.1128410  0.000145444000   0.6930000      1.0000000    180.000       S2   
+  0.0307040  0.000145842000   0.6930000      0.7604380    183.798       K2   
+
+     LONGITUDES AND LATITUDES ARE USED TO COMPUTE THE TIDAL POTENTIAL FUNCTION
+       AND ARE BASED ON INPUT NODAL COORDINATES 
+
+
+ _______________________________________________________________________________
+
+
+ ELEVATION SPECIFIED BOUNDARY FORCING INFORMATION 
+
+
+
+     NUMBER OF PERIODIC, ELEVATION SPECIFIED CONSTITUENTS =    8
+
+       CONSTITUENT #    FREQUENCY    NODAL FACTOR   EQU.ARG (DEG)  CONSTITUENT
+
+             1        0.000064958500   0.8202720      67.685          Q1   
+             2        0.000067597700   0.8202720     138.043          O1   
+             3        0.000072522900   1.0000000     355.012          P1   
+             4        0.000072921200   0.8902730     181.587          K1   
+             5        0.000137880000   1.0356800     247.396          N2   
+             6        0.000140519000   1.0356800     317.753          M2   
+             7        0.000145444000   1.0000000     180.000          S2   
+             8        0.000145842000   0.7604380     183.798          K2   
+
+ _______________________________________________________________________________
+
+
+     ANGINN =   110.00 DEGREES
+     ALL FLOW BOUNDARY NODES WITH NORMAL FLOW AS AN ESSENTIAL B.C. AND 
+         INNER ANGLES LESS THAN ANGINN WILL HAVE BOTH NORMAL 
+         AND TANGENTIAL VELOCITY COMPONENTS ZEROED
+
+          5382
+          5359
+          5338
+          5314
+          5276
+          5238
+          5200
+          5166
+          5135
+          5094
+          5022
+          4930
+          4816
+          4694
+          4560
+          4413
+          4238
+          4239
+          4240
+          4241
+          4242
+          4243
+          4244
+          4415
+          4561
+          4696
+          4818
+          4932
+          4933
+          5024
+          5056
+          4988
+          4889
+          4775
+          4644
+          4499
+          4347
+          4174
+          4001
+          3818
+          3622
+          3449
+
+ _______________________________________________________________________________
+
+
+ FLOW BOUNDARY INFORMATION 
+
+
+
+     THE TOTAL NUMBER OF FLOW BOUNDARY SEGMENTS = 21
+
+     THE TOTAL NUMBER OF FLOW BOUNDARY NODES = 734
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  1  =  476
+     THIS SEGMENT IS AN EXTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+      1      1      1       1403      0         -0.1000E+08   -0.57958291E+00  -0.76914315E+00    0.57036754E+04
+      2      2      2       1402      0          0.1837E+03   -0.60169258E+00  -0.74813071E+00    0.54612248E+04
+      3      3      3       1617      0          0.1862E+03   -0.65201745E+00  -0.69484824E+00    0.36730981E+04
+      4      4      4       1818      0          0.1587E+03   -0.56303604E+00  -0.78374673E+00    0.39284641E+04
+      5      5      5       1817      0          0.2671E+03   -0.85925402E+00  -0.31855571E+00    0.42676941E+04
+      6      6      6       1996      0          0.1466E+03   -0.90428761E+00   0.67214726E-01    0.53105994E+04
+      7      7      7       1995      0          0.1933E+03   -0.90238351E+00  -0.91131994E-01    0.31168863E+04
+      8      8      8       2149      0          0.1446E+03   -0.87197326E+00  -0.27165722E+00    0.38825462E+04
+      9      9      9       2148      0          0.1303E+03   -0.44488371E+00  -0.87111471E+00    0.54489596E+04
+     10     10     10       2147      0          0.1374E+03    0.13488483E+00  -0.98885294E+00    0.32427840E+04
+     11     11     11       1991      0          0.2612E+03   -0.17337021E+00  -0.98151916E+00    0.39710380E+04
+     12     12     12       1990      0          0.3114E+03   -0.77140360E+00   0.52425255E+00    0.45904566E+04
+     13     13     13       2146      0          0.1123E+03   -0.50004619E+00   0.83383597E+00    0.37809084E+04
+     14     14     14       2279      0          0.1351E+03   -0.90552071E+00  -0.21870144E-01    0.33729313E+04
+     15     15     15       2278      0          0.2075E+03   -0.89069289E+00  -0.18088189E+00    0.33869948E+04
+     16     16     16       2393      0          0.1430E+03   -0.86757190E+00  -0.28644683E+00    0.41028714E+04
+     17     17     17       2504      0          0.1284E+03   -0.43283112E+00  -0.87832957E+00    0.48778814E+04
+     18     18     18       2503      0          0.2379E+03   -0.45637912E+00  -0.86366240E+00    0.38652059E+04
+     19     19     19       2605      0          0.1198E+03   -0.46518529E+00  -0.85787210E+00    0.43051825E+04
+     20     20     20       2603      0          0.1619E+03    0.11377877E+00  -0.99207015E+00    0.34337951E+04
+     21     21     21       2601      0          0.2163E+03   -0.47004001E-01  -0.99865121E+00    0.39241448E+04
+     22     22     22       2599      0          0.1108E+03    0.21535093E+00  -0.97129212E+00    0.36301856E+04
+     23     23     23       2497      0          0.2445E+03    0.29900131E+00  -0.94388995E+00    0.33980964E+04
+     24     24     24       2600      0          0.1869E+03   -0.31293333E+00  -0.93835948E+00    0.35784924E+04
+     25     25     25       2685      0          0.1395E+03   -0.73665291E-01  -0.99668365E+00    0.27710392E+04
+  2686    THE INNER ANGLE =   101.06 TANGENTIAL SLIP WILL BE ZEROED
+     26     26     26       2686     10          0.1011E+03    0.80169178E+00  -0.46454195E+00    0.32575207E+04
+     27     27     27       2604      0          0.1230E+03    0.71221568E+00   0.61743601E+00    0.41238388E+04
+     28     28     28       2501      0          0.2145E+03    0.62818382E+00   0.72020544E+00    0.36513630E+04
+     29     29     29       2389      0          0.1650E+03    0.74973444E+00   0.56087551E+00    0.29110874E+04
+     30     30     30       2272      0          0.1693E+03    0.60347631E+00   0.74564850E+00    0.35887669E+04
+     31     31     31       2139      0          0.2889E+03    0.90408005E+00   0.60378766E-01    0.33838836E+04
+     32     32     32       1985      0          0.2293E+03    0.25643116E+00  -0.95909125E+00    0.26495573E+04
+     33     33     33       1984      0          0.1915E+03   -0.31372265E+00  -0.93810371E+00    0.30080115E+04
+     34     34     34       1805      0          0.2370E+03   -0.79350323E+00  -0.48216005E+00    0.49231590E+04
+     35     35     35       1983      0          0.1232E+03   -0.68170947E+00  -0.65825733E+00    0.69844862E+04
+     36     36     36       1982      0          0.2115E+03   -0.59415348E+00  -0.75460154E+00    0.59828889E+04
+     37     37     37       2138      0          0.1717E+03   -0.72730639E+00  -0.59545417E+00    0.86425358E+04
+     38     38     38       2270      0          0.1698E+03   -0.64645133E+00  -0.69989008E+00    0.69013418E+04
+     39     39     39       2385      0          0.1462E+03   -0.33332702E+00  -0.92968895E+00    0.69970696E+04
+     40     40     40       2267      0          0.1823E+03   -0.76711193E-01  -0.99640040E+00    0.66091189E+04
+     41     41     41       2266      0          0.1736E+03   -0.41340915E-01  -0.99895585E+00    0.66829098E+04
+     42     42     42       2265      0          0.1730E+03    0.83796283E-01  -0.99570309E+00    0.89601145E+04
+     43     43     43       2131      0          0.1694E+03    0.20882097E+00  -0.97301147E+00    0.62011880E+04
+     44     44     44       2130      0          0.1748E+03    0.34950481E+00  -0.92241980E+00    0.50815902E+04
+     45     45     45       2129      0          0.1838E+03    0.36267354E+00  -0.91620618E+00    0.59635401E+04
+     46     46     46       1968      0          0.1437E+03    0.62203318E+00  -0.72645874E+00    0.82831890E+04
+     47     47     47       1779      0          0.2153E+03    0.63479383E+00  -0.71303933E+00    0.55456660E+04
+     48     48     48       1781      0          0.1740E+03    0.39765619E+00  -0.89840281E+00    0.55310762E+04
+     49     49     49       1783      0          0.1794E+03    0.44690223E+00  -0.86974012E+00    0.66635326E+04
+     50     50     50       1784      0          0.1935E+03    0.36360653E+00  -0.91586897E+00    0.49953663E+04
+     51     51     51       1785      0          0.1725E+03    0.30168077E+00  -0.94289676E+00    0.49893146E+04
+     52     52     52       1786      0          0.1936E+03    0.24234602E+00  -0.96354297E+00    0.58464099E+04
+     53     53     53       1793      0          0.1611E+03    0.29006494E+00  -0.94734141E+00    0.55854734E+04
+     54     54     54       1794      0          0.1954E+03    0.31914036E+00  -0.93589180E+00    0.58345408E+04
+     55     55     55       1795      0          0.1599E+03    0.35227408E+00  -0.92130361E+00    0.54546349E+04
+     56     56     56       1978      0          0.1652E+03    0.59695357E+00  -0.75227685E+00    0.50120294E+04
+     57     57     57       1798      0          0.1721E+03    0.72012217E+00  -0.60704086E+00    0.42512971E+04
+     58     58     58       1799      0          0.2454E+03    0.28567193E+00  -0.94902462E+00    0.51761751E+04
+  1619    THE INNER ANGLE =   108.25 TANGENTIAL SLIP WILL BE ZEROED
+     59     59     59       1619     10          0.1083E+03    0.43237650E+00  -0.87885345E+00    0.59916129E+04
+     60     60     60       1405      0          0.2782E+03    0.20270497E+00  -0.97467596E+00    0.57227941E+04
+  1618    THE INNER ANGLE =    69.69 TANGENTIAL SLIP WILL BE ZEROED
+     61     61     61       1618     10          0.6969E+02    0.26318679E+00  -0.95690940E+00    0.57155218E+04
+     62     62     62       1404      0          0.2102E+03    0.77266671E+00  -0.52299130E+00    0.68344815E+04
+     63     63     63       1188      0          0.1681E+03    0.70532057E+00  -0.62838868E+00    0.65506573E+04
+     64     64     64        982      0          0.2049E+03    0.65393847E+00  -0.69285849E+00    0.50651851E+04
+     65     65     65        983      0          0.2265E+03    0.95428327E-01  -0.99444960E+00    0.53194290E+04
+     66     66     66        799      0          0.1687E+03   -0.19200656E+00  -0.97733249E+00    0.56226867E+04
+     67     67     67        985      0          0.1810E+03   -0.10622501E+00  -0.99311676E+00    0.51903088E+04
+     68     68     68        986      0          0.1938E+03   -0.23686170E+00  -0.96528972E+00    0.57183893E+04
+     69     69     69       1190      0          0.1688E+03   -0.26115646E+00  -0.95763180E+00    0.47719863E+04
+     70     70     70       1191      0          0.1648E+03   -0.27008786E-02  -0.99999556E+00    0.69590485E+04
+     71     71     71       1192      0          0.1819E+03    0.87339385E-01  -0.99535087E+00    0.76741561E+04
+     72     72     72       1193      0          0.3333E+03   -0.75899807E+00  -0.54723202E+00    0.67354282E+04
+     73     73     73       1407      0          0.1417E+03   -0.67182409E+00   0.67155105E+00    0.43184359E+04
+  1622    THE INNER ANGLE =    74.94 TANGENTIAL SLIP WILL BE ZEROED
+     74     74     74       1622     10          0.7494E+02   -0.61892232E+00  -0.73067840E+00    0.66307701E+04
+     75     75     75       1620      0          0.1783E+03   -0.89493296E-01  -0.99511512E+00    0.55371540E+04
+     76     76     76       1621      0          0.1655E+03    0.53751648E-01  -0.99824049E+00    0.56475473E+04
+     77     77     77       1413      0          0.1883E+03    0.10556856E+00  -0.99319642E+00    0.57833139E+04
+     78     78     78       1412      0          0.1989E+03   -0.11571951E+00  -0.99181961E+00    0.49354735E+04
+     79     79     79       1624      0          0.1571E+03   -0.78249425E-01  -0.99626743E+00    0.57848457E+04
+     80     80     80       1408      0          0.2038E+03   -0.12479415E+00  -0.99047922E+00    0.72052090E+04
+     81     81     81       1623      0          0.1893E+03   -0.36929649E+00  -0.91324325E+00    0.60828795E+04
+     82     82     82       1427      0          0.1786E+03   -0.43652448E+00  -0.87637040E+00    0.44949074E+04
+     83     83     83       1426      0          0.1768E+03   -0.39703528E+00  -0.89892469E+00    0.63768440E+04
+     84     84     84       1425      0          0.1732E+03   -0.32857628E+00  -0.93194482E+00    0.52611050E+04
+     85     85     85       1211      0          0.1830E+03   -0.29539441E+00  -0.94536915E+00    0.65016786E+04
+     86     86     86       1424      0          0.1925E+03   -0.40870104E+00  -0.89247945E+00    0.58966436E+04
+     87     87     87       1419      0          0.1862E+03   -0.54688745E+00  -0.79722558E+00    0.64571682E+04
+     88     88     88       1418      0          0.1863E+03   -0.61942090E+00  -0.72961733E+00    0.55543757E+04
+     89     89     89       1417      0          0.1758E+03   -0.63372630E+00  -0.71438231E+00    0.60106595E+04
+     90     90     90       1625      0          0.1831E+03   -0.62769753E+00  -0.72074145E+00    0.54017380E+04
+     91     91     91       1630      0          0.2032E+03   -0.77238873E+00  -0.52171855E+00    0.74767176E+04
+     92     92     92       1822      0          0.1573E+03   -0.76903899E+00  -0.52737070E+00    0.60158644E+04
+     93     93     93       1821      0          0.1644E+03   -0.56554466E+00  -0.78069392E+00    0.50736985E+04
+     94     94     94       1819      0          0.2075E+03   -0.63418462E+00  -0.71333441E+00    0.56103504E+04
+     95     95     95       1997      0          0.1714E+03   -0.72562474E+00  -0.59731062E+00    0.58291854E+04
+     96     96     96       2001      0          0.1324E+03   -0.33385794E+00  -0.92940511E+00    0.68895714E+04
+     97     97     97       1825      0          0.2338E+03   -0.37986020E+00  -0.90756501E+00    0.59932102E+04
+     98     98     98       1999      0          0.2007E+03   -0.82411311E+00  -0.41204023E+00    0.68044910E+04
+     99     99     99       2151      0          0.1481E+03   -0.77667742E+00  -0.51211176E+00    0.70629825E+04
+    100    100    100       2280      0          0.1698E+03   -0.57237398E+00  -0.77407717E+00    0.62509599E+04
+    101    101    101       2394      0          0.2078E+03   -0.67426793E+00  -0.66607562E+00    0.68861374E+04
+    102    102    102       2505      0          0.1620E+03   -0.71582453E+00  -0.61049495E+00    0.72058126E+04
+    103    103    103       2606      0          0.1897E+03   -0.67868833E+00  -0.66023488E+00    0.74954726E+04
+    104    104    104       2687      0          0.1766E+03   -0.70758472E+00  -0.62177381E+00    0.92777642E+04
+    105    105    105       2763      0          0.2748E+03   -0.90208533E+00  -0.50577434E-01    0.70972983E+04
+  2848    THE INNER ANGLE =   108.87 TANGENTIAL SLIP WILL BE ZEROED
+    106    106    106       2848     10          0.1089E+03   -0.86844642E+00   0.27436256E+00    0.70506263E+04
+    107    107    107       2943      0          0.1150E+03   -0.53462514E+00  -0.80585069E+00    0.83615759E+04
+  2942    THE INNER ANGLE =   105.31 TANGENTIAL SLIP WILL BE ZEROED
+    108    108    108       2942     10          0.1053E+03    0.43650088E+00  -0.87536811E+00    0.72423834E+04
+    109    109    109       2849      0          0.1551E+03    0.89197822E+00  -0.15629901E+00    0.59514471E+04
+    110    110    110       2764      0          0.1789E+03    0.90100131E+00   0.70604733E-01    0.74572179E+04
+    111    111    111       2689      0          0.1675E+03    0.89009115E+00   0.17152646E+00    0.67087887E+04
+    112    112    112       2608      0          0.2042E+03    0.90017507E+00   0.87981342E-01    0.64710167E+04
+    113    113    113       2508      0          0.1499E+03    0.89222942E+00   0.16003504E+00    0.82186029E+04
+    114    114    114       2397      0          0.1513E+03    0.75177311E+00   0.55552904E+00    0.66931054E+04
+    115    115    115       2283      0          0.1795E+03    0.58852084E+00   0.75922152E+00    0.50763095E+04
+    116    116    116       2153      0          0.2757E+03    0.90424729E+00  -0.16040706E-01    0.61793384E+04
+    117    117    117       2003      0          0.2146E+03    0.46399214E+00  -0.85840451E+00    0.66624723E+04
+    118    118    118       2154      0          0.1789E+03    0.21979727E+00  -0.97002963E+00    0.61159526E+04
+    119    119    119       2155      0          0.1450E+03    0.51922446E+00  -0.81887453E+00    0.76384766E+04
+    120    120    120       2157      0          0.2017E+03    0.60333014E+00  -0.74523351E+00    0.56118498E+04
+    121    121    121       2158      0          0.1669E+03    0.51895593E+00  -0.81920828E+00    0.44178474E+04
+    122    122    122       2160      0          0.1850E+03    0.58323106E+00  -0.76464127E+00    0.40021386E+04
+    123    123    123       2161      0          0.1802E+03    0.54861750E+00  -0.79534649E+00    0.49409230E+04
+    124    124    124       2162      0          0.1810E+03    0.54136895E+00  -0.80143592E+00    0.41233717E+04
+    125    125    125       2014      0          0.1737E+03    0.57545032E+00  -0.77195662E+00    0.44178474E+04
+    126    126    126       2015      0          0.1563E+03    0.73971869E+00  -0.57657395E+00    0.49579935E+04
+    127    127    127       2016      0          0.1855E+03    0.80595025E+00  -0.45586247E+00    0.58135831E+04
+    128    128    128       2017      0          0.1823E+03    0.77989995E+00  -0.50840500E+00    0.56517405E+04
+    129    129    129       2018      0          0.1437E+03    0.86706105E+00  -0.28948692E+00    0.45056725E+04
+    130    130    130       1842      0          0.2288E+03    0.82372355E+00  -0.41639422E+00    0.60993427E+04
+    131    131    131       1844      0          0.1597E+03    0.74078365E+00  -0.57592645E+00    0.48202120E+04
+    132    132    132       1845      0          0.2212E+03    0.58732016E+00  -0.76161062E+00    0.75677277E+04
+    133    133    133       2019      0          0.1696E+03    0.43863174E+00  -0.87511402E+00    0.51943279E+04
+    134    134    134       2163      0          0.2054E+03    0.29223830E+00  -0.94661319E+00    0.80002901E+04
+    135    135    135       2284      0          0.2029E+03   -0.41588625E-01  -0.99894719E+00    0.59980517E+04
+    136    136    136       2398      0          0.1424E+03    0.51312088E-01  -0.99839669E+00    0.58345548E+04
+    137    137    137       2509      0          0.1335E+03    0.69464258E+00  -0.64258294E+00    0.73230681E+04
+    138    138    138       2510      0          0.1601E+03    0.88803290E+00  -0.20257418E+00    0.56456863E+04
+    139    139    139       2511      0          0.1469E+03    0.87652635E+00   0.25718691E+00    0.64589261E+04
+    140    140    140       2402      0          0.1268E+03    0.55023300E+00   0.79509152E+00    0.49415707E+04
+    141    141    141       2288      0          0.3038E+03    0.82215822E+00   0.42285283E+00    0.48311883E+04
+    142    142    142       2289      0          0.1627E+03    0.81012399E+00  -0.45046507E+00    0.68047333E+04
+    143    143    143       2170      0          0.1771E+03    0.85945596E+00  -0.32148654E+00    0.55167487E+04
+    144    144    144       2171      0          0.1789E+03    0.86913922E+00  -0.28884368E+00    0.53571755E+04
+    145    145    145       2172      0          0.1714E+03    0.88619421E+00  -0.21796882E+00    0.46906254E+04
+    146    146    146       2033      0          0.1666E+03    0.90721481E+00  -0.46613463E-01    0.41479043E+04
+    147    147    147       2034      0          0.2084E+03    0.89125250E+00  -0.19315818E+00    0.55450658E+04
+    148    148    148       2035      0          0.1774E+03    0.84709391E+00  -0.36154961E+00    0.42770891E+04
+  2173    THE INNER ANGLE =    68.34 TANGENTIAL SLIP WILL BE ZEROED
+    149    149    149       2173     10          0.6834E+02    0.80569913E+00   0.46245860E+00    0.35504372E+04
+    150    150    150       2036      0          0.1457E+03   -0.30493147E+00   0.94201693E+00    0.40176665E+04
+    151    151    151       1863      0          0.3201E+03    0.37252202E+00   0.91209093E+00    0.35670276E+04
+    152    152    152       1864      0          0.2153E+03    0.73633174E+00  -0.58605835E+00    0.59539244E+04
+    153    153    153       1672      0          0.1472E+03    0.77422295E+00  -0.52383187E+00    0.68047316E+04
+    154    154    154       1466      0          0.1564E+03    0.90173224E+00  -0.12753603E+00    0.54154359E+04
+    155    155    155       1467      0          0.2009E+03    0.90574993E+00  -0.89122272E-01    0.56978282E+04
+    156    156    156       1468      0          0.1854E+03    0.87091060E+00  -0.28850270E+00    0.51260220E+04
+    157    157    157       1253      0          0.2029E+03    0.78581543E+00  -0.50393364E+00    0.50185353E+04
+    158    158    158       1469      0          0.1870E+03    0.64347059E+00  -0.70704933E+00    0.52928527E+04
+    159    159    159       1470      0          0.2018E+03    0.46171716E+00  -0.86174532E+00    0.49944075E+04
+    160    160    160       1673      0          0.1326E+03    0.61278095E+00  -0.73938390E+00    0.48697302E+04
+    161    161    161       1674      0          0.2033E+03    0.74733222E+00  -0.57099045E+00    0.49233522E+04
+    162    162    162       1476      0          0.1880E+03    0.58249020E+00  -0.76856056E+00    0.50825941E+04
+    163    163    163       1477      0          0.1940E+03    0.41553683E+00  -0.88980388E+00    0.70183108E+04
+    164    164    164       1264      0          0.1370E+03    0.56332243E+00  -0.78572861E+00    0.47308279E+04
+    165    165    165       1056      0          0.1942E+03    0.76518503E+00  -0.54247876E+00    0.52183822E+04
+    166    166    166       1057      0          0.1784E+03    0.71312904E+00  -0.62230473E+00    0.70505621E+04
+    167    167    167        866      0          0.2132E+03    0.52110875E+00  -0.82035439E+00    0.71406214E+04
+    168    168    168        867      0          0.2214E+03   -0.81299442E-01  -0.99601306E+00    0.74141555E+04
+    169    169    169       1058      0          0.1684E+03   -0.33581477E+00  -0.92961289E+00    0.59294720E+04
+    170    170    170       1059      0          0.1858E+03   -0.27606464E+00  -0.95299498E+00    0.52637176E+04
+    171    171    171       1265      0          0.1769E+03   -0.29458064E+00  -0.94628436E+00    0.83183657E+04
+    172    172    172       1478      0          0.1557E+03   -0.71853754E-01  -0.99688438E+00    0.80189477E+04
+    173    173    173       1479      0          0.1576E+03    0.29281919E+00  -0.94693651E+00    0.55332551E+04
+    174    174    174       1480      0          0.1330E+03    0.73942434E+00  -0.58430151E+00    0.48609262E+04
+    175    175    175       1268      0          0.1641E+03    0.91042373E+00  -0.44851809E-01    0.74111907E+04
+    176    176    176       1064      0          0.2008E+03    0.90770939E+00  -0.92919841E-01    0.59976618E+04
+    177    177    177       1065      0          0.2218E+03    0.70516505E+00  -0.63404940E+00    0.80026122E+04
+    178    178    178       1269      0          0.2064E+03    0.30908453E+00  -0.94083109E+00    0.72645844E+04
+    179    179    179       1270      0          0.2097E+03   -0.15799417E+00  -0.98488361E+00    0.62982532E+04
+    180    180    180       1481      0          0.1753E+03   -0.38060429E+00  -0.90875341E+00    0.66372962E+04
+    181    181    181       1482      0          0.1660E+03   -0.23386127E+00  -0.96655494E+00    0.61908788E+04
+    182    182    182       1675      0          0.1685E+03   -0.91028282E-02  -0.99995017E+00    0.64487079E+04
+    183    183    183       1676      0          0.1866E+03    0.28046712E-01  -0.99952689E+00    0.71149476E+04
+    184    184    184       1677      0          0.1771E+03    0.22101833E-02  -0.99999706E+00    0.94256422E+04
+    185    185    185       1865      0          0.1630E+03    0.15558365E+00  -0.98533715E+00    0.77018424E+04
+    186    186    186       1866      0          0.1602E+03    0.44017543E+00  -0.87581196E+00    0.57665208E+04
+    187    187    187       1867      0          0.1679E+03    0.66114298E+00  -0.68894369E+00    0.51956929E+04
+    188    188    188       1868      0          0.2033E+03    0.59853221E+00  -0.75472117E+00    0.51574507E+04
+    189    189    189       1869      0          0.1594E+03    0.57858600E+00  -0.77324516E+00    0.49011980E+04
+    190    190    190       1870      0          0.2048E+03    0.55097314E+00  -0.79718423E+00    0.51090367E+04
+    191    191    191       1871      0          0.1718E+03    0.44538408E+00  -0.87285164E+00    0.57162716E+04
+    192    192    192       1872      0          0.1684E+03    0.56465115E+00  -0.78573161E+00    0.40674774E+04
+    193    193    193       1873      0          0.1837E+03    0.62459084E+00  -0.72935496E+00    0.47368881E+04
+    194    194    194       1874      0          0.1778E+03    0.61766278E+00  -0.73649383E+00    0.49063399E+04
+    195    195    195       1875      0          0.2055E+03    0.41709358E+00  -0.88961450E+00    0.78646761E+04
+    196    196    196       1876      0          0.1657E+03    0.36597111E+00  -0.91621419E+00    0.61286996E+04
+    197    197    197       2037      0          0.2013E+03    0.31344260E+00  -0.93929066E+00    0.69203824E+04
+    198    198    198       2174      0          0.1599E+03    0.31354444E+00  -0.93925688E+00    0.68419526E+04
+    199    199    199       2175      0          0.1841E+03    0.43845778E+00  -0.87734184E+00    0.70206840E+04
+    200    200    200       2176      0          0.1524E+03    0.59508735E+00  -0.75891746E+00    0.70758944E+04
+    201    201    201       2177      0          0.1650E+03    0.79361021E+00  -0.49625640E+00    0.45683479E+04
+    202    202    202       2043      0          0.1818E+03    0.84740619E+00  -0.37548313E+00    0.70707343E+04
+    203    203    203       1885      0          0.1617E+03    0.88185548E+00  -0.26520758E+00    0.54207063E+04
+    204    204    204       1700      0          0.1596E+03    0.91282318E+00   0.66623300E-01    0.57406086E+04
+    205    205    205       1509      0          0.2802E+03    0.73261172E+00  -0.59924366E+00    0.58018468E+04
+    206    206    206       1510      0          0.1847E+03    0.20989165E-01  -0.99973695E+00    0.72384805E+04
+    207    207    207       1701      0          0.3095E+03   -0.62543925E+00  -0.73000408E+00    0.48751272E+04
+  1886    THE INNER ANGLE =   107.23 TANGENTIAL SLIP WILL BE ZEROED
+    208    208    208       1886     10          0.1072E+03   -0.90983308E+00   0.10562127E+00    0.43509126E+04
+  2044    THE INNER ANGLE =    91.60 TANGENTIAL SLIP WILL BE ZEROED
+    209    209    209       2044     10          0.9160E+02   -0.14128516E+00  -0.98800095E+00    0.50531016E+04
+    210    210    210       1887      0          0.1682E+03    0.56927371E+00  -0.78284071E+00    0.40675300E+04
+  1888    THE INNER ANGLE =    98.71 TANGENTIAL SLIP WILL BE ZEROED
+    211    211    211       1888     10          0.9871E+02    0.91220371E+00   0.78654476E-01    0.67743162E+04
+    212    212    212       1889      0          0.2558E+03    0.91377793E+00   0.57806355E-01    0.47397021E+04
+    213    213    213       1890      0          0.2125E+03    0.56044651E+00  -0.79071221E+00    0.30008678E+04
+    214    214    214       1893      0          0.2519E+03   -0.36731244E+00  -0.91598819E+00    0.34240797E+04
+  2045    THE INNER ANGLE =    96.74 TANGENTIAL SLIP WILL BE ZEROED
+    215    215    215       2045     10          0.9674E+02   -0.32166507E+00  -0.93622591E+00    0.27607275E+04
+    216    216    216       2046      0          0.1701E+03    0.51905938E+00  -0.82371761E+00    0.30669588E+04
+  2047    THE INNER ANGLE =    85.35 TANGENTIAL SLIP WILL BE ZEROED
+    217    217    217       2047     10          0.8535E+02    0.89065046E+00  -0.23158655E+00    0.23378768E+04
+    218    218    218       1892      0          0.2524E+03    0.91562057E+00   0.33856309E-02    0.30469019E+04
+    219    219    219       1709      0          0.2033E+03    0.68414876E+00  -0.66472393E+00    0.39513971E+04
+    220    220    220       1710      0          0.2228E+03    0.18890786E+00  -0.97849706E+00    0.52754554E+04
+    221    221    221       1519      0          0.1818E+03   -0.13676715E+00  -0.98878653E+00    0.60915890E+04
+    222    222    222       1711      0          0.2065E+03   -0.37038737E+00  -0.91456166E+00    0.63754632E+04
+    223    223    223       1894      0          0.1563E+03   -0.35938368E+00  -0.91974776E+00    0.86729559E+04
+    224    224    224       2048      0          0.1975E+03   -0.31571104E+00  -0.93865955E+00    0.60628387E+04
+    225    225    225       2178      0          0.2206E+03   -0.68576359E+00  -0.66238052E+00    0.47038116E+04
+    226    226    226       2290      0          0.1685E+03   -0.83040279E+00  -0.42029680E+00    0.58341256E+04
+    227    227    227       2403      0          0.1800E+03   -0.79475913E+00  -0.49540356E+00    0.58340940E+04
+    228    228    228       2512      0          0.2063E+03   -0.87254341E+00  -0.30004449E+00    0.58156587E+04
+    229    229    229       2609      0          0.2274E+03   -0.87048939E+00   0.30623108E+00    0.62312709E+04
+    230    230    230       2691      0          0.1990E+03   -0.59119438E+00   0.76276178E+00    0.73942415E+04
+    231    231    231       2767      0          0.1632E+03   -0.58328598E+00   0.76991070E+00    0.67553346E+04
+    232    232    232       2853      0          0.1679E+03   -0.74242133E+00   0.58301736E+00    0.63836279E+04
+    233    233    233       2948      0          0.1967E+03   -0.71861245E+00   0.61743786E+00    0.69438696E+04
+    234    234    234       3056      0          0.2073E+03   -0.43619339E+00   0.87858493E+00    0.81762677E+04
+    235    235    235       3176      0          0.1888E+03   -0.16257340E+00   0.98402692E+00    0.95081251E+04
+    236    236    236       3306      0          0.1649E+03   -0.20743742E+00   0.97385816E+00    0.76625337E+04
+    237    237    237       3461      0          0.1793E+03   -0.35063872E+00   0.92332255E+00    0.74199913E+04
+    238    238    238       3635      0          0.1308E+03   -0.67611557E+00   0.67194979E+00    0.76161311E+04
+    239    239    239       3833      0          0.1603E+03   -0.89895716E+00   0.17236333E+00    0.62746285E+04
+    240    240    240       3832      0          0.1523E+03   -0.88818142E+00  -0.22861414E+00    0.66897243E+04
+    241    241    241       3831      0          0.1759E+03   -0.80834992E+00  -0.46317186E+00    0.69330157E+04
+    242    242    242       3830      0          0.1820E+03   -0.80084616E+00  -0.47812770E+00    0.68073709E+04
+    243    243    243       4009      0          0.1707E+03   -0.77284566E+00  -0.53028319E+00    0.66121531E+04
+    244    244    244       4180      0          0.1632E+03   -0.62363690E+00  -0.72919584E+00    0.10136304E+05
+    245    245    245       4353      0          0.2902E+03   -0.86202207E+00  -0.32374879E+00    0.61036611E+04
+    246    246    246       4505      0          0.1154E+03   -0.88051783E+00   0.25624753E+00    0.88563562E+04
+    247    247    247       4503      0          0.1608E+03   -0.86616045E+00  -0.30849292E+00    0.79468589E+04
+    248    248    248       4650      0          0.1918E+03   -0.84697384E+00  -0.36641810E+00    0.91022072E+04
+    249    249    249       4783      0          0.2064E+03   -0.90649838E+00  -0.86773526E-01    0.81370663E+04
+    250    250    250       4900      0          0.2069E+03   -0.86004146E+00   0.32559995E+00    0.66226923E+04
+    251    251    251       5002      0          0.1726E+03   -0.79097743E+00   0.49342011E+00    0.58514292E+04
+    252    252    252       5069      0          0.2002E+03   -0.73578770E+00   0.58741401E+00    0.62577479E+04
+    253    253    253       5111      0          0.1662E+03   -0.71455441E+00   0.61812407E+00    0.72373058E+04
+    254    254    254       5142      0          0.1824E+03   -0.75938538E+00   0.54931075E+00    0.11326193E+05
+    255    255    255       5176      0          0.1822E+03   -0.74273276E+00   0.57576235E+00    0.87473133E+04
+    256    256    256       5213      0          0.1672E+03   -0.79150597E+00   0.49028139E+00    0.11511292E+05
+    257    257    257       5252      0          0.1810E+03   -0.82659065E+00   0.41330542E+00    0.67810457E+04
+    258    258    258       5290      0          0.1228E+03   -0.90381062E+00  -0.90356773E-01    0.89204970E+04
+    259    259    259       5328      0          0.1677E+03   -0.75369787E+00  -0.55662302E+00    0.94953013E+04
+    260    260    260       5354      0          0.1914E+03   -0.75241630E+00  -0.55836553E+00    0.99950925E+04
+    261    261    261       5378      0          0.1704E+03   -0.76349309E+00  -0.53932146E+00    0.77845791E+04
+    262    262    262       5394      0          0.1590E+03   -0.60346350E+00  -0.74617125E+00    0.74210896E+04
+    263    263    263       5393      0          0.2501E+03   -0.81054164E+00  -0.44738964E+00    0.70875999E+04
+    264    264    264       5407      0          0.1746E+03   -0.90202280E+00   0.94265733E-01    0.65812484E+04
+    265    265    265       5416      0          0.1501E+03   -0.88470434E+00  -0.21471143E+00    0.82946777E+04
+    266    266    266       5421      0          0.1249E+03   -0.49762439E+00  -0.83548489E+00    0.10727256E+05
+    267    267    267       5414      0          0.1484E+03    0.92096019E-01  -0.99481454E+00    0.81255545E+04
+    268    268    268       5408      0          0.1783E+03    0.40763343E+00  -0.89297421E+00    0.13431167E+05
+    269    269    269       5397      0          0.1597E+03    0.54835496E+00  -0.79595890E+00    0.11938257E+05
+    270    270    270       5377      0          0.1547E+03    0.78050421E+00  -0.50803557E+00    0.10241769E+05
+    271    271    271       5353      0          0.1561E+03    0.89849885E+00  -0.13255467E+00    0.85099409E+04
+    272    272    272       5327      0          0.2060E+03    0.89602624E+00  -0.15369109E+00    0.10548233E+05
+    273    273    273       5289      0          0.1483E+03    0.89992767E+00  -0.12601125E+00    0.77140989E+04
+    274    274    274       5251      0          0.1705E+03    0.87858918E+00   0.25013937E+00    0.10168470E+05
+    275    275    275       5211      0          0.1639E+03    0.81778599E+00   0.43413090E+00    0.98216764E+04
+    276    276    276       5174      0          0.1842E+03    0.77398327E+00   0.52303737E+00    0.90728263E+04
+    277    277    277       5140      0          0.1705E+03    0.74850840E+00   0.56661137E+00    0.11233525E+05
+    278    278    278       5109      0          0.1933E+03    0.76211807E+00   0.54466077E+00    0.87771249E+04
+    279    279    279       5067      0          0.1771E+03    0.80903376E+00   0.45599238E+00    0.79961194E+04
+    280    280    280       5000      0          0.1996E+03    0.84750245E+00   0.36240869E+00    0.53531897E+04
+    281    281    281       4899      0          0.1902E+03    0.90538174E+00   0.95361568E-01    0.57470097E+04
+    282    282    282       4782      0          0.1710E+03    0.90473959E+00   0.10486442E+00    0.91879468E+04
+    283    283    283       4649      0          0.1788E+03    0.89713040E+00   0.16834986E+00    0.81944089E+04
+    284    284    284       4502      0          0.2367E+03    0.86670876E+00  -0.30622762E+00    0.91547873E+04
+    285    285    285       4504      0          0.1245E+03    0.83812498E+00  -0.39125084E+00    0.58005554E+04
+    286    286    286       4352      0          0.2816E+03    0.56533896E+00  -0.78413047E+00    0.78804099E+04
+    287    287    287       4349      0          0.1583E+03    0.19050212E+00  -0.97788908E+00    0.10812758E+05
+    288    288    288       4175      0          0.1724E+03    0.40226962E+00  -0.89725597E+00    0.11542739E+05
+    289    289    289       4002      0          0.1791E+03    0.46336920E+00  -0.86110037E+00    0.98172376E+04
+    290    290    290       3822      0          0.1886E+03    0.41776994E+00  -0.88880102E+00    0.70848369E+04
+    291    291    291       3819      0          0.1876E+03    0.27572378E+00  -0.95317116E+00    0.81154912E+04
+    292    292    292       3820      0          0.1774E+03    0.23986033E+00  -0.96477665E+00    0.93195760E+04
+    293    293    293       3821      0          0.1883E+03    0.18994929E+00  -0.97806417E+00    0.92750678E+04
+    294    294    294       3638      0          0.1594E+03    0.28175070E+00  -0.95107556E+00    0.83684045E+04
+    295    295    295       3465      0          0.1805E+03    0.44759965E+00  -0.87131336E+00    0.10639872E+05
+    296    296    296       3311      0          0.1583E+03    0.59827121E+00  -0.75497359E+00    0.12169525E+05
+    297    297    297       3312      0          0.2644E+03    0.21925018E+00  -0.97072156E+00    0.93633266E+04
+    298    298    298       3466      0          0.1650E+03   -0.46459527E+00  -0.86068050E+00    0.88181545E+04
+    299    299    299       3639      0          0.1151E+03    0.13265393E+00  -0.98937331E+00    0.72876929E+04
+    300    300    300       3834      0          0.1112E+03    0.90050540E+00  -0.16216225E+00    0.80200980E+04
+    301    301    301       3641      0          0.1740E+03    0.83471165E+00   0.40494874E+00    0.75714181E+04
+  3468    THE INNER ANGLE =   105.85 TANGENTIAL SLIP WILL BE ZEROED
+    302    302    302       3468     10          0.1059E+03    0.29194045E+00   0.94752368E+00    0.97620225E+04
+    303    303    303       3313      0          0.1827E+03   -0.20434860E+00   0.97463612E+00    0.85760132E+04
+    304    304    304       3182      0          0.1865E+03   -0.12047280E+00   0.99125658E+00    0.97486151E+04
+    305    305    305       3061      0          0.2792E+03    0.47814195E+00   0.85189925E+00    0.63925059E+04
+    306    306    306       2954      0          0.1812E+03    0.90938408E+00  -0.92266069E-01    0.49990365E+04
+    307    307    307       2860      0          0.1351E+03    0.87123311E+00   0.30066756E+00    0.62621520E+04
+    308    308    308       2774      0          0.2239E+03    0.87896236E+00   0.27322401E+00    0.60559800E+04
+    309    309    309       2698      0          0.2004E+03    0.87864768E+00  -0.27543737E+00    0.84442374E+04
+    310    310    310       2616      0          0.1995E+03    0.77427784E+00  -0.53190690E+00    0.65762159E+04
+    311    311    311       2618      0          0.1863E+03    0.63761957E+00  -0.71690099E+00    0.59043196E+04
+    312    312    312       2523      0          0.2035E+03    0.40338026E+00  -0.89752130E+00    0.86283559E+04
+    313    313    313       2524      0          0.2391E+03   -0.30721992E+00  -0.94193021E+00    0.11060797E+05
+    314    314    314       2619      0          0.2030E+03   -0.75540258E+00  -0.56362054E+00    0.74376182E+04
+    315    315    315       2700      0          0.2021E+03   -0.89317491E+00  -0.21311190E+00    0.55227638E+04
+    316    316    316       2776      0          0.1679E+03   -0.90844363E+00  -0.10935415E+00    0.58314832E+04
+    317    317    317       2861      0          0.1776E+03   -0.89089162E+00  -0.22188532E+00    0.62420196E+04
+    318    318    318       2955      0          0.1735E+03   -0.87142679E+00  -0.29964040E+00    0.87902255E+04
+    319    319    319       3062      0          0.1753E+03   -0.84677346E+00  -0.37398683E+00    0.72586333E+04
+    320    320    320       3069      0          0.1645E+03   -0.77552867E+00  -0.52730926E+00    0.71269553E+04
+    321    321    321       3068      0          0.1185E+03   -0.17756516E+00  -0.98088414E+00    0.10338441E+05
+    322    322    322       3067      0          0.1979E+03    0.95658659E-01  -0.99449136E+00    0.83229148E+04
+    323    323    323       3183      0          0.1668E+03    0.37681799E-01  -0.99914714E+00    0.82129411E+04
+    324    324    324       3184      0          0.2030E+03   -0.57449962E-01  -0.99801674E+00    0.91380128E+04
+    325    325    325       3185      0          0.1820E+03   -0.26027416E+00  -0.95846171E+00    0.84949295E+04
+    326    326    326       3187      0          0.1628E+03   -0.13272317E+00  -0.98936376E+00    0.84530490E+04
+    327    327    327       3073      0          0.2298E+03   -0.35849254E+00  -0.91958148E+00    0.72924393E+04
+    328    328    328       3071      0          0.1435E+03   -0.50370051E+00  -0.83371612E+00    0.65758196E+04
+    329    329    329       3072      0          0.2015E+03   -0.37063023E+00  -0.91372130E+00    0.55818770E+04
+    330    330    330       3081      0          0.1720E+03   -0.48129431E+00  -0.84939945E+00    0.64531211E+04
+    331    331    331       3080      0          0.2132E+03   -0.62639379E+00  -0.72670174E+00    0.55624780E+04
+    332    332    332       3079      0          0.1512E+03   -0.64998997E+00  -0.70117116E+00    0.67955436E+04
+    333    333    333       3190      0          0.2115E+03   -0.67106979E+00  -0.67671928E+00    0.61342058E+04
+    334    334    334       3314      0          0.1785E+03   -0.81295318E+00  -0.45177768E+00    0.71421251E+04
+    335    335    335       3319      0          0.1815E+03   -0.81271713E+00  -0.45177768E+00    0.61342058E+04
+    336    336    336       3318      0          0.2083E+03   -0.88040507E+00  -0.25600751E+00    0.46822229E+04
+    337    337    337       3471      0          0.2391E+03   -0.79292870E+00   0.49161785E+00    0.50210667E+04
+    338    338    338       3643      0          0.1127E+03   -0.86141460E+00   0.32375498E+00    0.69442244E+04
+    339    339    339       3835      0          0.1596E+03   -0.87151020E+00  -0.28835245E+00    0.67608238E+04
+    340    340    340       3653      0          0.1853E+03   -0.83214572E+00  -0.40453955E+00    0.66880373E+04
+    341    341    341       3652      0          0.1510E+03   -0.72999270E+00  -0.59668555E+00    0.78206849E+04
+    342    342    342       3836      0          0.1447E+03   -0.38312503E+00  -0.90694017E+00    0.54864516E+04
+    343    343    343       3650      0          0.1740E+03    0.15705500E-01  -0.99985088E+00    0.65965458E+04
+    344    344    344       3649      0          0.2050E+03   -0.15589703E+00  -0.98519931E+00    0.67858909E+04
+    345    345    345       3647      0          0.1397E+03   -0.14765283E-01  -0.99986818E+00    0.70476419E+04
+    346    346    346       3648      0          0.1902E+03    0.23818910E+00  -0.96509575E+00    0.66886160E+04
+    347    347    347       3645      0          0.1807E+03    0.14345685E+00  -0.98748255E+00    0.72808766E+04
+    348    348    348       3646      0          0.1774E+03    0.16120927E+00  -0.98416798E+00    0.82635168E+04
+    349    349    349       3654      0          0.1888E+03    0.10738540E+00  -0.99300716E+00    0.81253605E+04
+    350    350    350       3655      0          0.1818E+03    0.16356756E-01  -0.99983832E+00    0.71970419E+04
+    351    351    351       3656      0          0.1633E+03    0.15131494E+00  -0.98606743E+00    0.78960713E+04
+    352    352    352       3837      0          0.1805E+03    0.28141390E+00  -0.95095311E+00    0.72405332E+04
+    353    353    353       4010      0          0.1945E+03    0.14556569E+00  -0.98711817E+00    0.84010976E+04
+    354    354    354       3840      0          0.1812E+03    0.20961308E-01  -0.99973458E+00    0.59861496E+04
+    355    355    355       3841      0          0.1710E+03    0.94931938E-01  -0.99454177E+00    0.74729859E+04
+    356    356    356       3842      0          0.1917E+03    0.67271281E-01  -0.99726320E+00    0.67610445E+04
+    357    357    357       3843      0          0.1792E+03   -0.31863217E-01  -0.99938664E+00    0.95999430E+04
+    358    358    358       4011      0          0.1807E+03   -0.30935575E-01  -0.99942183E+00    0.66030179E+04
+    359    359    359       4012      0          0.1540E+03    0.16846249E+00  -0.98270985E+00    0.56686216E+04
+    360    360    360       4013      0          0.2299E+03   -0.10128742E+00  -0.99378575E+00    0.81649929E+04
+    361    361    361       4181      0          0.1744E+03   -0.39443498E+00  -0.90113513E+00    0.58301383E+04
+    362    362    362       4182      0          0.2939E+03   -0.90242172E+00  -0.12638159E+00    0.67437997E+04
+  4355    THE INNER ANGLE =    86.86 TANGENTIAL SLIP WILL BE ZEROED
+    363    363    363       4355     10          0.8686E+02   -0.89408988E+00  -0.18339195E+00    0.91461985E+04
+    364    364    364       4506      0          0.1776E+03   -0.61506669E+00  -0.73649446E+00    0.10402077E+05
+    365    365    365       4507      0          0.1672E+03   -0.52938071E+00  -0.81291697E+00    0.81649344E+04
+    366    366    366       4508      0          0.1728E+03   -0.37311443E+00  -0.91184422E+00    0.86449190E+04
+    367    367    367       4651      0          0.1793E+03   -0.31337190E+00  -0.93865916E+00    0.73290409E+04
+    368    368    368       4660      0          0.1808E+03   -0.31334505E+00  -0.93865671E+00    0.70476158E+04
+    369    369    369       4659      0          0.1748E+03   -0.27648676E+00  -0.95256976E+00    0.74507478E+04
+    370    370    370       4658      0          0.1781E+03   -0.21929818E+00  -0.97042713E+00    0.73843233E+04
+    371    371    371       4784      0          0.1819E+03   -0.21928296E+00  -0.97042713E+00    0.74507478E+04
+    372    372    372       4901      0          0.1788E+03   -0.22475721E+00  -0.96890310E+00    0.84462851E+04
+    373    373    373       4902      0          0.1594E+03   -0.23520085E-01  -0.99966464E+00    0.99887368E+04
+    374    374    374       4904      0          0.1663E+03    0.25515552E+00  -0.95973348E+00    0.10064514E+05
+    375    375    375       4910      0          0.1602E+03    0.48043100E+00  -0.84872261E+00    0.67041017E+04
+    376    376    376       4906      0          0.1918E+03    0.56206163E+00  -0.78572837E+00    0.67292891E+04
+    377    377    377       4907      0          0.2116E+03    0.21618763E+00  -0.97129280E+00    0.78016772E+04
+    378    378    378       4908      0          0.1128E+03    0.47690594E+00  -0.85123739E+00    0.74152200E+04
+    379    379    379       4909      0          0.2108E+03    0.72428628E+00  -0.60429329E+00    0.68694446E+04
+    380    380    380       4794      0          0.2017E+03    0.40709875E+00  -0.89415616E+00    0.57602227E+04
+    381    381    381       4911      0          0.1498E+03    0.45270029E+00  -0.86724540E+00    0.57366670E+04
+    382    382    382       4796      0          0.2260E+03    0.31392690E+00  -0.93853057E+00    0.62239734E+04
+    383    383    383       4912      0          0.1861E+03   -0.10642281E+00  -0.99312897E+00    0.68421362E+04
+    384    384    384       5003      0          0.1730E+03   -0.98331769E-01  -0.99413639E+00    0.62184991E+04
+    385    385    385       5070      0          0.1780E+03   -0.16897019E-01  -0.99982735E+00    0.64246480E+04
+    386    386    386       5112      0          0.1746E+03    0.48597318E-01  -0.99857095E+00    0.67773518E+04
+  5143    THE INNER ANGLE =    89.18 TANGENTIAL SLIP WILL BE ZEROED
+    387    387    387       5143     10          0.8918E+02    0.63104832E+00  -0.72003590E+00    0.53103489E+04
+  5144    THE INNER ANGLE =    98.19 TANGENTIAL SLIP WILL BE ZEROED
+    388    388    388       5144     10          0.9819E+02    0.57087591E+00   0.77851709E+00    0.63236853E+04
+    389    389    389       5113      0          0.1934E+03    0.15126248E+00   0.98607573E+00    0.64918111E+04
+    390    390    390       5071      0          0.1791E+03    0.25569965E+00   0.95968104E+00    0.64588742E+04
+    391    391    391       5004      0          0.1615E+03    0.77149033E-01   0.99639769E+00    0.76058661E+04
+    392    392    392       4913      0          0.1746E+03   -0.11349627E+00   0.99218691E+00    0.65311484E+04
+    393    393    393       4797      0          0.1703E+03   -0.22810121E+00   0.96805129E+00    0.42834674E+04
+    394    394    394       4668      0          0.2636E+03    0.42404590E+00   0.88468678E+00    0.51424340E+04
+    395    395    395       4526      0          0.2217E+03    0.90889334E+00   0.44510470E-01    0.61744135E+04
+    396    396    396       4377      0          0.2934E+03    0.30667472E+00  -0.94150742E+00    0.57688899E+04
+    397    397    397       4375      0          0.1458E+03   -0.35406065E+00  -0.92118309E+00    0.65273394E+04
+    398    398    398       4376      0          0.1651E+03    0.50506702E-01  -0.99845808E+00    0.80839191E+04
+    399    399    399       4527      0          0.1964E+03    0.41167718E-01  -0.99897598E+00    0.63513986E+04
+    400    400    400       4528      0          0.1531E+03    0.11915243E+00  -0.99138841E+00    0.66238485E+04
+    401    401    401       4378      0          0.1935E+03    0.22239284E+00  -0.96967605E+00    0.73846965E+04
+    402    402    402       4529      0          0.2118E+03   -0.13014907E+00  -0.98971999E+00    0.59733025E+04
+    403    403    403       4530      0          0.1508E+03   -0.17923166E+00  -0.98040777E+00    0.61318011E+04
+    404    404    404       4531      0          0.1535E+03    0.32628340E+00  -0.93349752E+00    0.86172639E+04
+    405    405    405       4382      0          0.2371E+03    0.10169008E+00  -0.99373818E+00    0.66329215E+04
+    406    406    406       4532      0          0.1335E+03   -0.39495449E-01  -0.99905767E+00    0.72269611E+04
+    407    407    407       4533      0          0.1880E+03    0.25982155E+00  -0.95838157E+00    0.98722131E+04
+    408    408    408       4534      0          0.1947E+03    0.78477604E-01  -0.99627593E+00    0.96284488E+04
+    409    409    409       4535      0          0.1703E+03    0.24447457E-01  -0.99963919E+00    0.77254112E+04
+    410    410    410       4536      0          0.1690E+03    0.21084019E+00  -0.97280100E+00    0.75433716E+04
+    411    411    411       4669      0          0.2121E+03    0.51103664E-01  -0.99842294E+00    0.65331920E+04
+    412    412    412       4670      0          0.1694E+03   -0.15141667E+00  -0.98606670E+00    0.71303501E+04
+    413    413    413       4671      0          0.1902E+03   -0.15541782E+00  -0.98531439E+00    0.76548828E+04
+    414    414    414       4672      0          0.1721E+03   -0.16712474E+00  -0.98299576E+00    0.88115422E+04
+    415    415    415       4798      0          0.1675E+03    0.00000000E+00  -0.10000000E+01    0.79967357E+04
+    416    416    416       4799      0          0.1829E+03    0.90738679E-01  -0.99501763E+00    0.71303553E+04
+    417    417    417       4674      0          0.1711E+03    0.13920079E+00  -0.98823495E+00    0.67880585E+04
+    418    418    418       4675      0          0.1824E+03    0.19745128E+00  -0.97618738E+00    0.66157797E+04
+    419    419    419       4800      0          0.3168E+03   -0.64898754E+00  -0.70119809E+00    0.56417580E+04
+    420    420    420       4914      0          0.2122E+03   -0.56490376E+00   0.78403020E+00    0.64657097E+04
+    421    421    421       5006      0          0.1867E+03   -0.29902269E+00   0.94446694E+00    0.75656007E+04
+    422    422    422       5075      0          0.1970E+03   -0.86068554E-01   0.99551609E+00    0.95695193E+04
+    423    423    423       5118      0          0.1472E+03   -0.21193139E+00   0.97249703E+00    0.81550634E+04
+    424    424    424       5150      0          0.1874E+03   -0.43928174E+00   0.87569222E+00    0.76771577E+04
+    425    425    425       5181      0          0.2099E+03   -0.12710518E+00   0.99018865E+00    0.81712182E+04
+    426    426    426       5220      0          0.1835E+03    0.14856730E+00   0.98657246E+00    0.61860141E+04
+    427    427    427       5261      0          0.1614E+03    0.20372061E-01   0.99974921E+00    0.63093537E+04
+    428    428    428       5301      0          0.1762E+03   -0.17439013E+00   0.98145169E+00    0.73609260E+04
+  5334    THE INNER ANGLE =    91.73 TANGENTIAL SLIP WILL BE ZEROED
+    429    429    429       5334     10          0.9173E+02   -0.80392820E+00   0.46780077E+00    0.92290515E+04
+    430    430    430       5333      0          0.1284E+03   -0.75558956E+00  -0.55624326E+00    0.89116633E+04
+    431    431    431       5299      0          0.1957E+03   -0.55940716E+00  -0.78823621E+00    0.74536815E+04
+    432    432    432       5298      0          0.1591E+03   -0.52894218E+00  -0.81319236E+00    0.79380084E+04
+    433    433    433       5297      0          0.2202E+03   -0.64760056E+00  -0.70151267E+00    0.80633855E+04
+    434    434    434       5332      0          0.1917E+03   -0.85691539E+00  -0.33196703E+00    0.73979675E+04
+    435    435    435       5358      0          0.1788E+03   -0.88019887E+00  -0.24622599E+00    0.62215825E+04
+    436    436    436       5357      0          0.1597E+03   -0.82099091E+00  -0.42702037E+00    0.74282809E+04
+    437    437    437       5381      0          0.1910E+03   -0.79008235E+00  -0.49231099E+00    0.55988273E+04
+    438    438    438       5380      0          0.1747E+03   -0.81520906E+00  -0.43940538E+00    0.56775826E+04
+  5379    THE INNER ANGLE =    55.98 TANGENTIAL SLIP WILL BE ZEROED
+    439    439    439       5379     10          0.5598E+02    0.39487711E+00  -0.90033007E+00    0.86003974E+04
+    440    440    440       5355      0          0.1550E+03    0.88895832E+00  -0.20174924E+00    0.83597394E+04
+    441    441    441       5329      0          0.2137E+03    0.88402524E+00  -0.22796976E+00    0.61705340E+04
+    442    442    442       5293      0          0.2553E+03    0.17581356E+00  -0.98108069E+00    0.86442017E+04
+    443    443    443       5292      0          0.1931E+03   -0.41264295E+00  -0.89077507E+00    0.72827031E+04
+    444    444    444       5305      0          0.1878E+03   -0.57105898E+00  -0.77739272E+00    0.89577021E+04
+    445    445    445       5304      0          0.1552E+03   -0.44913568E+00  -0.86898348E+00    0.87548339E+04
+    446    446    446       5303      0          0.1663E+03   -0.12891964E+00  -0.98985902E+00    0.10798976E+05
+  5309    THE INNER ANGLE =    84.10 TANGENTIAL SLIP WILL BE ZEROED
+    447    447    447       5309     10          0.8410E+02    0.54008325E+00  -0.80364389E+00    0.78681228E+04
+    448    448    448       5270      0          0.3159E+03    0.23683146E+00  -0.96537184E+00    0.89937490E+04
+    449    449    449       5269      0          0.1906E+03   -0.69417490E+00  -0.64420547E+00    0.11163820E+05
+    450    450    450       5308      0          0.1717E+03   -0.70650829E+00  -0.62736141E+00    0.80803802E+04
+    451    451    451       5335      0          0.1474E+03   -0.39775682E+00  -0.89872211E+00    0.11669931E+05
+    452    452    452       5310      0          0.1650E+03   -0.74502718E-01  -0.99662033E+00    0.93179830E+04
+    453    453    453       5311      0          0.2403E+03   -0.45501693E+00  -0.86505283E+00    0.11059489E+05
+    454    454    454       5336      0          0.1636E+03   -0.69688587E+00  -0.63968007E+00    0.12214993E+05
+    455    455    455       5345      0          0.2542E+03   -0.84667344E+00  -0.35687317E+00    0.80183623E+04
+    456    456    456       5370      0          0.2175E+03   -0.69546868E+00   0.64099451E+00    0.75027844E+04
+    457    457    457       5390      0          0.1413E+03   -0.73302972E+00   0.58764536E+00    0.11212612E+05
+    458    458    458       5404      0          0.1973E+03   -0.79786666E+00   0.47305117E+00    0.91947812E+04
+    459    459    459       5413      0          0.1594E+03   -0.80081721E+00   0.46647485E+00    0.87027041E+04
+    460    460    460       5420      0          0.1740E+03   -0.87330482E+00   0.26263659E+00    0.74844001E+04
+    461    461    461       5424      0          0.1940E+03   -0.85542138E+00   0.32594795E+00    0.80860906E+04
+    462    462    462       5427      0          0.2160E+03   -0.64757920E+00   0.69822851E+00    0.90912180E+04
+    463    463    463       5430      0          0.1989E+03   -0.29597590E+00   0.94494067E+00    0.83174599E+04
+    464    464    464       5432      0          0.1942E+03    0.11225621E-01   0.99992297E+00    0.11505830E+05
+  5434    THE INNER ANGLE =    37.17 TANGENTIAL SLIP WILL BE ZEROED
+    465    465    465       5434     10          0.3717E+02   -0.71621395E+00   0.61069580E+00    0.10054766E+05
+    466    466    466       5433      0          0.1525E+03   -0.48028328E+00  -0.84727691E+00    0.10318718E+05
+    467    467    467       5431      0          0.1749E+03   -0.23355919E+00  -0.96605812E+00    0.11410498E+05
+    468    468    468       5428      0          0.1509E+03    0.42535651E-01  -0.99889254E+00    0.10145829E+05
+    469    469    469       5425      0          0.1634E+03    0.42772818E+00  -0.88102671E+00    0.96678899E+04
+    470    470    470       5422      0          0.2096E+03    0.29563857E+00  -0.94505606E+00    0.12797759E+05
+    471    471    471       5417      0          0.1897E+03    0.21291591E-01  -0.99972283E+00    0.79957812E+04
+    472    472    472       5409      0          0.1929E+03   -0.20238698E+00  -0.97463747E+00    0.95640785E+04
+    473    473    473       5398      0          0.1204E+03    0.29196472E+00  -0.94644113E+00    0.13478614E+05
+    474    474    474       5384      0          0.2344E+03    0.27937475E+00  -0.95111100E+00    0.11599633E+05
+    475    475    475       5383      0          0.1903E+03   -0.28742169E+00  -0.94816571E+00    0.88884230E+04
+    476    476    476       5382      0         -0.1000E+08   -0.38009112E+00  -0.90739063E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  2  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    477    477    477        224      1          0.3544E+03    0.69305774E-01  -0.99734214E+00    0.77605597E+04
+    478    478    478        223      1          0.1995E+03   -0.49860554E-01   0.99862484E+00    0.68201177E+04
+    479    479    479        222      1          0.1545E+03   -0.72584116E-01   0.99708400E+00    0.58378127E+04
+    480    480    480        221      1          0.1944E+03   -0.18684764E+00   0.98050879E+00    0.57438156E+04
+    481    481    481        173      1          0.3572E+03    0.12497408E+00  -0.99132708E+00    0.25763383E+05
+    482    481    481        224      1          0.3544E+03    0.11106532E+00  -0.99315993E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  3  =  93
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    483    482    483        276      1          0.2275E+03    0.45465043E+00   0.87581482E+00    0.68147757E+04
+    484    483    484        277      1          0.2152E+03    0.89389224E+00   0.31670282E+00    0.67204242E+04
+    485    484    485        278      1          0.2100E+03    0.92299208E+00  -0.20439949E+00    0.58867580E+04
+    486    485    486        279      1          0.1642E+03    0.88970484E+00  -0.33223987E+00    0.60295458E+04
+    487    486    487        280      1          0.2408E+03    0.70026692E+00  -0.67037610E+00    0.59865586E+04
+    488    487    488        281      1          0.1897E+03    0.19937503E+00  -0.97743576E+00    0.64745077E+04
+    489    488    489        345      1          0.1897E+03   -0.47454716E-01  -0.99873547E+00    0.38347013E+06
+    490    489    490       2480      1          0.3171E+03   -0.59589281E-01  -0.99799892E+00    0.53921517E+04
+    491    490    491       2356      1          0.2353E+03   -0.16772509E+00   0.98402596E+00    0.63369279E+04
+  2479    THE INNER ANGLE =    88.68 TANGENTIAL SLIP WILL BE ZEROED
+    492    491    492       2479     11          0.8868E+02   -0.45793467E+00   0.87396460E+00    0.60695769E+04
+    493    492    493       2355      1          0.1810E+03   -0.91542525E+00   0.23516584E+00    0.56593020E+04
+    494    493    494       2236      1          0.2499E+03   -0.54450379E+00   0.81577139E+00    0.73885119E+04
+    495    494    495       2354      1          0.2562E+03    0.31951720E+00   0.94063812E+00    0.39926530E+04
+    496    495    496       2357      1          0.1689E+03    0.85799967E+00   0.41206884E+00    0.60889736E+04
+    497    496    497       2481      1          0.1694E+03    0.78526169E+00   0.55242582E+00    0.56083903E+04
+    498    497    498       2484      1          0.1499E+03    0.54256263E+00   0.81763360E+00    0.60496451E+04
+    499    498    499       2483      1          0.1498E+03    0.52704834E-01   0.99843534E+00    0.70374160E+04
+    500    499    500       2482      1          0.2012E+03   -0.98698339E-02   0.99994516E+00    0.66612588E+04
+    501    500    501       2486      1          0.1812E+03    0.19092790E+00   0.97926749E+00    0.86238077E+04
+    502    501    502       2487      1          0.1670E+03    0.83236325E-01   0.99609395E+00    0.93295093E+04
+    503    502    503       2489      1          0.1707E+03   -0.96585689E-01   0.99473679E+00    0.72131398E+04
+    504    503    504       2372      1          0.2004E+03   -0.33526086E-01   0.99936718E+00    0.56034723E+04
+    505    504    505       2373      1          0.1912E+03    0.25721800E+00   0.96204805E+00    0.52842855E+04
+    506    505    506       2374      1          0.1661E+03    0.22427633E+00   0.97129067E+00    0.66426650E+04
+    507    506    507       2375      1          0.1773E+03    0.97518852E-01   0.99463632E+00    0.62618640E+04
+    508    507    508       2488      1          0.1483E+03   -0.16194834E+00   0.98513797E+00    0.47811097E+04
+    509    508    509       2370      1          0.1846E+03   -0.41891652E+00   0.89583354E+00    0.52702762E+04
+    510    509    510       2369      1          0.1458E+03   -0.62400569E+00   0.74944939E+00    0.53172892E+04
+    511    510    511       2366      1          0.1866E+03   -0.77630090E+00   0.56668137E+00    0.50187858E+04
+    512    511    512       2365      1          0.1774E+03   -0.75693092E+00   0.59513409E+00    0.54056435E+04
+    513    512    513       2247      1          0.2307E+03   -0.41504848E+00   0.89760338E+00    0.64416857E+04
+    514    513    514       2245      1          0.1812E+03   -0.30511105E-01   0.99947482E+00    0.65902806E+04
+    515    514    515       2244      1          0.1682E+03   -0.12959248E+00   0.99048250E+00    0.75219812E+04
+    516    515    516       2243      1          0.1916E+03   -0.14183969E+00   0.98858453E+00    0.53648022E+04
+    517    516    517       2260      1          0.2541E+03    0.45158627E+00   0.87743449E+00    0.38130722E+04
+    518    517    518       2379      1          0.1725E+03    0.88332504E+00   0.34651583E+00    0.46050427E+04
+    519    518    519       2381      1          0.2086E+03    0.92903227E+00   0.16520531E+00    0.49352403E+04
+    520    519    520       2494      1          0.1271E+03    0.86620875E+00   0.39376128E+00    0.54092941E+04
+    521    520    521       2598      1          0.1188E+03    0.15402393E+00   0.98655957E+00    0.57634758E+04
+    522    521    522       2597      1          0.1560E+03   -0.51321609E+00   0.83872560E+00    0.50802791E+04
+    523    522    523       2596      1          0.2076E+03   -0.46692505E+00   0.86856332E+00    0.69187182E+04
+    524    523    524       2491      1          0.1509E+03   -0.51083694E+00   0.84020171E+00    0.70482496E+04
+    525    524    525       2384      1          0.2493E+03   -0.11378314E+00   0.99267270E+00    0.87677830E+04
+  2496    THE INNER ANGLE =    84.49 TANGENTIAL SLIP WILL BE ZEROED
+    526    525    526       2496     11          0.8449E+02   -0.22324504E+00   0.97150668E+00    0.63246501E+04
+    527    526    527       2495      1          0.1383E+03   -0.94137764E+00  -0.14140115E-01    0.51830768E+04
+    528    527    528       2382      1          0.2278E+03   -0.94070548E+00   0.29812816E-01    0.59504371E+04
+    529    528    529       2262      1          0.1876E+03   -0.84452478E+00   0.44053220E+00    0.52026052E+04
+    530    529    530       2125      1          0.1808E+03   -0.81079345E+00   0.50660611E+00    0.50811940E+04
+    531    530    531       2124      1          0.1827E+03   -0.79632492E+00   0.53147449E+00    0.47237492E+04
+    532    531    532       1967      1          0.1882E+03   -0.74390161E+00   0.61110773E+00    0.50796234E+04
+    533    532    533       1966      1          0.1751E+03   -0.72563205E+00   0.63522108E+00    0.40611171E+04
+    534    533    534       1965      1          0.1757E+03   -0.77332469E+00   0.56761386E+00    0.42552723E+04
+    535    534    535       1964      1          0.1647E+03   -0.85261706E+00   0.41906392E+00    0.46867978E+04
+    536    535    536       1775      1          0.1878E+03   -0.87540659E+00   0.36107082E+00    0.39694228E+04
+    537    536    537       1578      1          0.1874E+03   -0.82193107E+00   0.48265847E+00    0.41410401E+04
+    538    537    538       1352      1          0.2809E+03    0.56725046E-01   0.99817067E+00    0.52860613E+04
+    539    538    539       1354      1          0.2017E+03    0.77759608E+00   0.55992162E+00    0.40605033E+04
+    540    539    540       1579      1          0.1644E+03    0.81653355E+00   0.49342416E+00    0.40093464E+04
+    541    540    541       1580      1          0.1348E+03    0.41566690E+00   0.89668419E+00    0.52316199E+04
+    542    541    542       1357      1          0.1914E+03    0.18213284E+00   0.98101006E+00    0.36142664E+04
+    543    542    543       1143      1          0.2847E+03    0.89596761E+00   0.29964188E+00    0.39566738E+04
+    544    543    544       1358      1          0.1295E+03    0.93010714E+00  -0.14001566E+00    0.34871452E+04
+    545    544    545       1359      1          0.1816E+03    0.89976113E+00   0.28809054E+00    0.34596583E+04
+    546    545    546       1360      1          0.1823E+03    0.90887449E+00   0.25455526E+00    0.47774440E+04
+    547    546    547       1361      1          0.1442E+03    0.78955214E+00   0.54289516E+00    0.57053003E+04
+    548    547    548       1362      1          0.1750E+03    0.58905308E+00   0.77953297E+00    0.55516481E+04
+    549    548    549       1363      1          0.1963E+03    0.66866517E+00   0.70335691E+00    0.69648658E+04
+    550    549    550       1364      1          0.1591E+03    0.63192881E+00   0.74100625E+00    0.67193995E+04
+    551    550    551       1365      1          0.1771E+03    0.46880773E+00   0.86716085E+00    0.75113609E+04
+    552    551    552       1152      1          0.1441E+03    0.14035504E+00   0.98882786E+00    0.82905997E+04
+    553    552    553        952      1          0.1888E+03   -0.66507419E-01   0.99750183E+00    0.10882406E+05
+    554    553    554        951      1          0.1762E+03   -0.25933412E-01   0.99962056E+00    0.69749967E+04
+    555    554    555        948      1          0.1856E+03   -0.23614464E-01   0.99968537E+00    0.54090033E+04
+    556    555    556        949      1          0.1529E+03   -0.19158819E+00   0.97907504E+00    0.49604179E+04
+    557    556    557        768      1          0.1958E+03   -0.27407284E+00   0.95667360E+00    0.70395805E+04
+    558    557    558        767      1          0.1769E+03   -0.19127397E+00   0.97913308E+00    0.70924491E+04
+    559    558    559        774      1          0.2013E+03   -0.23508319E-01   0.99968796E+00    0.79361194E+04
+    560    559    560        775      1          0.1785E+03    0.13648588E+00   0.98942956E+00    0.90143732E+04
+    561    560    561        630      1          0.1853E+03    0.16861742E+00   0.98382410E+00    0.86123204E+04
+    562    561    562        631      1          0.1734E+03    0.16267984E+00   0.98495642E+00    0.75374993E+04
+    563    562    563        517      1          0.2074E+03    0.32376913E+00   0.93900829E+00    0.71015175E+04
+    564    563    564        634      1          0.1310E+03    0.95613820E-01   0.99483297E+00    0.90021419E+04
+    565    564    565        633      1          0.1908E+03   -0.18960241E+00   0.97951627E+00    0.71660886E+04
+    566    565    566        632      1          0.1650E+03   -0.22271497E+00   0.97162082E+00    0.82186340E+04
+    567    566    567        635      1          0.1636E+03   -0.45737104E+00   0.87402493E+00    0.74638247E+04
+    568    567    568        519      1          0.1101E+03   -0.88301672E+00   0.34557472E+00    0.67926615E+04
+    569    568    569        419      1          0.2747E+03   -0.85337753E+00   0.42037617E+00    0.54735269E+04
+    570    569    570        339      1          0.2500E+03    0.46536498E+00   0.86898369E+00    0.71763257E+04
+    571    570    571        340      1          0.1671E+03    0.75453270E+00   0.59740336E+00    0.84474949E+04
+    572    571    572        422      1          0.1645E+03    0.60879551E+00   0.76271364E+00    0.71255679E+04
+    573    572    573        423      1          0.1850E+03    0.52816999E+00   0.82786779E+00    0.60327319E+04
+    574    573    574        424      1          0.1516E+03    0.34595987E+00   0.93009838E+00    0.64744325E+04
+    575    574    575        344      1          0.1789E+03    0.10877913E+00   0.99330923E+00    0.77148726E+04
+    576    574    575        276      1          0.2275E+03    0.10003978E+00   0.99434478E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  4  =  24
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    577    575    577       2463      1          0.2782E+03    0.54640170E+00   0.81370773E+00    0.57207709E+04
+    578    576    578       2585      1          0.1899E+03    0.93677403E+00  -0.87938848E-01    0.68194704E+04
+    579    577    579       2684      1          0.2465E+03    0.29347730E+00  -0.95011157E+00    0.93074374E+05
+    580    578    580       3602      1          0.2171E+03    0.19711157E+00  -0.97789113E+00    0.64508394E+04
+    581    579    581       3432      1          0.1738E+03   -0.34849277E+00  -0.92911454E+00    0.53984056E+04
+    582    580    582       3291      1          0.2413E+03   -0.72103417E+00  -0.64378890E+00    0.58253405E+04
+    583    581    583       3168      1          0.1741E+03   -0.91578627E+00  -0.23365930E+00    0.52223198E+04
+    584    582    584       3050      1          0.2638E+03   -0.79475066E+00   0.53612408E+00    0.72860472E+04
+    585    583    585       2941      1          0.1646E+03   -0.51341035E+00   0.83814674E+00    0.77359830E+04
+    586    584    586       2846      1          0.1554E+03   -0.75052378E+00   0.60310304E+00    0.77983101E+04
+    587    585    587       2762      1          0.2170E+03   -0.68087439E+00   0.68976674E+00    0.78843947E+04
+    588    586    588       2760      1          0.2066E+03   -0.25402269E+00   0.96280413E+00    0.62285961E+04
+    589    587    589       2761      1          0.1570E+03   -0.18102858E+00   0.98128569E+00    0.52447191E+04
+    590    588    590       2759      1          0.1951E+03   -0.25766920E+00   0.96169431E+00    0.59102247E+04
+    591    589    591       2674      1          0.1996E+03    0.56401758E-01   0.99819792E+00    0.78759021E+04
+    592    590    592       2675      1          0.1758E+03    0.16582717E+00   0.98431747E+00    0.73970766E+04
+    593    591    593       2676      1          0.1778E+03    0.10993888E+00   0.99313858E+00    0.69938213E+04
+    594    592    594       2678      1          0.1747E+03    0.45538859E-01   0.99882620E+00    0.65531606E+04
+    595    593    595       2677      1          0.1832E+03    0.24671469E-01   0.99965562E+00    0.62804716E+04
+    596    594    596       2681      1          0.1683E+03   -0.49229974E-01   0.99862814E+00    0.63098899E+04
+    597    595    597       2680      1          0.1726E+03   -0.21039263E+00   0.97463569E+00    0.57476205E+04
+    598    596    598       2679      1          0.2103E+03    0.00000000E+00   0.10000000E+01    0.64518578E+04
+    599    597    599       2682      1          0.1627E+03    0.10402089E+00   0.99385962E+00    0.58718259E+04
+    600    598    600       2583      1          0.1749E+03   -0.10099445E+00   0.99421245E+00    0.66718460E+04
+    601    598    600       2463      1          0.2782E+03   -0.14224476E+00   0.98848435E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  5  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    602    599    602       2467      1          0.2524E+03   -0.55429561E+00   0.80792812E+00    0.27789815E+04
+    603    600    603       2470      1          0.2715E+03    0.80019131E+00   0.52567889E+00    0.37274864E+04
+    604    601    604       2471      1          0.2769E+03    0.55446267E+00  -0.80792812E+00    0.36781914E+04
+    605    602    605       2587      1          0.2792E+03   -0.80036725E+00  -0.52567889E+00    0.32847841E+04
+    606    602    605       2467      1          0.2524E+03   -0.88061305E+00   0.35148200E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  6  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    607    603    607       2939      1          0.2859E+03    0.63928406E+00   0.73360391E+00    0.51037998E+04
+    608    604    608       3049      1          0.2568E+03    0.50114739E+00  -0.84641275E+00    0.81917303E+04
+    609    605    609       3165      1          0.2251E+03   -0.21111724E+00  -0.97451404E+00    0.47994030E+04
+    610    606    610       3048      1          0.3059E+03   -0.77207989E+00   0.57151079E+00    0.71618229E+04
+    611    607    611       3046      1          0.1862E+03   -0.17479770E+00   0.98258657E+00    0.55368169E+04
+    612    607    611       2939      1          0.2859E+03   -0.11435073E+00   0.99258432E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  7  =  7
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    613    608    613       3039      1          0.2842E+03    0.51884967E+00   0.83332829E+00    0.57324978E+04
+    614    609    614       3041      1          0.2509E+03    0.68189083E+00  -0.68751627E+00    0.72482586E+04
+    615    610    615       3158      1          0.2159E+03   -0.24635089E-01  -0.99965591E+00    0.63176686E+04
+    616    611    616       3279      1          0.1585E+03   -0.14263082E+00  -0.98839643E+00    0.85621711E+04
+    617    612    617       3156      1          0.3370E+03   -0.90941529E+00  -0.24908356E+00    0.84767433E+04
+    618    613    618       3155      1          0.1997E+03   -0.25516184E+00   0.96235135E+00    0.71448503E+04
+    619    614    619       3040      1          0.1739E+03   -0.12597184E+00   0.99095483E+00    0.70903829E+04
+    620    614    619       3039      1          0.2842E+03   -0.17819473E+00   0.98181363E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  8  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    621    615    621       3595      1          0.2054E+03    0.20705272E+00   0.97554830E+00    0.63845232E+04
+    622    616    622       3597      1          0.3317E+03    0.93462886E+00  -0.12704818E+00    0.62425469E+04
+    623    617    623       3793      1          0.2160E+03   -0.20710497E+00  -0.97554830E+00    0.56555702E+04
+    624    618    624       3790      1          0.3270E+03   -0.93444853E+00   0.12704818E+00    0.51836674E+04
+    625    618    624       3595      1          0.2054E+03   -0.34568356E-01   0.99932655E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  9  =  11
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    626    619    626       3736      1          0.1907E+03    0.90713802E+00   0.20619806E+00    0.59211155E+04
+    627    620    627       3737      1          0.1588E+03    0.87999161E+00   0.31567036E+00    0.73857738E+04
+    628    621    628       3738      1          0.1897E+03    0.85579932E+00   0.38625825E+00    0.72687659E+04
+    629    622    629       3739      1          0.2390E+03    0.91408566E+00  -0.17386975E+00    0.74073993E+04
+    630    623    630       3919      1          0.2567E+03    0.16252791E+00  -0.98456342E+00    0.80944612E+04
+    631    624    631       4093      1          0.2141E+03   -0.63437297E+00  -0.73010587E+00    0.64722577E+04
+    632    625    632       4264      1          0.2005E+03   -0.87678530E+00  -0.32762156E+00    0.53386332E+04
+    633    626    633       4435      1          0.1973E+03   -0.92768279E+00  -0.16674659E-02    0.58358392E+04
+    634    627    634       4263      1          0.1769E+03   -0.92229736E+00   0.10411242E+00    0.71025502E+04
+    635    628    635       4092      1          0.2454E+03   -0.75269122E+00   0.58360280E+00    0.66729467E+04
+    636    629    636       3918      1          0.2710E+03    0.27938544E+00   0.95347866E+00    0.50653473E+04
+    637    629    636       3736      1          0.1907E+03    0.88521985E+00   0.29703171E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  10  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    638    630    638       3754      1          0.2803E+03    0.21930720E+00   0.97201279E+00    0.66860969E+04
+    639    631    639       3755      1          0.2630E+03    0.93316764E+00  -0.38851101E-01    0.58572532E+04
+    640    632    640       3935      1          0.2844E+03   -0.21945725E+00  -0.97201279E+00    0.65991655E+04
+    641    633    641       3934      1          0.2524E+03   -0.93305370E+00   0.38851101E-01    0.50894921E+04
+    642    633    641       3754      1          0.2803E+03   -0.69705379E+00   0.66515731E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  11  =  7
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    643    634    643       3764      1          0.1632E+03    0.40311151E+00   0.90261544E+00    0.77163577E+04
+    644    635    644       3765      1          0.2070E+03    0.49234135E+00   0.85071041E+00    0.70528035E+04
+    645    636    645       3766      1          0.2925E+03    0.93562900E+00   0.54291195E-01    0.49368948E+04
+    646    637    646       3945      1          0.2284E+03   -0.13252680E+00  -0.98995049E+00    0.83576908E+04
+    647    638    647       4120      1          0.2297E+03   -0.65623527E+00  -0.71371370E+00    0.48850198E+04
+    648    639    648       4119      1          0.1550E+03   -0.83716214E+00  -0.44834304E+00    0.52779025E+04
+    649    640    649       3944      1          0.3442E+03   -0.70646923E+00   0.65624760E+00    0.52051317E+04
+    650    640    649       3764      1          0.1632E+03    0.54974281E+00   0.80957045E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  12  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    651    641    651       3789      1          0.2352E+03   -0.21650925E+00   0.97322730E+00    0.39973782E+04
+    652    642    652       3791      1          0.3127E+03    0.93157755E+00   0.14882386E+00    0.39209739E+04
+    653    643    653       3974      1          0.2160E+03    0.21656490E+00  -0.97322730E+00    0.39553903E+04
+    654    644    654       3968      1          0.3162E+03   -0.93170194E+00  -0.14882386E+00    0.45108528E+04
+    655    644    654       3789      1          0.2352E+03   -0.60915347E+00   0.76276717E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  13  =  14
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    656    645    656       3909      1          0.2928E+03    0.83895333E+00   0.41838364E+00    0.82532245E+04
+  4084    THE INNER ANGLE =    79.77 TANGENTIAL SLIP WILL BE ZEROED
+    657    646    657       4084     11          0.7977E+02    0.88962227E+00   0.27050012E+00    0.84283903E+04
+    658    647    658       4083      1          0.2104E+03    0.58711298E+00   0.77234251E+00    0.59448947E+04
+    659    648    659       4085      1          0.1938E+03    0.83246922E+00   0.43509847E+00    0.61745119E+04
+    660    649    660       4086      1          0.2090E+03    0.91857823E+00   0.11677392E+00    0.54458350E+04
+    661    650    661       4087      1          0.2681E+03    0.39020006E+00  -0.90671722E+00    0.87132925E+04
+    662    651    662       4257      1          0.2122E+03   -0.36107879E+00  -0.92069229E+00    0.79421163E+04
+    663    652    663       4426      1          0.1443E+03   -0.37624188E+00  -0.91351277E+00    0.64039122E+04
+    664    653    664       4574      1          0.2916E+03   -0.85095459E+00  -0.39165757E+00    0.80076086E+04
+    665    654    665       4705      1          0.1112E+03   -0.90423728E+00  -0.20780667E+00    0.91331254E+04
+    666    655    666       4573      1          0.2088E+03   -0.79165157E+00  -0.51575605E+00    0.60627885E+04
+    667    656    667       4425      1          0.2205E+03   -0.91865414E+00   0.10439928E+00    0.70731677E+04
+    668    657    668       4256      1          0.2746E+03   -0.22997635E+00   0.96848534E+00    0.77578278E+04
+    669    658    669       4082      1          0.1628E+03    0.34531408E+00   0.92747219E+00    0.88963155E+04
+    670    658    669       3909      1          0.2928E+03    0.21522820E+00   0.97247409E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  14  =  22
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    671    659    671       3926      1          0.2195E+03    0.88816963E+00   0.29850259E+00    0.68936302E+04
+    672    660    672       3927      1          0.1732E+03    0.92950445E+00   0.57266051E-01    0.55978305E+04
+    673    661    673       3928      1          0.1827E+03    0.92713889E+00   0.95386631E-01    0.60982661E+04
+    674    662    674       3929      1          0.2519E+03    0.79854341E+00  -0.51529382E+00    0.61693639E+04
+    675    663    675       4102      1          0.2272E+03   -0.19759985E-01  -0.99977519E+00    0.62828421E+04
+    676    664    676       4274      1          0.1820E+03   -0.42348661E+00  -0.89074561E+00    0.51207878E+04
+  4446    THE INNER ANGLE =    84.76 TANGENTIAL SLIP WILL BE ZEROED
+    677    665    677       4446     11          0.8476E+02    0.57328558E+00  -0.78823486E+00    0.88206158E+04
+    678    666    678       4447      1          0.1554E+03    0.91845972E+00  -0.17067539E+00    0.69199010E+04
+    679    667    679       4596      1          0.2705E+03    0.71776579E+00  -0.63846225E+00    0.64037716E+04
+    680    668    680       4727      1          0.2733E+03   -0.61717491E+00  -0.74970283E+00    0.59505565E+04
+    681    669    681       4844      1          0.1400E+03   -0.87627628E+00  -0.34120780E+00    0.68346557E+04
+    682    670    682       4950      1          0.1482E+03   -0.54370490E+00  -0.81214596E+00    0.72130721E+04
+    683    671    683       4949      1          0.1948E+03   -0.41943611E+00  -0.89293962E+00    0.58005346E+04
+    684    672    684       4843      1          0.3233E+03   -0.76567673E+00   0.56951334E+00    0.73804233E+04
+    685    673    685       4725      1          0.1660E+03   -0.18735603E+00   0.97956255E+00    0.87246789E+04
+    686    674    686       4595      1          0.2112E+03   -0.24114538E-01   0.99966471E+00    0.90497607E+04
+  4726    THE INNER ANGLE =   100.22 TANGENTIAL SLIP WILL BE ZEROED
+    687    675    687       4726     11          0.1002E+03   -0.27529521E+00   0.95532495E+00    0.62552226E+04
+    688    676    688       4594      1          0.1438E+03   -0.92800385E+00   0.81173473E-01    0.70488928E+04
+    689    677    689       4444      1          0.2128E+03   -0.93023424E+00   0.29495806E-01    0.51689236E+04
+    690    678    690       4272      1          0.2161E+03   -0.73442546E+00   0.61385031E+00    0.55504177E+04
+    691    679    691       4100      1          0.2465E+03   -0.31171073E-01   0.99943830E+00    0.50120350E+04
+    692    680    692       4101      1          0.1966E+03    0.64842147E+00   0.71707919E+00    0.56958413E+04
+    693    680    692       3926      1          0.2195E+03    0.73335526E+00   0.61561318E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  15  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    694    681    694       3941      1          0.2839E+03    0.66251082E+00   0.70614321E+00    0.56724602E+04
+    695    682    695       3943      1          0.2699E+03    0.68759307E+00  -0.67852781E+00    0.44470526E+04
+    696    683    696       4116      1          0.2609E+03   -0.66276419E+00  -0.70614321E+00    0.43921250E+04
+    697    684    697       3942      1          0.2653E+03   -0.68735547E+00   0.67852781E+00    0.52661811E+04
+    698    684    697       3941      1          0.2839E+03   -0.15850642E+00   0.98554630E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  16  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    699    685    699       4141      1          0.3060E+03    0.38752648E+00   0.91153695E+00    0.30243847E+04
+    700    686    700       4315      1          0.2265E+03    0.68807743E+00  -0.68347135E+00    0.42820197E+04
+    701    687    701       4316      1          0.2446E+03    0.00000000E+00  -0.10000000E+01    0.31607950E+04
+    702    688    702       4143      1          0.2982E+03   -0.92809476E+00   0.17476416E+00    0.33664732E+04
+    703    689    703       4142      1          0.1846E+03   -0.35967769E+00   0.92431820E+00    0.42619928E+04
+    704    689    703       4141      1          0.3060E+03   -0.32709486E+00   0.93783108E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  17  =  5
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    705    690    705       4269      1          0.2466E+03    0.34139344E-01   0.99932558E+00    0.53904009E+04
+    706    691    706       4270      1          0.2535E+03    0.89971491E+00   0.25281719E+00    0.55129311E+04
+    707    692    707       4442      1          0.2478E+03    0.52294288E+00  -0.82703252E+00    0.58932464E+04
+    708    693    708       4590      1          0.2536E+03   -0.55082747E+00  -0.80584579E+00    0.58605122E+04
+    709    694    709       4441      1          0.2585E+03   -0.85856590E+00   0.38411415E+00    0.61154416E+04
+    710    694    709       4269      1          0.2466E+03   -0.47270147E+00   0.86109737E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  18  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    711    695    711       4473      1          0.2446E+03    0.90491920E-01   0.99535996E+00    0.55043391E+04
+    712    696    712       4474      1          0.3020E+03    0.90338291E+00  -0.27882956E+00    0.68335898E+04
+    713    697    713       4623      1          0.2606E+03   -0.90534361E-01  -0.99535996E+00    0.42852439E+04
+    714    698    714       4622      1          0.2728E+03   -0.90332645E+00   0.27882956E+00    0.46811596E+04
+    715    698    714       4473      1          0.2446E+03   -0.49111109E+00   0.85281954E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  19  =  4
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    716    699    716       4475      1          0.3299E+03    0.89641905E+00   0.30499157E+00    0.70527499E+04
+    717    700    717       4626      1          0.2190E+03    0.43759450E+00  -0.88545928E+00    0.60193746E+04
+    718    701    718       4757      1          0.3273E+03   -0.89681487E+00  -0.30499157E+00    0.63564938E+04
+    719    702    719       4624      1          0.2038E+03   -0.43747718E+00   0.88545928E+00    0.62060462E+04
+    720    702    719       4475      1          0.3299E+03   -0.24715798E+00   0.96491009E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  20  =  6
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    721    703    721       4603      1          0.2430E+03    0.65258035E+00   0.71631026E+00    0.63634246E+04
+    722    704    722       4604      1          0.2540E+03    0.89425712E+00  -0.29409190E+00    0.56846500E+04
+    723    705    723       4735      1          0.2379E+03    0.17540035E-01  -0.99982435E+00    0.69209612E+04
+    724    706    724       4855      1          0.2225E+03   -0.65925410E+00  -0.70960787E+00    0.54698703E+04
+    725    707    725       4854      1          0.2720E+03   -0.84191696E+00   0.43557199E+00    0.59803245E+04
+    726    708    726       4734      1          0.2105E+03   -0.10244260E+00   0.99398168E+00    0.56374543E+04
+    727    708    726       4603      1          0.2430E+03    0.16897726E+00   0.98354164E+00    0.00000000E+00
+
+
+
+     TOTAL NUMBER OF NODES FOR FLOW BOUNDARY SEGMENT  21  =  6
+     THIS SEGMENT IS AN INTERNAL BOUNDARY WITH:
+       NO NORMAL FLOW AS AN ESSENTIAL B.C.
+       AND FREE TANGENTIAL SLIP
+
+    JGW    JME    ME2GW   NODE #  BNDRY CODE   INNER ANGLE       COS             SIN         0.667*BNDRY LEN
+
+    728    709    728       4986      1          0.2121E+03   -0.92322228E+00  -0.17854625E+00    0.51118355E+04
+    729    710    729       5055      1          0.2862E+03   -0.41580434E+00   0.89636588E+00    0.57751875E+04
+    730    711    730       5105      1          0.2214E+03    0.64421546E+00   0.72691838E+00    0.56467581E+04
+    731    712    731       5104      1          0.2192E+03    0.92547637E+00   0.16574504E+00    0.43653447E+04
+    732    713    732       5053      1          0.2764E+03    0.35480193E+00  -0.92582665E+00    0.54420331E+04
+    733    714    733       4987      1          0.2247E+03   -0.62325915E+00  -0.74772317E+00    0.51836355E+04
+    734    714    733       4986      1          0.2121E+03   -0.84807506E+00  -0.42786476E+00    0.00000000E+00
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER1 DESIGNATED : Q1   
+         VERIFICATION OF CONSTITUENT : Q1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.01460         219.090
+              5359           0.01466         219.409
+              5338           0.01463         219.344
+              5314           0.01463         219.712
+              5276           0.01448         219.168
+              5238           0.01432         218.965
+              5200           0.01423         219.044
+              5166           0.01410         218.334
+              5135           0.01388         217.375
+              5094           0.01378         217.125
+              5022           0.01364         213.859
+              4930           0.01364         210.346
+              4816           0.01360         210.067
+              4694           0.01350         210.157
+              4560           0.01339         209.473
+              4413           0.01330         208.440
+              4238           0.01327         207.192
+              4239           0.01316         205.245
+              4240           0.01309         204.393
+              4241           0.01290         204.612
+              4242           0.01274         204.454
+              4243           0.01270         203.561
+              4244           0.01270         202.099
+              4415           0.01251         201.684
+              4561           0.01240         201.232
+              4696           0.01230         200.617
+              4818           0.01227         199.856
+              4932           0.01227         198.839
+              4933           0.01210         198.603
+              5024           0.01197         198.216
+              5056           0.01189         197.733
+              4988           0.01180         197.198
+              4889           0.01170         196.610
+              4775           0.01170         195.978
+              4644           0.01160         195.294
+              4499           0.01160         194.567
+              4347           0.01160         193.747
+              4174           0.01159         192.823
+              4001           0.01140         191.961
+              3818           0.01130         190.665
+              3622           0.01120         189.380
+              3449           0.01110         187.925
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER2 DESIGNATED : O1   
+         VERIFICATION OF CONSTITUENT : O1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.07980         230.790
+              5359           0.08006         230.983
+              5338           0.07972         230.837
+              5314           0.07867         230.500
+              5276           0.07762         229.473
+              5238           0.07658         228.582
+              5200           0.07613         228.210
+              5166           0.07582         228.103
+              5135           0.07525         227.946
+              5094           0.07471         227.801
+              5022           0.07428         227.877
+              4930           0.07389         227.973
+              4816           0.07320         227.980
+              4694           0.07263         227.942
+              4560           0.07202         227.917
+              4413           0.07155         227.886
+              4238           0.07111         227.865
+              4239           0.07049         227.862
+              4240           0.06999         227.684
+              4241           0.06939         227.101
+              4242           0.06895         226.652
+              4243           0.06863         226.180
+              4244           0.06848         225.669
+              4415           0.06767         225.446
+              4561           0.06697         225.217
+              4696           0.06642         224.948
+              4818           0.06591         224.629
+              4932           0.06555         224.342
+              4933           0.06479         223.888
+              5024           0.06416         223.410
+              5056           0.06361         222.907
+              4988           0.06311         222.397
+              4889           0.06260         221.877
+              4775           0.06216         221.373
+              4644           0.06171         220.889
+              4499           0.06136         220.439
+              4347           0.06110         220.054
+              4174           0.06028         219.258
+              4001           0.05899         218.202
+              3818           0.05773         216.942
+              3622           0.05678         215.839
+              3449           0.05595         214.965
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER3 DESIGNATED : P1   
+         VERIFICATION OF CONSTITUENT : P1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.03770         240.620
+              5359           0.03780         241.157
+              5338           0.03758         239.720
+              5314           0.03708         238.718
+              5276           0.03653         237.963
+              5238           0.03585         236.845
+              5200           0.03547         236.138
+              5166           0.03505         235.408
+              5135           0.03423         234.162
+              5094           0.03365         233.511
+              5022           0.03328         233.362
+              4930           0.03295         233.278
+              4816           0.03264         233.225
+              4694           0.03238         233.203
+              4560           0.03211         233.188
+              4413           0.03186         233.152
+              4238           0.03167         233.105
+              4239           0.03119         232.927
+              4240           0.03082         232.725
+              4241           0.03045         232.507
+              4242           0.03008         232.289
+              4243           0.02967         232.088
+              4244           0.02932         231.859
+              4415           0.02895         231.536
+              4561           0.02852         231.152
+              4696           0.02819         230.761
+              4818           0.02784         230.331
+              4932           0.02748         229.898
+              4933           0.02720         229.441
+              5024           0.02688         228.932
+              5056           0.02652         228.369
+              4988           0.02627         227.805
+              4889           0.02592         227.247
+              4775           0.02566         226.679
+              4644           0.02538         226.089
+              4499           0.02506         225.489
+              4347           0.02480         224.877
+              4174           0.02439         223.935
+              4001           0.02391         222.850
+              3818           0.02326         221.391
+              3622           0.02276         219.975
+              3449           0.02235         218.517
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER4 DESIGNATED : K1   
+         VERIFICATION OF CONSTITUENT : K1        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.10080         241.330
+              5359           0.10145         241.540
+              5338           0.10105         241.390
+              5314           0.10020         240.877
+              5276           0.09804         240.068
+              5238           0.09593         239.296
+              5200           0.09506         238.953
+              5166           0.09433         238.849
+              5135           0.09303         238.605
+              5094           0.09172         238.296
+              5022           0.09123         238.222
+              4930           0.09053         238.089
+              4816           0.09001         238.009
+              4694           0.08954         237.941
+              4560           0.08906         237.851
+              4413           0.08866         237.744
+              4238           0.08832         237.621
+              4239           0.08752         237.286
+              4240           0.08670         236.978
+              4241           0.08570         236.729
+              4242           0.08476         236.384
+              4243           0.08378         235.994
+              4244           0.08289         235.563
+              4415           0.08187         235.273
+              4561           0.08084         234.935
+              4696           0.07982         234.536
+              4818           0.07872         234.042
+              4932           0.07760         233.493
+              4933           0.07659         232.859
+              5024           0.07554         232.099
+              5056           0.07446         231.024
+              4988           0.07361         230.498
+              4889           0.07265         230.060
+              4775           0.07179         229.448
+              4644           0.07091         228.759
+              4499           0.07007         228.037
+              4347           0.06921         227.276
+              4174           0.06798         226.115
+              4001           0.06672         224.741
+              3818           0.06539         222.908
+              3622           0.06465         221.198
+              3449           0.06226         219.108
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER5 DESIGNATED : N2   
+         VERIFICATION OF CONSTITUENT : N2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.11260         206.590
+              5359           0.11365         207.042
+              5338           0.11165         206.266
+              5314           0.10836         205.873
+              5276           0.10307         204.922
+              5238           0.09524         203.505
+              5200           0.09027         202.511
+              5166           0.08720         202.151
+              5135           0.08066         201.244
+              5094           0.07613         200.695
+              5022           0.07299         200.542
+              4930           0.07143         200.473
+              4816           0.06946         200.401
+              4694           0.06754         200.378
+              4560           0.06591         200.460
+              4413           0.06380         200.466
+              4238           0.06164         200.503
+              4239           0.05759         200.787
+              4240           0.05460         201.173
+              4241           0.05218         201.711
+              4242           0.04939         202.297
+              4243           0.04651         202.893
+              4244           0.04451         203.476
+              4415           0.04204         204.296
+              4561           0.03963         205.277
+              4696           0.03773         206.470
+              4818           0.03570         207.900
+              4932           0.03361         209.562
+              4933           0.03148         211.356
+              5024           0.02940         213.502
+              5056           0.02717         216.221
+              4988           0.02486         219.600
+              4889           0.02270         223.644
+              4775           0.02074         228.581
+              4644           0.01897         234.605
+              4499           0.01754         241.727
+              4347           0.01644         250.232
+              4174           0.01567         262.689
+              4001           0.01595         275.719
+              3818           0.01745         291.125
+              3622           0.01982         303.242
+              3449           0.02249         311.495
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER6 DESIGNATED : M2   
+         VERIFICATION OF CONSTITUENT : M2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.50470         222.150
+              5359           0.51119         222.581
+              5338           0.50751         222.324
+              5314           0.49449         222.084
+              5276           0.46718         221.136
+              5238           0.42994         219.884
+              5200           0.40772         219.060
+              5166           0.39380         218.640
+              5135           0.36600         217.800
+              5094           0.34723         217.491
+              5022           0.33733         217.351
+              4930           0.32746         217.343
+              4816           0.31820         217.224
+              4694           0.30907         217.183
+              4560           0.29936         217.271
+              4413           0.28936         217.293
+              4238           0.27897         217.418
+              4239           0.26016         217.874
+              4240           0.24566         218.304
+              4241           0.23237         218.612
+              4242           0.21813         219.053
+              4243           0.20259         219.323
+              4244           0.19067         219.471
+              4415           0.17987         219.857
+              4561           0.16992         220.341
+              4696           0.16125         221.244
+              4818           0.15130         222.329
+              4932           0.14127         223.667
+              4933           0.13130         225.373
+              5024           0.12161         227.582
+              5056           0.11180         230.476
+              4988           0.10165         233.610
+              4889           0.09157         237.493
+              4775           0.08215         242.585
+              4644           0.07383         249.016
+              4499           0.06699         256.877
+              4347           0.06208         266.237
+              4174           0.05887         281.962
+              4001           0.06141         299.344
+              3818           0.07135         316.995
+              3622           0.08451         328.247
+              3449           0.10016         335.841
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER7 DESIGNATED : S2   
+         VERIFICATION OF CONSTITUENT : S2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.17290         243.780
+              5359           0.17483         244.333
+              5338           0.17163         243.841
+              5314           0.16635         243.721
+              5276           0.15753         242.445
+              5238           0.14430         240.531
+              5200           0.13593         239.141
+              5166           0.13082         238.851
+              5135           0.11989         237.687
+              5094           0.11241         236.392
+              5022           0.10734         236.365
+              4930           0.10471         235.901
+              4816           0.10149         235.659
+              4694           0.09828         235.557
+              4560           0.09558         235.479
+              4413           0.09224         235.623
+              4238           0.08878         235.776
+              4239           0.08260         236.264
+              4240           0.07810         236.756
+              4241           0.07463         237.294
+              4242           0.07052         237.882
+              4243           0.06635         238.348
+              4244           0.06346         238.581
+              4415           0.05994         238.874
+              4561           0.05669         239.177
+              4696           0.05404         239.682
+              4818           0.05128         240.423
+              4932           0.04859         241.345
+              4933           0.04563         242.468
+              5024           0.04285         243.809
+              5056           0.03984         245.363
+              4988           0.03658         247.295
+              4889           0.03352         249.667
+              4775           0.03060         252.593
+              4644           0.02774         256.176
+              4499           0.02520         260.492
+              4347           0.02293         265.589
+              4174           0.02013         275.727
+              4001           0.01821         290.404
+              3818           0.01770         310.953
+              3622           0.01912         329.418
+              3449           0.02169         341.926
+
+
+
+
+     ELEVATION BOUNDARY TIDAL FORCING FOR CONSTITUENT NUMBER8 DESIGNATED : K2   
+         VERIFICATION OF CONSTITUENT : K2        
+
+              NODE           AMPL.         PHASE(DEG)
+
+              5382           0.04740         245.910
+              5359           0.04799         246.560
+              5338           0.04715         245.867
+              5314           0.04579         245.695
+              5276           0.04334         244.487
+              5238           0.03960         242.546
+              5200           0.03720         241.104
+              5166           0.03584         240.746
+              5135           0.03271         239.475
+              5094           0.03040         238.185
+              5022           0.02905         238.107
+              4930           0.02826         237.652
+              4816           0.02737         237.461
+              4694           0.02648         237.415
+              4560           0.02573         237.444
+              4413           0.02481         237.622
+              4238           0.02393         237.821
+              4239           0.02226         238.375
+              4240           0.02105         238.923
+              4241           0.02014         239.525
+              4242           0.01904         240.151
+              4243           0.01797         240.763
+              4244           0.01723         241.203
+              4415           0.01632         241.683
+              4561           0.01557         242.176
+              4696           0.01484         242.676
+              4818           0.01415         243.471
+              4932           0.01352         244.485
+              4933           0.01273         245.705
+              5024           0.01200         247.138
+              5056           0.01124         248.776
+              4988           0.01044         250.791
+              4889           0.00968         253.220
+              4775           0.00899         256.079
+              4644           0.00830         259.415
+              4499           0.00770         263.230
+              4347           0.00717         267.416
+              4174           0.00643         275.711
+              4001           0.00591         287.504
+              3818           0.00563         303.762
+              3622           0.00574         319.332
+              3449           0.00610         330.897
+
+ _______________________________________________________________________________
+
+
+ OUTPUT INFORMATION WILL BE PROVIDED AS FOLLOWS :
+
+
+
+ ELEVATION RECORDING STATION OUTPUT : 
+
+     NOUTE =  0
+INFO: read_input: NO OUTPUT WILL BE SPOOLED AT ELEVATION RECORDING STATIONS.
+
+
+
+     NUMBER OF INPUT ELEVATION RECORDING STATIONS =     0
+
+
+
+
+ VELOCITY RECORDING STATION OUTPUT : 
+
+     NOUTV =  0
+INFO: read_input: NO OUTPUT WILL BE SPOOLED AT VELOCITY RECORDING STATIONS
+
+
+
+
+     NUMBER OF INPUT VELOCITY RECORDING STATIONS =     0
+
+
+
+
+ GLOBAL NODAL ELEVATION INFORMATION OUTPUT: 
+
+     NOUTGE = -3
+INFO: read_input: UNIT 63 FORMAT WILL BE NETCDF CLASSIC MODEL / NETCDF3 FORMAT.
+
+     DATA RECORDS WILL START AFTER TOUTSGE =   0.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR        0 TIME STEPS INTO THE SIMULATION
+
+     DATA RECORDS WILL STOP AFTER TOUTFGE =  30.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR    32342 TIME STEPS INTO THE SIMULATION
+
+     INFORMATION WILL BE SPOOLED TO UNIT 63 EVERY NSPOOLGE =      20 TIME STEPS
+
+
+
+
+ GLOBAL NODAL VELOCITY INFORMATION OUTPUT : 
+
+     NOUTGV = -3
+INFO: read_input: UNIT 64 FORMAT WILL BE NETCDF CLASSIC MODEL / NETCDF3 FORMAT.
+
+     DATA RECORDS WILL START AFTER TOUTSGV =   0.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR        0 TIME STEPS INTO THE SIMULATION
+
+     DATA RECORDS WILL STOP AFTER TOUTFGV =  30.000 DAY(S) RELATIVE
+         TO THE STARTING TIME OR    32342 TIME STEPS INTO THE SIMULATION
+
+     INFORMATION WILL BE SPOOLED TO UNIT 64 EVERY NSPOOLGV =      20 TIME STEPS
+
+
+
+
+ HARMONIC ANALYSIS INFORMATION OUTPUT : 
+
+     HARMONIC ANALYSIS PERFORMED FOR    0 CONSTITUENTS
+
+
+
+
+     NO HARMONIC ANALYSIS WILL BE DONE
+INFO: read_input: HOT START OUTPUT INFORMATION :
+INFO: read_input: HOT START OUTPUT WILL BE GENERATED IN PORTABLE NETCDF CLASSIC / NETCDF4 (HDF5) FORMAT.
+
+     HOT START OUTPUT WILL BE WRITTEN TO UNIT 67 OR 68 EVERY      16171 TIME STEPS
+
+
+ SOLVER INFORMATION OUTPUT : 
+
+     A SPATIALLY TEMPORALLY VARIABLE OPTIMIZED 
+      WEIGHTING COEFFICIENT (Tau0) WILL BE USED 
+      IN THE GENERALIZED WAVE CONTINUITY EQUATION.
+
+ *****************************************************
+ *   Based on information extracted from the ADCIRC  *
+ *   UNIT 14 and 15 (grid and horiz run info) files  *
+ *   the following paramter values will be set:      *
+ *                                                   *
+ *       MNPROC =     6      MWPROC =     0          *
+ *       MWPROH =     0                              *
+ *       MNE =    10055      MNP  =     5434         *
+ *       MNEI =      10                              *
+ *       MNOPE =      1      MNETA =     42          *
+ *       MNBOU =     21      MNVEL =   1468          *
+ *       MNTIF =      8      MNBFR =      8          *
+ *       MNSTAE =     1      MNSTAV =     1          *
+ *       MNSTAC =     0      MNSTAM =     0          *
+ *       MNWLAT =     0      MNWLON =     0          *
+ *       MNHARF =     1      MNFFR =      0          *
+ *                                                   *
+ *   Also, NO wind forcing will be used,             *
+ *   means and variance calculation will NOT be made,*
+ *   the GWCE matrix will be left in consistent form *
+ *   and an iterative solver will be used            *
+ *****************************************************
+
+INFO: read_input: Now reading metadata from fort.15 file for use in NetCDF files.
+
+ _______________________________________________________________________________
+
+
+ LIMITED RUNTIME INFORMATION SECTION 
+
+
+INFO: ADCIRC_Run: Begin timestepping.
+ dmw202401 THIS CODE IS NOW MAKING ITS FIRST SAVE ON H1
+INFO: writeNetCDFHotstart: Opening hotstart file "./fort.67.nc" for writing.
+INFO: writeHotstart:  HOT START OUTPUT WRITTEN TO UNIT 67 AT TIME STEP =     16171 TIME =  0.12959874E+07
+INFO: writeNetCDFHotstart: Opening hotstart file "./fort.68.nc" for writing.
+INFO: writeHotstart:  HOT START OUTPUT WRITTEN TO UNIT 68 AT TIME STEP =     32342 TIME =  0.25919748E+07
+INFO: writeOutArrayMinMax: Opening min/max file "./maxele.63" for writing.
+INFO: writeOutArrayMinMax: Opening min/max file "./maxvel.63" for writing.
