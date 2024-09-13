@@ -16,7 +16,7 @@ nprocs=24
 
 main() {
     dt=$(sed -n '22p' fort.15 | awk '{print $1}')
-    log="$SLURM_JOB_ID\t\t\t$dt\t\t\t coldstart-full"
+    log="$SLURM_JOB_ID\t\t\t$dt\t\t\t 2-phase run-full"
     echo -e $log >> runlog.out 
 
     current_dir=$(pwd)

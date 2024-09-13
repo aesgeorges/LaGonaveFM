@@ -1,7 +1,7 @@
 #!/bin/bash
 # Hurricane Matthew Staging Runs
 # Configuration
-#SBATCH --job-name=Matthew2016
+#SBATCH --job-name=
 #SBATCH --account=fc_riser
 #SBATCH --partition=savio2
 #SBATCH --nodes=1
@@ -16,7 +16,7 @@ nprocs=24
 
 main() {
     dt=$(sed -n '22p' fort.15 | awk '{print $1}')
-    log="$SLURM_JOB_ID\t\t\t$dt\t\t\t 2-phase run-full"
+    log="$SLURM_JOB_ID\t\t\t$dt\t\t\t baserun"
     echo -e $log >> runlog.out 
 
     current_dir=$(pwd)
@@ -27,7 +27,7 @@ main() {
 
     echo -e "Cold start spinup run with tides ................ "
     run_cold_spinup
-    echo -e "Hot start run with wind/hurricane forcing ................ "
+    echo -e "Hot start run for rest ................ "
     run_hot_wind
 
     mv slurm-$SLURM_JOB_ID.out ../../logs/$folder_name/$SLURM_JOB_ID/slurm-$SLURM_JOB_ID.out
@@ -66,8 +66,6 @@ run_hot_wind() {
     ln -sf ../fort.15.hotstart ./fort.15
     ln -sf ../coldstart/fort.67.nc
     ln -sf ../fort.22 ./fort.22
-    aswip
-    mv NWS_20_fort.22 fort.22
 
     adcprep --np $nprocs --partmesh
     adcprep --np $nprocs --prepall

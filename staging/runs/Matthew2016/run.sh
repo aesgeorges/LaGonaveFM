@@ -5,7 +5,7 @@ nprocs=6
 main() {
     dateid=$(date '+%d%m%y-%H%M')
     dt=$(sed -n '22p' fort.15.coldstart | awk '{print $1}')
-    log="$dateid\t\t\t$dt\t\t\t tidal base 2-phase run"
+    log="$dateid\t\t\t$dt\t\t\t hurricane 2-phase run"
     echo -e $log >> runlog.out 
 
     current_dir=$(pwd)
@@ -15,7 +15,7 @@ main() {
 
     echo -e "Cold start spinup run with tides ................ " > ../../logs/$folder_name/$dateid/dateid.out
     run_cold_spinup
-    echo -e "Hot start run for rest ................ " >> ../../logs/$folder_name/$dateid/dateid.out
+    echo -e "Hot start run with wind/hurricane forcing ................ " >> ../../logs/$folder_name/$dateid/dateid.out
     run_hot_wind
 }
 
@@ -51,6 +51,8 @@ run_hot_wind() {
     ln -sf ../fort.15.hotstart ./fort.15
     ln -sf ../coldstart/fort.67.nc
     ln -sf ../fort.22 ./fort.22
+    aswip -n 20 -m 4 -z 2
+    mv NWS_20_fort.22 fort.22
 
     adcprep --np $nprocs --partmesh >> ../../../logs/$folder_name/$dateid/dateid.out
     adcprep --np $nprocs --prepall >> ../../../logs/$folder_name/$dateid/dateid.out

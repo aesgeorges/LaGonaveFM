@@ -1,4 +1,4 @@
-created on 2024-09-13 12:43                                     ! RUNDES                              - 32 CHARACTER ALPHANUMERIC RUN DESCRIPTION
+created on 2024-09-13 12:22                                     ! RUNDES                              - 32 CHARACTER ALPHANUMERIC RUN DESCRIPTION
 eastcoast_95d_ll_select.grd                                     ! RUNID                               - 24 CHARACTER ALPANUMERIC RUN IDENTIFICATION
 1                                                               ! NFOVER                              - NONFATAL ERROR OVERRIDE OPTION
 1                                                               ! NABOUT                              - ABREVIATED OUTPUT OPTION PARAMETER
@@ -15,14 +15,15 @@ primitive_weighting_in_continuity_equation
 mannings_n_at_sea_floor
 1                                                               ! NCOR                                - VARIABLE CORIOLIS IN SPACE OPTION PARAMETER
 1                                                               ! NTIP                                - TIDAL POTENTIAL OPTION PARAMETER
-0                                                               ! NWS                                 - WIND STRESS AND BAROMETRIC PRESSURE OPTION PARAMETER
+20                                                              ! NWS                                 - WIND STRESS AND BAROMETRIC PRESSURE OPTION PARAMETER
 8                                                               ! NRAMP                               - RAMP FUNCTION OPTION
 9.81                                                            ! G                                   - ACCELERATION DUE TO GRAVITY - DETERMINES UNITS
 -3                                                              ! TAU0                                - WEIGHTING FACTOR IN GWCE; original, 0.005
 80.142686                                                       ! DTDP                                - TIME STEP (IN SECONDS)
 0                                                               ! STATIM                              - STARTING TIME (IN DAYS)
 0                                                               ! REFTIM                              - REFERENCE TIME (IN DAYS)
-30                                                              ! RNDAY                               - TOTAL LENGTH OF SIMULATION (IN DAYS)
+2016 09 13 12 14 0.9 1                                          ! WTIMINC                             - meteorological data time increment
+26                                                              ! RNDAY                               - TOTAL LENGTH OF SIMULATION (IN DAYS)
 15.000 0.000 0.000 0.000 15.000 15.000 1.000 0.000 15.000       ! DRAMP                               - DURATION OF RAMP FUNCTION (IN DAYS)
 0.5 0.5 0                                                       ! A00 B00 C00                         - TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
 0.01 0 0 0.01                                                   ! H0 NODEDRYMIN NODEWETRMP VELMIN    
@@ -32,38 +33,38 @@ mannings_n_at_sea_floor
 0                                                               ! CORI                                - CORIOLIS PARAMETER - IGNORED IF NCOR = 1
 8                                                               ! NTIF                                - NUMBER OF TIDAL POTENTIAL CONSTITUENTS BEING FORCED starting 2008082300
 Q1
-0.019256 6.49585E-05 0.695 0.820291 231.721
+0.019256 6.49585E-05 0.695 0.820136 231.475
 O1
-0.100514 6.75977E-05 0.695 0.820291 338.286
+0.100514 6.75977E-05 0.695 0.820136 338.263
 P1
 0.046843 7.25229E-05 0.706 1 262.301
 K1
-0.141565 7.29212E-05 0.736 0.890285 94.2955
+0.141565 7.29212E-05 0.736 0.890192 94.3132
 N2
-0.046398 0.00013788 0.693 1.03568 324.139
+0.046398 0.00013788 0.693 1.0357 323.92
 M2
-0.242334 0.000140519 0.693 1.03568 70.7035
+0.242334 0.000140519 0.693 1.0357 70.7072
 S2
 0.112841 0.000145444 0.693 1 0
 K2
-0.030704 0.000145842 0.693 0.760456 9.21461
+0.030704 0.000145842 0.693 0.76031 9.2474
 8
 Q1
-6.49585E-05 0.820291 231.721
+6.49585E-05 0.820136 231.475
 O1
-6.75977E-05 0.820291 338.286
+6.75977E-05 0.820136 338.263
 P1
 7.25229E-05 1 262.301
 K1
-7.29212E-05 0.890285 94.2955
+7.29212E-05 0.890192 94.3132
 N2
-0.00013788 1.03568 324.139
+0.00013788 1.0357 323.92
 M2
-0.000140519 1.03568 70.7035
+0.000140519 1.0357 70.7072
 S2
 0.000145444 1 0
 K2
-0.000145842 0.760456 9.21461
+0.000145842 0.76031 9.2474
 Q1
 1.46000004e-02 2.19089996e+02
 1.46644307e-02 2.19408683e+02
@@ -901,8 +902,11 @@ K2
 0                                                               ! NSTAE                               - TOTAL NUMBER OF ELEVATION RECORDING STATIONS
 0 0 0 0                                                         ! NOUTV TOUTSV TOUTFV NSPOOLV         - VELOCITY STATION OUTPUT INFO (UNIT 62)
 0                                                               ! NSTAV                               - TOTAL NUMBER OF VELOCITY RECORDING STATIONS
--3 0.000000 30.000000 20                                        ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
--3 0.000000 30.000000 20                                        ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
+0 0 0 0                                                         ! NOUTM TOUTSM TOUTFM NSPOOLM         - METEOROLOGICAL STATION OUTPUT INFO (UNITS 71/72)
+0                                                               ! NSTAM                               - TOTAL NUMBER OF METEOROLOGICAL RECORDING STATIONS
+-3 0.000000 20.000000 20                                        ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
+-3 0.000000 20.000000 20                                        ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
+-3 0.000000 20.000000 20                                        ! NOUTGM TOUTSGM TOUTFGM NSPOOLGM     - GLOBAL METEOROLOGICAL OUTPUT INFO
 0                                                               ! NFREQ                              
 0 0 0 0                                                         ! THAS THAF NHAINC FMV                - HARMONIC ANALYSIS PARAMETERS
 0 0 0 0                                                         ! NHASE NHASV NHAGE NHAGV             - CONTROL HARMONIC ANALYSIS AND OUTPUT TO UNITS 51,52,53,54
