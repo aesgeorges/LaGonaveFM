@@ -12,7 +12,6 @@ main() {
     folder_name=$(basename $current_dir)
 
     mkdir ../../logs/$folder_name/$dateid
-    # cp fort.15 ../../logs/$folder_name/$dateid/fort.15
 
     echo -e "Cold start spinup run with tides ................ " > ../../logs/$folder_name/$dateid/dateid.out
     run_cold_spinup

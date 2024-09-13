@@ -1,6 +1,6 @@
 ## Command(s) to run
 
-nprocs=4
+nprocs=6
 
 main() {
     dateid=$(date '+%d%m%y-%H%M')
