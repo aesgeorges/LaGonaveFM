@@ -1,0 +1,7 @@
+Logs of run attempts and their parameters.
+Hurricane Georges1998
+------------------------------------------
+id						dt						type						comment
+130924-1438			80.142686			 tidal base 2-phase run
+										 coldstart-spinup
+										 hotstart-wind run
