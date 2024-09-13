@@ -66,7 +66,7 @@ run_hot_wind() {
     ln -sf ../fort.15.hotstart ./fort.15
     ln -sf ../coldstart/fort.67.nc
     ln -sf ../fort.22 ./fort.22
-    aswip
+    aswip -n 20 -m 4 -z 2
     mv NWS_20_fort.22 fort.22
 
     adcprep --np $nprocs --partmesh
