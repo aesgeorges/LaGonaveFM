@@ -2,10 +2,12 @@ Logs of run attempts and their parameters.
 Hurricane Matthew2016
 ------------------------------------------
 id						dt						type						comment
-130924-1228			80.142686			 hurricane 2-phase run
+130924-1247			80.142686			 tidal base 2-phase run
 										 coldstart-spinup
 										 hotstart-wind run					records are too short - changed TOUTFG parameters
-
-130924-1301			80.142686			 hurricane 2-phase run
+130924-1301			80.142686			 tidal base 2-phase run
+										 coldstart-spinup
+										 hotstart-wind run					still too short - only updated cold start and not hot start by mistake
+130924-1315			80.142686			 tidal base 2-phase run
 										 coldstart-spinup
 										 hotstart-wind run

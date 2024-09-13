@@ -1,8 +1,0 @@
-Logs of run attempts and their parameters.
-Hurricane Jeanne2004
-------------------------------------------
-id						dt						type						comment
-20825597			80.142686			 coldstart-full
-20827669			80.142686			 coldstart-full
-20828245			80.142686			 coldstart-full
-20828292			80.142686			 coldstart-full                     Success!

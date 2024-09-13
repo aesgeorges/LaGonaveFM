@@ -1,7 +1,7 @@
 #!/bin/bash
 # Hurricane Matthew Staging Runs
 # Configuration
-#SBATCH --job-name=
+#SBATCH --job-name=Matthew2016
 #SBATCH --account=fc_riser
 #SBATCH --partition=savio2
 #SBATCH --nodes=1
@@ -66,7 +66,7 @@ run_hot_wind() {
     ln -sf ../fort.15.hotstart ./fort.15
     ln -sf ../coldstart/fort.67.nc
     ln -sf ../fort.22 ./fort.22
-    aswip -n 20 -m 4 -z 2
+    aswip
     mv NWS_20_fort.22 fort.22
 
     adcprep --np $nprocs --partmesh

@@ -1,8 +1,0 @@
-Logs of run attempts and their parameters.
-Hurricane Laura2020
-------------------------------------------
-id						dt						type						comment
-20827652			80.142686			 coldstart-full                     Fail -- fort.22 dates do not match fort.15
-20890918			80.142686			 coldstart-full                     Success -- 
-20891013			80.142686			 coldstart-full                     Fail -- fort.22 dates do not match
-20891015			80.142686			 coldstart-full
