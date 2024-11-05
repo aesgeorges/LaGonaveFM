@@ -44,9 +44,11 @@ subdomain() {
     echo -e "generating subdomain"
     python2.7 ../../../scripts/gensub.py "$current_dir" "$subdomain_dir"
 
+    cp fort.15.coldstart coldstart/fort.15
+    cp fort.15.hotstart hotstart/fort.15
+
     # Geenrate full domain control file
     echo -e "generating full domain control file"
-    python2.7 ../../../scripts/genfull.py
 
     # run adcirc on full domain (cold spinup followed by hot wind)
     echo -e "running adcirc on full domain"
@@ -55,16 +57,17 @@ subdomain() {
 
     # remap boundary nodes numbers
     echo -e "remapping boundary nodes numbers"
-    python2.7 ../../../scripts/remap.py "$current_dir" "$subdomain_dir"
+    python2.7 ../../../scripts/remap.py hotstart/ "$subdomain_dir"
     # extract subdomain boundary conditions for ADCIRC
     echo -e "extracting subdomain boundary conditions"
-    python2.7 -i ../../../scripts/genbcs.py "$current_dir" "$subdomain_dir" 
+    python2.7 -i ../../../scripts/genbcs.py hotstart/ "$subdomain_dir" 
 
     # run adcirc on subdomain
     echo -e "running adcirc on subdomain"
     cd s1_gonave
-    run_cold_spinup "../../../../logs/$folder_name/$dateid"
-    run_hot_wind "../../../../logs/$folder_name/$dateid"
+    adcirc
+    #run_cold_spinup "../../../../logs/$folder_name/$dateid"
+    #run_hot_wind "../../../../logs/$folder_name/$dateid"
 }
 
 subdomain_setup() {
@@ -81,9 +84,15 @@ run_cold_spinup() {
     cp fort.15.coldstart "$logpath/fort.15.coldstart"
     rm -rf coldstart
     mkdir coldstart
+
+    mv fort.15.coldstart fort.15
+    python2.7 -i ../../../scripts/genfull.py .
+    mv fort.15 fort.15.coldstart
+
     cd coldstart
     ln -sf ../fort.13
     ln -sf ../fort.14
+    ln -sf ../fort.015
     ln -sf ../fort.15.coldstart ./fort.15
     
     adcprep --np $nprocs --partmesh >> "$logpath/dateid.out"
@@ -101,10 +110,16 @@ run_hot_wind() {
     cp fort.15.hotstart "$logpath/fort.15.hotstart"
     rm -rf hotstart
     mkdir hotstart
+
+    mv fort.15.hotstart fort.15
+    python2.7 -i ../../../scripts/genfull.py .
+    mv fort.15 fort.15.hotstart
+
     cd hotstart
     ln -sf ../fort.14
     ln -sf ../fort.13
     ln -sf ../fort.15.hotstart ./fort.15
+    ln -sf ../fort.015
     ln -sf ../coldstart/fort.67.nc
     ln -sf ../fort.22 ./fort.22
     aswip -n 20 -m 4 -z 2
@@ -114,6 +129,8 @@ run_hot_wind() {
     adcprep --np $nprocs --prepall >> "$logpath/dateid.out"
     mpirun -np $nprocs ~/adcirc/work/padcirc >> "$logpath/dateid.out"
     clean_directory
+
+
     cd ..
 }
 
