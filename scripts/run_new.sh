@@ -57,12 +57,14 @@ subdomain() {
 
     # remap boundary nodes numbers
     echo -e "remapping boundary nodes numbers"
+    echo -e "calling remap.py"
     python2.7 ../../../scripts/remap.py hotstart/ "$subdomain_dir"
     # extract subdomain boundary conditions for ADCIRC
     echo -e "extracting subdomain boundary conditions"
-    python2.7 -i ../../../scripts/genbcs.py hotstart/ "$subdomain_dir" 
+    python2.7 ../../../scripts/genbcs.py hotstart/ "$subdomain_dir" 
 
     # run adcirc on subdomain
+    """ copy fort.15 into subdomain, most likely the hotstart one. """ 
     echo -e "running adcirc on subdomain"
     cd s1_gonave
     adcirc
@@ -71,8 +73,21 @@ subdomain() {
 }
 
 subdomain_setup() {
-    echo -e "&subdomainModeling subdomainOn=T /" >> fort.15.coldstart
-    echo -e "&subdomainModeling subdomainOn=T /" >> fort.15.hotstart
+    # Find and replace the specific lines at the end of the file
+    sed -i '
+    /&metControl.*WindDragLimit/ {
+        c\&metControl \
+WindDragLimit=0.0025, \
+DragLawString="default", \
+outputWindDrag=F, \
+invertedBarometerOnElevationBoundary=T \
+/\
+&subdomainModeling \
+subdomainOn=T, /
+}' fort.15.coldstart fort.15.hotstart
+
+    #echo -e "&subdomainModeling subdomainOn=T /" >> fort.15.coldstart
+    #echo -e "&subdomainModeling subdomainOn=T /" >> fort.15.hotstart
     ln -sf ../fort.22 s1_gonave/fort.22
 }
 
@@ -136,14 +151,14 @@ run_hot_wind() {
 
 clean_directory() {
     rm -rf PE*
-    rm -rf partmesh.txt
-    rm -rf metis_graph.txt
-    rm -rf fort.13
-    rm -rf fort.14
-    rm -rf fort.15
-    rm -rf fort.16
-    rm -rf fort.80
-    rm -rf fort.68.nc
+    #rm -rf partmesh.txt
+    #rm -rf metis_graph.txt
+    #rm -rf fort.13
+    #rm -rf fort.14
+    #rm -rf fort.15
+    #rm -rf fort.16
+    #rm -rf fort.80
+    #rm -rf fort.68.nc
 }
 
 main

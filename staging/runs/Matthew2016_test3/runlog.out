@@ -1,0 +1,10 @@
+Logs of run attempts and their parameters.
+Hurricane Matthew2016_test3
+------------------------------------------
+id						dt						type						comment
+071124-1618			80.142686			 hurricane 2-phase run
+										 coldstart-spinup
+										 hotstart-wind run
+071124-1751			80.142686			 hurricane 2-phase run
+										 coldstart-spinup
+										 hotstart-wind run
