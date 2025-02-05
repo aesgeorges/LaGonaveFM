@@ -5,3 +5,5 @@
 **/*_test/
 **/*_test2/
 **/*_subdomain/
+*.tif
+**/*.tif
