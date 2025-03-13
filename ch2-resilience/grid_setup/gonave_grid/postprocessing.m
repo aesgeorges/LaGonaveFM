@@ -1,12 +1,13 @@
 %% Post-processing
-% m = Calc_tau0(m);
-dt = 60; %dt should be in memory from running gridmaker, if not, set with same value
-demfile = 'EastCoast.nc';
-m = load('gonave_grid_temp.mat').m;
-m = interp(m, demfile, 'type', 'depth');
+
+dt = 15; %dt should be in memory from running gridmaker, if not, set with same value
+demfile = 'datasets/EastCoast.nc'; %EastCoast.nc
+m = load('exports/AYTCJ_mesh_fixtest.mat').m;
+m = interp(m, demfile, 'nan', 'fill');
+m = Calc_tau0(m);
 m = bound_courant_number(m,dt);
 m = renum(m);
-write(m, 'lgn_grid_test');
+write(m, 'exports/AYTCJ_grid_fix');
 plot(m, 'b')
 
 %save('gonave_grid.mat', 'm')
@@ -21,4 +22,4 @@ plot(m, 'b')
 %m.f15.outhar = [30 120 360 0];
 %m.f15.outhar_flag = [0 0 5 0];
 
-%write(m)
+%write(m)m.plot()

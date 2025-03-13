@@ -1,0 +1,45 @@
+$*************************HEADING************************
+$
+PROJ 'Matthew2016' 'MTW'
+$
+$********************MODEL INPUT*************************
+$
+SET LEVEL 2.0
+SET DEPMIN 2.0
+MODE NONSTATIONARY
+$
+COORDINATES SPHERICAL CCM
+$
+$ Simple grid settings
+CGRID UNSTRUCTURED CIRCLE MDC=24 FLOW=0.04 MSC=40
+READ UNSTRUCTURED
+$
+$ Simple initialization
+INIT JONSWAP 0.1 PEAK=0.1
+$
+$ Only use wind input - no water levels, currents or variable friction
+INPGRID WIND UNSTRUCTURED EXCEPTION 0.1 NONSTAT 20161004.000000 3600 SEC 20161006.000000
+READINP ADCWIND
+$
+$ Basic physics - just wind generation, breaking and simple friction
+GEN3 KOMEN AGROW
+BREAKING
+FRICTION JONSWAP 0.067
+PROP BSBT
+$
+$ Simple propagation scheme
+PROP BSBT
+$
+$ Relaxed numerical parameters
+NUM STOPC DABS=0.05 DREL=0.1 NPNTS=75 NONSTAT MXITNS=10
+NUM ACCUR CSIGMA CFL=0.5 CTHETA CFL=0.5
+$
+$*************************************************************
+$
+$ Basic output - just wave height, direction and period
+QUANTITY HS DIR TPS
+$
+TEST 1,0
+COMPUTE 20161004.000000 3600 SEC 20161006.000000
+OUTPUT 20161004.000000 3600 SEC 20161006.000000
+STOP
