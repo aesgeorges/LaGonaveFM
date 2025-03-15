@@ -20,7 +20,7 @@ test_swan                                ! 32 CHARACTER ALPHANUMERIC RUN DESCRIP
 20.0                                     ! DTDP - TIME STEP (IN SECONDS)
 0.0                                      ! STATIM - STARTING SIMULATION TIME IN DAYS
 0.0                                      ! REFTIME - REFERENCE TIME (IN DAYS) FOR NODAL FACTORS AND EQUILIBRIUM ARGS
-2016 10 04 00 1 0.9 1 3600.0             ! YYYY MM DD HH24 StormNumber BLAdj geofactor
+2016 10 03 00 1 0.9 1 3600.0             ! YYYY MM DD HH24 StormNumber BLAdj geofactor
 2.0                                      ! RNDAY - TOTAL LENGTH OF SIMULATION (IN DAYS)
 0.00000                                  ! DRAMP - DURATION OF RAMP FUNCTION (IN DAYS)
 0.350000 0.300000 0.350000               ! TIME WEIGHTING FACTORS FOR THE GWCE EQUATION
