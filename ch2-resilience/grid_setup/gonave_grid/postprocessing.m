@@ -1,13 +1,13 @@
 %% Post-processing
 
-dt = 15; %dt should be in memory from running gridmaker, if not, set with same value
-demfile = 'datasets/EastCoast.nc'; %EastCoast.nc
-m = load('exports/AYTCJ_mesh_fixtest.mat').m;
+dt = 10; %dt should be in memory from running gridmaker, if not, set with same value
+demfile = [root 'datasets/EastCoast.nc']; %EastCoast.nc
+m = load([root 'exports/ww_gonave_v0.mat']).m;
 m = interp(m, demfile, 'nan', 'fill');
 m = Calc_tau0(m);
 m = bound_courant_number(m,dt);
 m = renum(m);
-write(m, 'exports/AYTCJ_grid_fix');
+write(m, [root 'exports/ww_gonave_v0']);
 plot(m, 'b')
 
 %save('gonave_grid.mat', 'm')
