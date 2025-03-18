@@ -10,6 +10,6 @@ rm swan_*
 
 adcprep --np 8 --partmesh
 adcprep --np 8 --prepall
-mpirun -np 8 padcirc
+mpirun -np 8 ~/adcirc/work/padcirc
 
 rm -rf PE*
