@@ -4,6 +4,7 @@ INFO: openFileForRead: The file 'fort.15' was opened successfully.
 INFO: readFort015prep: The subdomainModeling capability is not active.
 ECHO: readFort015prep:  subdomainOn= F
 INFO: read15: The metControl namelist was not found.
+INFO: read15: The InterpInset namelist was not found.
 INFO: read15: The waveCoupling namelist was not found.
 INFO: read15: The owiWindNetcdf namelist was not found.
 INFO: read15: The wetDryControl namelist was not found.
@@ -24,8 +25,8 @@ INFO: initNodalDataFile: Initialized "maxele.63.nc" file.
 INFO: initNodalDataFile: Initialized "maxvel.63.nc" file.
 INFO: initNodalDataFile: Initialized "minpr.63.nc" file.
 INFO: initNodalDataFile: Initialized "maxwvel.63.nc" file.
-INFO: initNodalDataFile: Initialized "maxrs.63.nc" file.
 INFO: initNodalDataFile: Initialized "rads.64.nc" file.
+INFO: initNodalDataFile: Initialized "maxrs.63.nc" file.
 INFO: initNodalDataFile: Initialized "swan_HS.63.nc" file.
 INFO: initNodalDataFile: Initialized "swan_HS_max.63.nc" file.
 INFO: initNodalDataFile: Initialized "swan_DIR.63.nc" file.
