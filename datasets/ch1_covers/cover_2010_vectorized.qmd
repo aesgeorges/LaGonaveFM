@@ -3,7 +3,7 @@
   <identifier></identifier>
   <parentidentifier></parentidentifier>
   <language></language>
-  <type>dataset</type>
+  <type></type>
   <title></title>
   <abstract></abstract>
   <links/>
@@ -12,14 +12,14 @@
   <encoding></encoding>
   <crs>
     <spatialrefsys nativeFormat="Wkt">
-      <wkt>GEOGCRS["Undefined geographic SRS",DATUM["unknown",ELLIPSOID["unknown",6378137,298.257223563,LENGTHUNIT["metre",1,ID["EPSG",9001]]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],CS[ellipsoidal,2],AXIS["latitude",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]],AXIS["longitude",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433,ID["EPSG",9122]]]]</wkt>
-      <proj4>+proj=longlat +ellps=WGS84 +no_defs +type=crs</proj4>
-      <srsid>3102</srsid>
-      <srid>32618</srid>
-      <authid>EPSG:32618</authid>
-      <description>Undefined geographic SRS</description>
-      <projectionacronym>utm</projectionacronym>
-      <ellipsoidacronym>PARAMETER:6378137:6356752.31424517929553986</ellipsoidacronym>
+      <wkt></wkt>
+      <proj4></proj4>
+      <srsid>0</srsid>
+      <srid>0</srid>
+      <authid></authid>
+      <description></description>
+      <projectionacronym></projectionacronym>
+      <ellipsoidacronym></ellipsoidacronym>
       <geographicflag>false</geographicflag>
     </spatialrefsys>
   </crs>
