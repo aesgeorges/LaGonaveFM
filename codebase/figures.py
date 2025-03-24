@@ -7,6 +7,7 @@ from kalpana.plotting import plot_nc
 from kalpana.export import fort14togdf
 from kalpana.ADCIRC_tools import extract_ts_from_nc
 import cartopy.crs as ccrs
+import cartopy.feature as cfeature
 import matplotlib as mpl
 
 def plot_transects(mesh, center_x, center_y, num_points, transects):
@@ -42,7 +43,7 @@ def plot_transects(mesh, center_x, center_y, num_points, transects):
     return fig, ax
 
 
-def plot_transect_data(transect_id, timestep, transects, nc, mesh):
+def plot_transect_data(transect_id, timestep, transects, nc, nc_wind, mesh):
     """
     Plots water elevation along a specified transect with an inset map showing the transect location.
 
@@ -51,6 +52,7 @@ def plot_transect_data(transect_id, timestep, transects, nc, mesh):
     - timestep    : int, timestep to extract data for.
     - transects   : list, list of transect dataframes containing longitude and latitude.
     - nc          : netCDF4.Dataset, NetCDF dataset containing water elevation data.
+    - nc_wind     : netCDF4.Dataset, NetCDF dataset containing wind data.
     - mesh        : geopandas.GeoDataFrame, mesh data for plotting the inset map.
 
     Returns:
@@ -58,8 +60,8 @@ def plot_transect_data(transect_id, timestep, transects, nc, mesh):
     - ax_main     : matplotlib.axes.Axes, the main plot axis.
     - ax_inset    : matplotlib.axes.Axes, the inset map axis
     """
-    fig, ax_main = plt.subplots(figsize=(10, 6))
-    ax_inset = fig.add_axes([0.2, 0.3, 0.2, 0.3], projection=ccrs.PlateCarree())  # [x, y, width, height] for inset
+    fig, ax_main = plt.subplots(figsize=(10, 6), dpi=800)
+    ax_inset = fig.add_axes([0.2, 0.2, 0.3, 0.3], projection=ccrs.PlateCarree())  # [x, y, width, height] for inset
 
     # Extract water elevation data along the transect
     dfout, rep = extract_ts_from_nc(nc, list(zip(transects[transect_id].lon, transects[transect_id].lat)), variable='zeta', extractOut=False, closestIfDry=False)  
@@ -77,16 +79,23 @@ def plot_transect_data(transect_id, timestep, transects, nc, mesh):
 
     # Inset plot
     for i in range(len(transects)):
-        ax_inset.plot(transects[i].lon, transects[i].lat, transform=ccrs.PlateCarree(), color='k')
-    ax_inset.plot(transects[transect_id].lon, transects[transect_id].lat, transform=ccrs.PlateCarree(), color='red')
-    mesh.plot(ax=ax_inset)
+        ax_inset.plot(transects[i].lon, transects[i].lat, transform=ccrs.PlateCarree(), color='k', alpha=0.2)
+    ax_inset.plot(transects[transect_id].lon, transects[transect_id].lat, 
+                  transform=ccrs.PlateCarree(), color='red', alpha=0.4)
+    #mesh.plot(ax=ax_inset)
+    
+    cmap = cmocean.cm.balance
+    cmap = cmocean.tools.crop(cmap, -.5, 2, 0)
+    plot_nc(nc, 'zeta', levels=np.arange(-.5, 2., 0.05), background_map=True, cbar=True, cb_label='Max water level [mMSL]', cmap=cmap, ts=43,
+        ncvec=nc_wind, dxvec=0.1, dyvec=0.1, vecsc=1000, ax=ax_inset, fig=fig)
+
     ax_inset.set_xlim(-73.5, -72.5)
     ax_inset.set_ylim(19., 19.75)
-    gl = ax_inset.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, alpha=0.5, linestyle='--')
-    gl.top_labels = False
-    gl.right_labels = False
-    gl.xlocator = mpl.ticker.MaxNLocator(nbins=5)
-    gl.ylocator = mpl.ticker.MaxNLocator(nbins=3)
+    #gl = ax_inset.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, alpha=0.5, linestyle='--')
+    #gl.top_labels = False
+    #gl.right_labels = False
+    #gl.xlocator = mpl.ticker.MaxNLocator(nbins=5)
+    #gl.ylocator = mpl.ticker.MaxNLocator(nbins=3)
 
     return fig, ax_main, ax_inset
 
@@ -104,7 +113,7 @@ def plot_wave_direction_and_height(nc_HS, nc_DIR, track_df, timestep):
     Returns:
     - fig, ax  : matplotlib.figure.Figure, matplotlib.axes.Axes, Figure and axes objects.
     """
-    fig, ax = plt.subplots(figsize=(12, 8), subplot_kw={'projection': ccrs.PlateCarree()}, constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(12, 8), dpi=600, subplot_kw={'projection': ccrs.PlateCarree()}, constrained_layout=True)
     
     # Significant wave height
     plot_nc(nc_HS, 'swan_HS', levels=np.arange(0., 15., 0.01),
