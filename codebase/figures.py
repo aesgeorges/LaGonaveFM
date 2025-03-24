@@ -61,7 +61,7 @@ def plot_transect_data(transect_id, timestep, transects, nc, nc_wind, mesh):
     - ax_inset    : matplotlib.axes.Axes, the inset map axis
     """
     fig, ax_main = plt.subplots(figsize=(10, 6), dpi=800)
-    ax_inset = fig.add_axes([0.2, 0.2, 0.3, 0.3], projection=ccrs.PlateCarree())  # [x, y, width, height] for inset
+    ax_inset = fig.add_axes([0.17, 0.15, 0.38, 0.38], projection=ccrs.PlateCarree())  # [x, y, width, height] for inset
 
     # Extract water elevation data along the transect
     dfout, rep = extract_ts_from_nc(nc, list(zip(transects[transect_id].lon, transects[transect_id].lat)), variable='zeta', extractOut=False, closestIfDry=False)  
@@ -76,26 +76,30 @@ def plot_transect_data(transect_id, timestep, transects, nc, nc_wind, mesh):
     ax_main.set_xlabel('Longitude along transect')
     ax_main.set_ylabel('Water Elevation')
     ax_main.set_xlim(transects[transect_id].lon.min(), transects[transect_id].lon.max())
+    ax_main.set_ylim(-0.5, 2.0)
 
     # Inset plot
     for i in range(len(transects)):
-        ax_inset.plot(transects[i].lon, transects[i].lat, transform=ccrs.PlateCarree(), color='k', alpha=0.2)
+        ax_inset.plot(transects[i].lon, transects[i].lat, 
+                      transform=ccrs.PlateCarree(), color='k', alpha=0.2, linewidth=0.5, linestyle='--')
     ax_inset.plot(transects[transect_id].lon, transects[transect_id].lat, 
-                  transform=ccrs.PlateCarree(), color='red', alpha=0.4)
+                  transform=ccrs.PlateCarree(), color='red', alpha=0.8, linewidth=0.7, linestyle='--')
     #mesh.plot(ax=ax_inset)
     
-    cmap = cmocean.cm.balance
-    cmap = cmocean.tools.crop(cmap, -.5, 2, 0)
-    plot_nc(nc, 'zeta', levels=np.arange(-.5, 2., 0.05), background_map=True, cbar=True, cb_label='Max water level [mMSL]', cmap=cmap, ts=43,
+    cmap = plt.get_cmap('bwr_r')
+    cmap = cmocean.tools.crop(cmap, -.5, 1.8, 0)
+    
+    plot_nc(nc, 'zeta', levels=np.arange(-.5, 1.8, 0.02), background_map=False, cbar=True, cb_label='Max water level [mMSL]', cmap=cmap, ts=timestep,
         ncvec=nc_wind, dxvec=0.1, dyvec=0.1, vecsc=1000, ax=ax_inset, fig=fig)
-
-    ax_inset.set_xlim(-73.5, -72.5)
-    ax_inset.set_ylim(19., 19.75)
-    #gl = ax_inset.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, alpha=0.5, linestyle='--')
-    #gl.top_labels = False
-    #gl.right_labels = False
-    #gl.xlocator = mpl.ticker.MaxNLocator(nbins=5)
-    #gl.ylocator = mpl.ticker.MaxNLocator(nbins=3)
+    coast = cf.GSHHSFeature(scale='high', alpha=0.5)
+    ax_inset.add_feature(coast)
+    ax_inset.set_xlim(-73.45, -72.6)
+    ax_inset.set_ylim(19., 19.72)
+    gl = ax_inset.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, alpha=0.5, linestyle='--')
+    gl.top_labels = False
+    gl.right_labels = False
+    gl.xlocator = mpl.ticker.MaxNLocator(nbins=5)
+    gl.ylocator = mpl.ticker.MaxNLocator(nbins=3)
 
     return fig, ax_main, ax_inset
 
