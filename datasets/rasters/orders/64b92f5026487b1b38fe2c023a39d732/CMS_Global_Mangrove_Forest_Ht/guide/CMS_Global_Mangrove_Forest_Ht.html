@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta keywords="Carbon Monitoring System, Global Ecosystem Dynamics Investigation, maximum canopy height , TanDEM-X, Global Mangrove Watch" />
+    <title>
+      
+      CMS: Global Mangrove Canopy Height Maps Derived from TanDEM-X, 2015
+      
+    </title>
+    <link rel="stylesheet" href="https://daac.ornl.gov/css/new.css" />
+    <link rel="stylesheet" href="https://daac.ornl.gov/css/ome_guide.css" />
+  </head>
+  <body>
+    <div class="pagebox">
+      
+      <!--#include virtual="/nav_header4.shtml" -->
+      
+      <div class="textarea">
+        <h1 class="pagetitle">
+          
+          CMS: Global Mangrove Canopy Height Maps Derived from TanDEM-X, 2015
+          
+        </h1>
+        <div class="mainarea guidearea">
+          <div class="get_data">
+            <a class="button" href="/cgi-bin/dsviewer.pl?ds_id=2251">Get Data</a>
+          </div>
+          <p class="date">Documentation Revision Date:
+                                2024-06-06</p>
+          <p>
+            Dataset Version:
+            
+            1
+            
+          </p>
+          <h2>Summary</h2>
+          <div>
+            
+            This dataset characterizes canopy heights of mangrove-forested wetlands globally for 2015 at 12-m resolution. Estimates of maximum canopy height (height of the tallest tree) were derived from the German Space Agency's TanDEM-X data that produced global digital surface models. Also provided are Lidar estimates of canopy height based on the GEDI instrument, which were used for training and validation of the TanDEM-X estimates of forest height. The coverage of these data follows Global Mangrove Watch's mangrove extent maps. These spatially explicit maps of mangrove canopy height can be used to assess local-scale geophysical and environmental conditions that may regulate forest structure and carbon cycle dynamics. Maps revealed a wide range of canopy heights, including maximum values (>60 m) that surpass maximum heights of other forest types. Maps are provided in cloud optimized GeoTIFF format, and mangrove heights for individual GEDI tiles are compiled in a comma separated values (CSV) files.
+            
+            
+            <p>This dataset contains 1443 files in cloud optimized GeoTIFF format and one comma separated values (CSV) file.</p>
+            
+          </div>
+          <div class="browse_block">
+            <a href="CMS_Global_Mangrove_Forest_Ht_Fig1.png">
+              <img class="browse_image" src="CMS_Global_Mangrove_Forest_Ht_Fig1.png" />
+            </a>
+            <p class="caption">
+              
+              Figure 1. The tallest mangrove forests globally with forest stands that were estimated  at 63 m in Canopy Height Maps. The photo insets show locations where individual trees were measured in situ up to 65 m tall. Figure from Simard et al (2019a).
+              
+            </p>
+          </div>
+          <h2>Citation</h2>
+          <p class="citation">
+            Simard, M., L. Fatoyinbo, N. Thomas, A. Stovall, A. Parra, M.W. Denbina, D. Lagomasino, and I. Hajnsek. 2024. CMS: Global Mangrove Canopy Height Maps Derived from TanDEM-X, 2015. ORNL DAAC, Oak Ridge, Tennessee, USA.
+            <a href="https://doi.org/10.3334/ORNLDAAC/2251">https://doi.org/10.3334/ORNLDAAC/2251</a>
+          </p>
+          <h2 class="countheads">Table of Contents</h2>
+          <ol>
+            <li>
+              <a href="#datasetoverview">Dataset Overview</a>
+            </li>
+            <li>
+              <a href="#datacharact">Data Characteristics</a>
+            </li>
+            <li>
+              <a href="#appderivation">Application and Derivation</a>
+            </li>
+            <li>
+              <a href="#qualityassess">Quality Assessment</a>
+            </li>
+            <li>
+              <a href="#acqmatmethods">Data Acquisition, Materials, and Methods</a>
+            </li>
+            <li>
+              <a href="#datadescraccess">Data Access</a>
+            </li>
+            <li>
+              <a href="#references">References</a>
+            </li>
+          </ol>
+          <h2 id="datasetoverview" class="countheads">Dataset Overview</h2>
+          <div>
+            
+            <p>This dataset characterizes canopy heights of mangrove-forested wetlands globally for 2015 at 12-m resolution. Estimates of maximum canopy height (height of the tallest tree) were derived from the German Space Agency&rsquo;s TanDEM-X data that produced global digital surface models. The coverage of these data follows Global Mangrove Watch&rsquo;s mangrove extent maps. These spatially explicit maps of mangrove canopy height can be used to assess local-scale geophysical and environmental conditions that may regulate forest structure and carbon cycle dynamics. Also provided are Lidar estimates of canopy height based on the GEDI instrument, which were used for training and validation of the TanDEM-X estimates of forest height. Maps revealed a wide range of canopy heights, including maximum values (&gt;60 m) that surpass maximum heights of other forest types.</p>
+
+<p><strong>Project</strong>: <a href="https://daac.ornl.gov/cgi-bin/dataset_lister.pl?p=33">Carbon Monitoring System</a></p>
+
+<p>The NASA Carbon Monitoring System (CMS) is designed to make significant contributions in characterizing, quantifying, understanding, and predicting the evolution of global carbon sources and sinks through improved monitoring of carbon stocks and fluxes. The System will use the full range of NASA satellite observations and modeling/analysis capabilities to establish the accuracy, quantitative uncertainties, and utility of products for supporting national and international policy, regulatory, and management activities. CMS will maintain a global emphasis while providing finer scale regional information, utilizing space-based and surface-based data and will rapidly initiate generation and distribution of products both for user evaluation and to inform near-term policy development and planning.</p>
+
+<p><strong>Related Publications:</strong></p>
+
+<p>Simard, M., L. Fatpyinbo, C. Smetanka, V.H. Rivera-Monroy, E. Castaneda-Moya, N. Thomas, and T. Van der Stocken. 2019a. Mangrove canopy height globally related to precipitation, temperature and cyclone frequency. Nature Geoscience 12:40-45. <a href="https://doi.org/10.1038/s41561-018-0279-1">https://doi.org/10.1038/s41561-018-0279-1</a></p>
+
+<p>Simard, M., L. Fatoyinbo, N.M. Thomas, A.E. Stovall, A. Parra, A. Barenblitt, P. Bunting, and I. Hajnsek. 2024. A new global mangrove height map with a 12-meter spatial resolution. In review 2024, Nature Scientific Data.</p>
+
+<p><strong>Related Datasets:</strong></p>
+
+<p>Simard, M., T. Fatoyinbo, C. Smetanka, V.H. Rivera-monroy, E. Castaneda, N. Thomas, and T. Van der stocken. 2019b. Global Mangrove Distribution, Aboveground Biomass, and Canopy Height. ORNL DAAC, Oak Ridge, Tennessee, USA. <a href="https://doi.org/10.3334/ORNLDAAC/1665">https://doi.org/10.3334/ORNLDAAC/1665</a></p>
+
+<p>&nbsp;</p>
+
+<p><strong>Acknowledgements</strong>:</p>
+
+<p>Part of this work was performed at the Jet Propulsion Laboratory under contract with the National Aeronautics and Space Administration (NASA). It was funded under NASA&#39;s Land Cover and Land Use Change (LULC; grant WBS 437949.02.06.01.36) and the Carbon Monitoring Systems (CMS; grant WBS 281945.02.58.02.31) programs.</p>
+            
+          </div>
+          <h2 id="datacharact" class="countheads">Data Characteristics</h2>
+          <div>
+            
+            <p><strong>Spatial Coverage</strong>: A&nbsp;circum-equatorial band from 34 degrees north to 39 degrees south latitude</p>
+
+<p><strong>Spatial Resolution:&nbsp;</strong>12 m</p>
+
+<p><strong>Temporal Coverage</strong>: Mangrove height maps: 2015; GEDI L2A mangrove heights: 2019-04-18 to 2022-05-22</p>
+
+<p><strong>Temporal Resolution</strong>:&nbsp;One-time estimates for nominal year 2015 of maximum canopy height. GEDI data were collected between April 2019 and May 2022.</p>
+
+<p><strong>Study Area</strong>&nbsp;(All latitudes and longitudes are given in decimal degrees)</p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:800px">
+	<tbody>
+		<tr>
+			<th>Site</th>
+			<th>Westernmost Longitude</th>
+			<th>Easternmost Longitude</th>
+			<th>Northernmost Latitude</th>
+			<th>Southernmost Latitude</th>
+		</tr>
+		<tr>
+			<td>Global equatorial</td>
+			<td>-180.00</td>
+			<td>180.00</td>
+			<td>34.00</td>
+			<td>-39.00</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p><strong><u>Data File Information</u></strong></p>
+
+<p>There are 1443 files in cloud optimized GeoTIFF format (.tif) and one comma separated values (*.csv) file with this dataset:</p>
+
+<p>GeoTIFF files contain global mangrove canopy height maps in a circum-equatorial band of tiles (individual files) that are 1&deg; by 1&deg;. Canopy heights are the maximum canopy height in meters.&nbsp;</p>
+
+<p>Files are named:<em> TDM1_DEM__10_<strong>Y##X###</strong>_DEM_EGM08_GMW314_2015_WM_hcap_cal.tif</em>, where<br />
+<em><strong>Y##X###</strong></em> are the latitude (Y = &quot;N&quot; or &quot;S&quot;) and longtitude (X = &quot;W&quot; or &quot;E&quot;) coordinates at the southwest corner of a tile.&nbsp;For example, &quot;N01W001&quot; indicates a tile with a southwest corner at 1&deg; N and 1&deg; W.</p>
+
+<p><strong>GeoTIFF characteristics</strong></p>
+
+<ul style="list-style-type:circle">
+	<li>Coordinate system: geographic coordiantes using WGS 1984 datum with elevation (EPSG: 4979)</li>
+	<li>Pixel resolution: 0.000111 degrees (~12 m)</li>
+	<li>Number of bands: one</li>
+	<li>Pixel values; maximum canopy height in meters</li>
+	<li>No data value: All pixels are valid, however, pixels without mangroves have a value of zero.</li>
+</ul>
+
+<p>The CSV file, <em>GEDI_Mangrove_Height.csv</em>, contains mangrove heights for individual GEDI L2A tiles that were used to generate the GeoTIFF files.</p>
+
+<p><strong>Table 1.</strong>&nbsp;Data dictionary for <em>GEDI_Mangrove_Height.csv</em></p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:800px">
+	<tbody>
+		<tr>
+			<th>Variable</th>
+			<th>GEDI L2A variable name</th>
+			<th>Units</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>GEDI_file_name</td>
+			<td>-</td>
+			<td>-</td>
+			<td>Name of the GEDI file</td>
+		</tr>
+		<tr>
+			<td>beam</td>
+			<td>Beam ID</td>
+			<td>-</td>
+			<td>Beam number (0-11)</td>
+		</tr>
+		<tr>
+			<td>delta_time</td>
+			<td>delta_time</td>
+			<td>YYYY-MM-DD HH:MM:SS.SSSSSS+00:00</td>
+			<td>Transmit time of the shot</td>
+		</tr>
+		<tr>
+			<td>shot_number</td>
+			<td>shot_number</td>
+			<td>1</td>
+			<td>Unique shot ID.</td>
+		</tr>
+		<tr>
+			<td>lat_lowestmode</td>
+			<td>lat_lowestmode</td>
+			<td>degrees</td>
+			<td>Latitude of center of lowest mode</td>
+		</tr>
+		<tr>
+			<td>lon_lowestmode</td>
+			<td>lon_lowestmode</td>
+			<td>degrees</td>
+			<td>Longitude of center of lowest mode</td>
+		</tr>
+		<tr>
+			<td>channel</td>
+			<td>channel</td>
+			<td>1</td>
+			<td>Channel number (0-7)</td>
+		</tr>
+		<tr>
+			<td>degrade_flag</td>
+			<td>degrade_flag</td>
+			<td>flag</td>
+			<td>Non-zero values indicate the shot occurred during a degraded period.</td>
+		</tr>
+		<tr>
+			<td>digital_elevation_model</td>
+			<td>digital_elevation_model</td>
+			<td>m</td>
+			<td>Digital elevation model height above the WGS84 ellipsoid. Interpolated at latitude_bin0 and longitude_bin0 from the TandemX 90m product.</td>
+		</tr>
+		<tr>
+			<td>digital_elevation_model_srtm</td>
+			<td>digital_elevation_model_srtm</td>
+			<td>m</td>
+			<td>Shuttle Radar Topography Mission (SRTM) elevation at GEDI footprint location</td>
+		</tr>
+		<tr>
+			<td>elev_highestreturn</td>
+			<td>elev_highestreturn</td>
+			<td>m</td>
+			<td>elevation of highest detected return relative to reference ellipsoid</td>
+		</tr>
+		<tr>
+			<td>elev_lowestmode</td>
+			<td>elev_lowestmode</td>
+			<td>m</td>
+			<td>elevation of center of lowest mode elative to reference ellipsoid</td>
+		</tr>
+		<tr>
+			<td>elevation_bias_flag</td>
+			<td>elevation_bias_flag</td>
+			<td>flag</td>
+			<td>Elevations potentially affected by 4bin (~60 cm) ranging error</td>
+		</tr>
+		<tr>
+			<td>energy_total</td>
+			<td>energy_total</td>
+			<td>1</td>
+			<td>Integrated counts in the return waveform relative to the mean nise level</td>
+		</tr>
+		<tr>
+			<td>landsat_treecover</td>
+			<td>landsat_treecover</td>
+			<td>percent</td>
+			<td>Tree cover in the year 2010, defined as canopy closure for all L2A vegetation taller than 5 m in height (Hansen et al., 2013). Encoded as a percentage per output grid cell.</td>
+		</tr>
+		<tr>
+			<td>landsat_water_persistence</td>
+			<td>landsat_water_persistence</td>
+			<td>percent</td>
+			<td>The percent UMD GLAD Landsat observations with classified Derived surface water between 2018 and 2019. Values &gt;80 usually represent permanent water, while values &lt;10 represent permanent land.</td>
+		</tr>
+		<tr>
+			<td>urban_proportion</td>
+			<td>urban_proportion</td>
+			<td>percent</td>
+			<td>The percentage proportion of land area within a focal area surrounding each shot that is urban land cover. Urban land cover is derived from the DLR 12 m resolution TanDEM-X Global Urban Footprint Product.</td>
+		</tr>
+		<tr>
+			<td>mean_sea_surface</td>
+			<td>mean_sea_surface</td>
+			<td>m</td>
+			<td>Mean sea surface height above the WGS84 ellipsoid, includes the geoid. Interpolated at latitude_bin0 and longitude_bin0 from DTU15.</td>
+		</tr>
+		<tr>
+			<td>num_detectedmodes</td>
+			<td>num_detectedmodes</td>
+			<td>1</td>
+			<td>Number of detected modes in rxwaveform</td>
+		</tr>
+		<tr>
+			<td>quality_flag</td>
+			<td>quality_flag</td>
+			<td>flag</td>
+			<td>Flag simplifying selection of most useful data</td>
+		</tr>
+		<tr>
+			<td>rh</td>
+			<td>rh</td>
+			<td>m</td>
+			<td>Relative height metrics at 98% interval</td>
+		</tr>
+		<tr>
+			<td>rx_energy</td>
+			<td>rx_energy</td>
+			<td>1</td>
+			<td>total energy f rxwaveform, mean noise removed</td>
+		</tr>
+		<tr>
+			<td>selected_algorithm</td>
+			<td>selected_algorithm</td>
+			<td>-</td>
+			<td>ID of algorithm selected as identifying the lowest non-noise mode</td>
+		</tr>
+		<tr>
+			<td>sensitivity</td>
+			<td>sensitivity</td>
+			<td>degrees</td>
+			<td>Maximum canopy cover that can be penetrated considering th NR of the waveform</td>
+		</tr>
+		<tr>
+			<td>solar_elevation</td>
+			<td>solar_elevation</td>
+			<td>degrees</td>
+			<td>The elevation of the sun position vector from the laser bounce point position in the local ENU frame. The angle is measured from the East-North plane and is positive Up.</td>
+		</tr>
+		<tr>
+			<td>surface_flag</td>
+			<td>surface_flag</td>
+			<td>flag</td>
+			<td>Indicates elev_lowestmode is within 300 m of DEM or MSS</td>
+		</tr>
+		<tr>
+			<td>egm_08</td>
+			<td>&nbsp;</td>
+			<td>m</td>
+			<td>Elevation over the EGM 2008 geoid</td>
+		</tr>
+		<tr>
+			<td>tdx_max</td>
+			<td>&nbsp;</td>
+			<td>m</td>
+			<td>Maximum TanDEM-X DEM value from the pixels overlapping the GEDI footprint</td>
+		</tr>
+		<tr>
+			<td>tdx_std</td>
+			<td>&nbsp;</td>
+			<td>m</td>
+			<td>Standard deviation of TanDEM-X DEM values from the pixels overlapping the GEDI footprint</td>
+		</tr>
+		<tr>
+			<td>tdx_mean</td>
+			<td>&nbsp;</td>
+			<td>m</td>
+			<td>Mean TanDEM-X DEM value from the pixels overlapping the GEDI footprint</td>
+		</tr>
+		<tr>
+			<td>tdx_min</td>
+			<td>&nbsp;</td>
+			<td>m</td>
+			<td>Minimum TanDEM-X DEM value from the pixels overlapping the GEDI footprint</td>
+		</tr>
+		<tr>
+			<td>pixel_count</td>
+			<td>&nbsp;</td>
+			<td>1</td>
+			<td>Number of TanDEM-X pixels overlapping the GEDI footprint</td>
+		</tr>
+	</tbody>
+</table>
+            
+          </div>
+          <h2 id="appderivation" class="countheads">Application and Derivation</h2>
+          <div>
+            
+            <p>Mangrove wetlands are among the most productive and carbon-dense ecosystems in the world. Their structural attributes vary considerably across spatial scales, yielding large uncertainties in regional and global estimates of carbon stocks.&nbsp;This study offers a baseline to monitor national and regional trends in mangrove carbon stocks (Simard et al. 2019a).</p>
+            
+          </div>
+          <h2 id="qualityassess" class="countheads">Quality Assessment</h2>
+          <div>
+            
+            <p>Uncertainty was addressed by calibration with&nbsp;GEDI Spaceborne Lidar mission data, refining the range of elevation data identified as mangrove cover, and subsequent validation by airborne Lidar surveys. The study only included areas with TanDEM-X elevation values ranging from 0 to <span class="marker">55 </span>m to eliminate inland areas over-classified as mangrove wetlands.</p>
+
+<p>The validation of TanDEM-X-derived canopy height versus GEDI&rsquo;s RH98 had a coefficient of determination (R<sup>2</sup>) value of 0.93 and RMSE of 2.4 m at global scales. Analysis of canopy height variance obtained from TanDEM-X, lidar, and field measurements demonstrated that TanDEM-X height characterizes mean overstory canopy height and maintains consistency over time when measuring canopy height in established mangrove forests. See Simard et al. (2024) for more details.</p>
+            
+          </div>
+          <h2 id="acqmatmethods" class="countheads">Data Acquisition, Materials, and Methods</h2>
+          <div>
+            
+            <p>The following is a brief synopsis of the data collection, data processing, and modeling methods implemented to produce the three mangrove products and GEDI data. See Simard et al. (2024) for more details.</p>
+
+<p><strong>Mangrove ecotype extent map</strong></p>
+
+<p>To identify mangrove ecotype areas and mask non-mangrove regions in the TanDEM-X elevation dataset, the Global Mangrove Watch (GMW) global mangrove extent map (Bunting et al,&nbsp;2022) was used. This map is coincidental with the TanDEM-X data set (that is, they are both from around 2015). Only areas with TanDEM-X elevation values ranging from 0 to <span class="marker">65 </span>m above mean sea level were included to remove some areas falsely identified as mangroves. This threshold value preserves the tallest mangrove forest stands.</p>
+
+<p><strong>TanDEM-X data preprocess</strong></p>
+
+<p>Elevation data was provided by the German Aerospace Agency (DLR) TanDEM-X Digital Elevation Model (TerraSAR-X add-on for Digital Elevation Measurements) mission&nbsp;(Rizzoli et al. 2017). Because the microwaves interact with vegetation canopies as well as the ground the measured elevation is located within the canopy. Thus, the TanDEM-X elevation maps, just like those obtained from Shuttle Radar Topography Mission (SRTM), are in reality Digital Surface Models (DSMs) rather than digital terrain models (DTMs). It was assumed that mangrove forests grow at 0 meter elevation (mean sea level) and thus the TanDEM-X DSM must be calibrated using ancillary data.&nbsp;</p>
+
+<p>A total of 1409 TanDEM-X DEM GeoTIFFs were obtained from the German Aerospace Agency (DLR). Each file was 1<sup>o&nbsp;</sup>x 1<sup>o</sup>&nbsp;in extent defined by geographic coordinates using the WGS84 datum with a spatial resolution equivalent to 12 m. The TanDEM-X DEM vertical reference system used is the WGS84 ellipsoid model.</p>
+
+<p>The workflow operated on a per-tile basis and used Exclusive Economic Zone (EEZ) information to assign DEM pixels to a country. Both raster and vector processing was based upon the Remote Sensing and GIS Library (RSGisLib) open source python software with a number of supporting modules and file formats including Pandas, GeoPandas, Numpy and GeoJSON.</p>
+
+<p>Initially, the auxiliary data including the EEZ extents, GMW and water mask were rasterized where necessary and subset to the TanDEM-X resolution, projection and grid, ensuring all TanDEM-X tiles had a suite of matching auxiliary data. Some raw TanDEM-X tiles contained image artifacts that were identified and replaced by the GLO-30 data. To detect artifacts, the TanDEM-X data was calibrated from its vertical reference of WGS84 to EGM2008 to match that of the GLO-30 dataset, then each TanDEM-X tile was subtracted from its corresponding GLO-30 tile. Where the difference between the two datasets per-tile was &gt;30 m, the GLO-30 data were used. The noise-removed images were limited to a maximum height of <span class="marker">60 m</span> as pixel values outside of this threshold were assumed to be above the maximum known mangrove height (Simard et al. 2019a). A minimum height of 0.1 m was also applied to remove ground pixels from the DEM. These filters resulted in 1443 EGM2008 TanDEM-X Tiles, including 37 GLO-30 TanDEM-X-equivalent tiles. Each DEM tile was then masked with the 2015 GMW baseline mangrove extent and Sentinel-1 derived watermask, resulting in 1443 mangrove-only DEM tiles.</p>
+
+<p>Misclassification in the GMW extent caused abnormally high mangrove height values in some locations. This phenomenon was most often observed in small volcanic islands that have small mangrove extents adjacent to steep mountainous terrain. To minimize these values while also maintaining locations where tall (&gt;55 m) mangrove stands are known to exist, a semi-empirical approach was used to identify and remove these outliers. All DEM tiles with a pixel value &gt;50 m were identified and the maximum and 99<sup>th</sup> percentile values were calculated. These data were ordered by 99<sup>th</sup> percentile and a 5<sup>th</sup> order polynomial was fit to the data to locate the inflection point, which occurred at 31.02 m. For all DEM tiles with a pixel value &gt;50 m, the maximum value is replaced by the 99<sup>th</sup> percentile if the 99<sup>th</sup> percentile value was &lt;31.02 m. For tiles where the 99<sup>th</sup> percentile value &gt;31.02 m, the maximum height was unchanged. The TanDEM-X DEM values were then calibrated to represent mangrove canopy height using GEDI height estimates as described below.</p>
+
+<p><strong>GEDI data preprocess</strong></p>
+
+<p>Because the TanDEM-X DEM represents the elevation within the canopy, ancillary estimates of mangrove canopy height from NASA&rsquo;s Global Ecosystems Dynamics Investigation (GEDI) instrument were used to validate and calibrate the TanDEM-X DEM data. The GEDI instrument is a full waveform LiDAR system with a nominal footprint of ~25 m diameter that was launched to the International Space Station in 2018 to characterize forest vertical structure (Dubayah et al., 2020).</p>
+
+<p>Relative height metrics were extracted from GEDI L2A products (Dubayah et al, 2020) that covered the GMW 2015 mangrove area and were publicly available up to May 2022.&nbsp;Only high quality GEDI data points were selected, hereafter called &lsquo;shots&rsquo;, according to the quality flags established in the L2A product guide; degraded or invalid measurements were excluded. Additionally, specific filtering parameters were established for the study based on expert knowledge on mangrove ecosystems (Table 2).</p>
+
+<p>The GEDI-derived mangrove points were transformed to 25-m polygons and paired with the maximum TanDEM-X DEM value within each shot. Additional filtering parameters were determined from data exploration and comparison to the TanDEM-X DEM&rsquo;s values. GEDI shots were removed based on the number of TanDEM-X pixels within each polygon and the standard deviation of the DEM (Table 4). GEDI shots covering &lt;3 TanDEM-X pixels did not contain enough information from the DEM to characterize the canopy height detected by the GEDI shot and were removed from the analysis; these points were commonly located at the edge of the GMW boundaries. Moreover, GEDI shots falling over mangrove areas with heterogeneous vertical structure, as detected by TanDEM-X, resulted in larger deviations between the GEDI relative height and the maximum DEM value, indicating that the canopy height detected by the GEDI shot was likely not a signal from the tallest canopy detected by TanDEM-X. For this reason, maximum thresholds of DEM standard deviation as a function of the TanDEM-X pixel coverage were established. GEDI shots with a pixel coverage of &lt;6 pixels were retained in the analysis if the standard deviation of the TanDEM-X pixels was below 1.5 m or 2 m. For shots with &gt;6 pixels, the standard deviation of the TanDEM-X values could not exceed 3 m (Table 2). A final filtering step consisted of removing outliers by grouping the dataset into two-meter bins of GEDI canopy height and maximum TanDEM-X values, and calculating the mean and standard deviation of each bin. GEDI shots with canopy and DEM values beyond three standard deviations from the mean were removed. These additional expert user selection parameters provide safeguard against land cover change or significant tree growth between acquisition dates of the two datasets.</p>
+
+<p>The filtered GEDI data is formatted as a simple CSV file containing the geolocation, data quality, and canopy height parameters included in the L2A GEDI product, along with the extracted data from the TanDEM-X data, namely mean, minimum, maximum, standard deviation and pixel count (see <em>GEDI_Mangrove_Height.csv</em>&nbsp;and Table 1 above).</p>
+
+<p><strong>Table 2. </strong>Parameters and thresholds for retaining GEDI shots in the analysis.</p>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width:700px">
+	<tbody>
+		<tr>
+			<th>Parameter</th>
+			<th>Threshold</th>
+		</tr>
+		<tr>
+			<td>Degraded flag</td>
+			<td>==0</td>
+		</tr>
+		<tr>
+			<td>Quality flag</td>
+			<td>==1</td>
+		</tr>
+		<tr>
+			<td>Number of detected modes</td>
+			<td>&ge;1 and &lt;5</td>
+		</tr>
+		<tr>
+			<td>DEM elevation (from GEDI file) - EGM2008 geodetic elevation</td>
+			<td>&lt;50 m</td>
+		</tr>
+		<tr>
+			<td>Landsat water persistence</td>
+			<td>&lt;80</td>
+		</tr>
+		<tr>
+			<td>Absolute (Elevation of the lowest mode - mean sea surface)</td>
+			<td>&lt;5</td>
+		</tr>
+		<tr>
+			<td>Total Energy</td>
+			<td>&gt;2000 and &lt;25,000</td>
+		</tr>
+		<tr>
+			<td>Max TanDEM-X value</td>
+			<td>&gt;0 m and &lt;60 m</td>
+		</tr>
+		<tr>
+			<td>Min TanDEM-X value</td>
+			<td>&lt;60</td>
+		</tr>
+		<tr>
+			<td>GEDI RH 98</td>
+			<td>&gt;0 m and &lt;60 m</td>
+		</tr>
+		<tr>
+			<td>TanDEM-X standard deviation. GEDI points with 3 to 4 pixels</td>
+			<td>&lt;1.5 m</td>
+		</tr>
+		<tr>
+			<td>TanDEM-X standard deviation. GEDI points with 5 to 6 pixels</td>
+			<td>&lt;2 m</td>
+		</tr>
+		<tr>
+			<td>TanDEM-X standard deviation. GEDI points with &gt;6 pixels</td>
+			<td>&lt;3 m</td>
+		</tr>
+	</tbody>
+</table>
+            
+          </div>
+          <h2 id="datadescraccess" class="countheads">Data Access</h2>
+          <p>These data are available through the Oak Ridge National Laboratory (ORNL) Distributed Active
+                                Archive Center
+                                (DAAC).</p>
+          <p>
+            <a href="/cgi-bin/dsviewer.pl?ds_id=2251">
+              
+              CMS: Global Mangrove Canopy Height Maps Derived from TanDEM-X, 2015
+              
+            </a>
+          </p>
+          <p>Contact for Data Center Access Information:</p>
+          <ul class="contact_info">
+            <li>
+              E-mail:
+              <a href="mailto:uso@daac.ornl.gov">uso@daac.ornl.gov</a>
+            </li>
+            <li>Telephone: +1 (865) 241-3952</li>
+          </ul>
+          <h2 id="references" class="countheads">References</h2>
+          <div>
+            
+            <p>Bunting, P., A. Rosenqvist, L. Hilarides, R.M. Lucas, N. Thomas, T. Tadono, T.A. Worthington, M. Spalding, N.J. Murray, and L.-M. Rebelo. Global mangrove extent change 1996&ndash;2020: Global Mangrove Watch Version 3.0. Remote Sensing 14:3657. <a href="https://doi.org/10.3390/rs14153657">https://doi.org/10.3390/rs14153657</a></p>
+
+<p>Dubayah, R., M. Hofton, J. Blair, J. Armston, H. Tang, S. Luthcke. 2020. GEDI L2A Elevation and Height Metrics Data Global Footprint Level V001. NASA EOSDIS Land Processes Distributed Active Archive Center. <a href="https://doi.org/10.5067/GEDI/GEDI02_A.001">https://doi.org/10.5067/GEDI/GEDI02_A.001</a>.</p>
+
+<p>Hansen, M.C., P.V. Potapov, R. Moore, M. Hancher, S.A. Turubanova, A. Tyukavina, D. Thau, S.V. Stehman, S.J. Goetz, T.R. Loveland, A. Kommareddy, A. Egorov, L. Chini, C.O. Justice, and J.R. G. Townshend. 2013. High-Resolution Global Maps of 21st-Century Forest Cover Change. Science 342:850&ndash;853. <a href="https://doi.org/10.1126/science.1244693">https://doi.org/10.1126/science.1244693</a></p>
+
+<p>Rizzoli, P., M. Martone, C. Gonzalez, C. Wecklich, D. Borla Tridon, B. Br&auml;utigam, M. Bachmann, D. Schulze, T. Fritz, M. Huber, B. Wessel, G. Krieger, M. Zink, and A. Moreira. 2017. Generation and performance assessment of the global TanDEM-X digital elevation model. ISPRS Journal of Photogrammetry and Remote Sensing 132:119-139. <a href="https://doi.org/10.1016/j.isprsjprs.2017.08.008">https://doi.org/10.1016/j.isprsjprs.2017.08.008</a></p>
+
+<p>Simard, M.,L. Fatoyinbo, C. Smetanka, V.H. Rivera-Monroy, E. Castaneda-Moya, N. Thomas, and T. Van der Stocken. 2019a. Mangrove canopy height globally related to precipitation, temperature and cyclone frequency. Nature Geoscience 12:40-45. <a href="https://doi.org/10.1038/s41561-018-0279-1">https://doi.org/10.1038/s41561-018-0279-1</a></p>
+
+<p>Simard, M., T. Fatoyinbo, C. Smetanka, V.H. Rivera-Monroy, E. Castaneda, N. Thomas, and T. Van der stocken. 2019b. Global Mangrove Distribution, Aboveground Biomass, and Canopy Height. ORNL DAAC, Oak Ridge, Tennessee, USA. <a href="https://doi.org/10.3334/ORNLDAAC/1665">https://doi.org/10.3334/ORNLDAAC/1665</a></p>
+
+<p>Simard, M., L. Fatoyinbo, N.M. Thomas, A.E. Stovall, A. Parra, A. Barenblitt, P. Bunting, and I. Hajnsek. 2024. A new global mangrove height map with a 12-meter spatial resolution. In review 2024, Nature Scientific Data.</p>
+            
+          </div>
+        </div>
+      </div>
+      
+      <!--#include virtual="/nav_footer2.shtml" -->
+      
+      <script src="https://daac.ornl.gov/js/jquery.tablesorter.min.js" />
+      <script>$(document).ready(function() {
+                        $("table").tablesorter({
+                        headers : {}, sortInitialOrder : 'desc'
+                        }); });</script>
+    </div>
+  </body>
+</html>
+
+

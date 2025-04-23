@@ -7,7 +7,7 @@ from kalpana.plotting import plot_nc
 from kalpana.export import fort14togdf
 from kalpana.ADCIRC_tools import extract_ts_from_nc
 import cartopy.crs as ccrs
-import cartopy.feature as cfeature
+import cartopy.feature as cf
 import matplotlib as mpl
 
 def plot_transects(mesh, center_x, center_y, num_points, transects):
