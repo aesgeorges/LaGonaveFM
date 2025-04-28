@@ -1,7 +1,7 @@
 PREFIX = 'ww_gonave'; % Greater Haiti and Windward Passage with Cuba and Jamaica
 
 %% Defining domain
-root = '/mnt/Work/LaGonaveFM/ch2-resilience/grid_setup/gonave_grid/';
+root = '/mnt/Work/LaGonaveFM/gis-meshmaker/meshmaker/';
 domain = readtable([root 'datasets/mesh_extent.csv']);
 subdomain1 = readtable([root 'datasets/gonave_extent.csv']);
 subdomain2 = readtable([root 'datasets/gpbay_extent.csv']);
@@ -57,4 +57,4 @@ m.plot()
 %m = makens(m, 'auto', gdat1);
 
 %% Export
-save([root 'exports/' PREFIX '_v2_test.mat'], 'm');
+save([root 'exports/' PREFIX '_v3.mat'], 'm');
