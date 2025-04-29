@@ -27,7 +27,7 @@ grade2 = 0.22;
 
 
 min_el3 = 100; % Refined minimum element size (m).
-max_el3 = 500; % Refined maximum element size (m).
+max_el3 = 500; % Refine maximum element size (m).
 max_el_ns3 = 250; % Refined maximum nearshore element size (m).
 grade3 = 0.3; % Mesh grading factor for refined area.
 R2 = 5;
