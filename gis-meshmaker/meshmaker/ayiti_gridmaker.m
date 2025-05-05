@@ -20,17 +20,17 @@ max_el1 = 8e3;      % maximum resolution in meters.
 grade1 = 0.28;       % mesh grade in decimal percent.
 R = 2;              % Number of elements to resolve feature.
 
-min_el2 = 500; % Minimum element size (m).
-max_el2 = 3e3; % Maximum element size (m).
-max_el_ns2 = 1e3; % Maximum nearshore element size (m).
+min_el2 = 1e3; % Minimum element size (m).
+max_el2 = 5e3; % Maximum element size (m).
+max_el_ns2 = 3e3; % Maximum nearshore element size (m).
 grade2 = 0.22;
 
 
 min_el3 = 100; % Refined minimum element size (m).
-max_el3 = 500; % Refine maximum element size (m).
-max_el_ns3 = 250; % Refined maximum nearshore element size (m).
-grade3 = 0.3; % Mesh grading factor for refined area.
-R2 = 5;
+max_el3 = 1e3; % Refine maximum element size (m).
+max_el_ns3 = 200; % Refined maximum nearshore element size (m).
+grade3 = 0.2; % Mesh grading factor for refined area.
+R2 = 2;
 
 %% Initialize geographic data for mesh generation
 coastline = [root 'coastline/GSHHS_windward'];
