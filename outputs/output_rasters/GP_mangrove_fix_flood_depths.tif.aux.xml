@@ -1,0 +1,13 @@
+<PAMDataset>
+  <PAMRasterBand band="1">
+    <UnitType>m_ngvd29</UnitType>
+    <Metadata>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MAXIMUM">8.0338268280029</MDI>
+      <MDI key="STATISTICS_MEAN">1.5770854444224</MDI>
+      <MDI key="STATISTICS_MINIMUM">0.0010271221399307</MDI>
+      <MDI key="STATISTICS_STDDEV">1.1880060798522</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">8.256</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

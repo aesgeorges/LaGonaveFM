@@ -1,0 +1,64 @@
+$*************************HEADING************************
+$
+PROJ 'Matthew2016' 'MTW'
+$
+$********************MODEL INPUT*************************
+$
+$ Maximum stability depth settings
+SET LEVEL 0.0
+SET DEPMIN 1.0
+$ 
+$ Critical stability parameters
+SET CDLIMIT=0.002
+SET NAUTILIMP=1
+$
+MODE NONSTATIONARY
+$
+COORDINATES SPHERICAL CCM
+$
+$ Minimal spectral resolution to prevent overflow
+CGRID UNSTRUCTURED CIRCLE MDC=24 FLOW=0.1 MSC=24
+READ UNSTRUCTURED
+$
+INIT ZERO
+$
+$ Water level with high exceptions and very large timestep
+INPGRID WLEV UNSTRUCTURED EXCEPTION 1.0 NONSTAT 20160913.000000 3600 SEC 20161006.120000
+READINP ADCWL
+$
+$ Wind with extreme exception and maximum timestep
+$ Double the timestep to smooth gradients
+INPGRID WIND UNSTRUCTURED EXCEPTION 10.0 NONSTAT 20160913.000000 3600 SEC 20161006.120000
+READINP ADCWIND
+$
+INPGRID CUR UNSTRUCTURED EXCEPTION 1.0 NONSTAT 20160913.000000 3600 SEC 20161006.120000
+READINP ADCCUR
+$
+$ Special hurricane-adapted physics with limiters
+FRICTION JONSWAP 1.0
+GEN3 KOMEN AGROW
+WCAP KOMEN 2.36E-5 3.02E-3 2.0 1.0 1.0
+BREAKING
+FRICTION MADSEN KN=0.05
+TRIAD
+$
+$ Extreme numerical relaxation parameters
+NUM STOPC DABS=0.05 DREL=0.1 CURVAT=0.01 NPNTS=80 NONSTAT MXITNS=15
+$
+$ Advanced numerical settings to prevent accumulating errors
+NUMERIC ACCUR 0.05 0.05 0.05 99.0 10
+NUMERIC MODSIM
+NUMERIC LIMITER
+NUMERIC MAXMES=10
+$
+$*************************************************************
+$
+QUANTITY HS DIR SETUP TMM10 TPS FMIN=0.031384 FMAX=1.420416
+$
+$ Minimal testing to reduce diagnostic overhead
+TEST 1,0
+$
+$ Extremely short test with huge timestep
+COMPUTE 20160913.000000 172800 SEC 20160924.000000
+STOP
+$
