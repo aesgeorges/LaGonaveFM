@@ -17,9 +17,10 @@ SCENARIOS=(
 )
 
 RETREATS=(
-    "r0"
-    "r2"
-    "r3"
+    #"r0"
+    "r1"
+    #"r2"
+    #"r3"
 )
 
 run_all() {
