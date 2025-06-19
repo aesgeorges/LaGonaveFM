@@ -2,3 +2,4 @@
 *.shp filter=lfs diff=lfs merge=lfs -text
 *.tif filter=lfs diff=lfs merge=lfs -text
 *.33 filter=lfs diff=lfs merge=lfs -text
+flood_figures.svg filter=lfs diff=lfs merge=lfs -text
