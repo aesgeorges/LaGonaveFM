@@ -61,7 +61,7 @@ def plot_transect_data(transect_id, timestep, transects, nc, nc_wind, mesh):
     - ax_inset    : matplotlib.axes.Axes, the inset map axis
     """
     fig, ax_main = plt.subplots(figsize=(10, 6), dpi=800)
-    ax_inset = fig.add_axes([0.17, 0.15, 0.38, 0.38], projection=ccrs.PlateCarree())  # [x, y, width, height] for inset
+    ax_inset = fig.add_axes([0.5, 0.15, 0.38, 0.38], projection=ccrs.PlateCarree())  # [x, y, width, height] for inset
 
     # Extract water elevation data along the transect
     dfout, rep = extract_ts_from_nc(nc, list(zip(transects[transect_id].lon, transects[transect_id].lat)), variable='zeta', extractOut=False, closestIfDry=False)  
@@ -93,8 +93,8 @@ def plot_transect_data(transect_id, timestep, transects, nc, nc_wind, mesh):
         ncvec=nc_wind, dxvec=0.1, dyvec=0.1, vecsc=1000, ax=ax_inset, fig=fig)
     coast = cf.GSHHSFeature(scale='high', alpha=0.5)
     ax_inset.add_feature(coast)
-    ax_inset.set_xlim(-73.45, -72.6)
-    ax_inset.set_ylim(19., 19.72)
+    ax_inset.set_xlim(-73.9, -72.6)
+    ax_inset.set_ylim(19.2, 19.5)
     gl = ax_inset.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, alpha=0.5, linestyle='--')
     gl.top_labels = False
     gl.right_labels = False
@@ -151,3 +151,5 @@ def plot_wave_direction_and_height(nc_HS, nc_DIR, track_df, timestep):
     ax.set_title('Wave Direction (arrows) and Height at timestep: ' + str(timestep))
     
     return fig, ax
+
+

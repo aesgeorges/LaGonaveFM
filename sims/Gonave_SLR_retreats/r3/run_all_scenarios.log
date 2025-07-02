@@ -18,3 +18,23 @@ Starting run for scenario: SSP5_2100 at Fri May 30 01:10:33 AM PDT 2025
 Scenario SSP5_2100 runtime: 0h 22m 47s
 Scenario SSP5_2100 completed successfully at Fri May 30 01:33:20 AM PDT 2025
 All scenario runs completed at Fri May 30 01:33:20 AM PDT 2025
+Starting run for scenario: S0 at Wed Jun 25 07:59:51 PM PDT 2025
+Scenario S0 runtime: 0h 12m 13s
+Scenario S0 completed successfully at Wed Jun 25 08:12:04 PM PDT 2025
+All scenario runs completed at Wed Jun 25 08:12:04 PM PDT 2025
+Starting run for scenario: SSP2_2050 at Wed Jun 25 08:12:04 PM PDT 2025
+Scenario SSP2_2050 runtime: 0h 17m 5s
+Scenario SSP2_2050 completed successfully at Wed Jun 25 08:29:09 PM PDT 2025
+All scenario runs completed at Wed Jun 25 08:29:09 PM PDT 2025
+Starting run for scenario: SSP2_2070 at Wed Jun 25 08:29:09 PM PDT 2025
+Scenario SSP2_2070 runtime: 0h 24m 38s
+Scenario SSP2_2070 completed successfully at Wed Jun 25 08:53:47 PM PDT 2025
+All scenario runs completed at Wed Jun 25 08:53:47 PM PDT 2025
+Starting run for scenario: SSP5_2050 at Wed Jun 25 08:53:47 PM PDT 2025
+Scenario SSP5_2050 runtime: 0h 24m 52s
+Scenario SSP5_2050 completed successfully at Wed Jun 25 09:18:39 PM PDT 2025
+All scenario runs completed at Wed Jun 25 09:18:39 PM PDT 2025
+Starting run for scenario: SSP5_2070 at Wed Jun 25 09:18:39 PM PDT 2025
+Scenario SSP5_2070 runtime: 0h 23m 55s
+Scenario SSP5_2070 completed successfully at Wed Jun 25 09:42:34 PM PDT 2025
+All scenario runs completed at Wed Jun 25 09:42:34 PM PDT 2025

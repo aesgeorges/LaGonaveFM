@@ -857,9 +857,9 @@ K2
 0                                                               ! NSTAV                               - TOTAL NUMBER OF VELOCITY RECORDING STATIONS
 0 0 0 0                                                         ! NOUTM TOUTSM TOUTFM NSPOOLM         - METEOROLOGICAL STATION OUTPUT INFO (UNITS 71/72)
 0                                                               ! NSTAM                               - TOTAL NUMBER OF METEOROLOGICAL RECORDING STATIONS
--3 0.000000 30.000000 20                                        ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
--3 0.000000 30.000000 20                                        ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
--3 0.000000 30.000000 20                                        ! NOUTGM TOUTSGM TOUTFGM NSPOOLGM     - GLOBAL METEOROLOGICAL OUTPUT INFO
+-3 0.000000 30.000000 1800                                        ! NOUTGE TOUTSGE TOUTFGE NSPOOLGE     - GLOBAL ELEVATION OUTPUT INFO (UNIT 63)
+-3 0.000000 30.000000 1800                                        ! NOUTGV TOUTSGV TOUTFGV NSPOOLGV     - GLOBAL VELOCITY OUTPUT INFO (UNIT 64)
+-3 0.000000 30.000000 1800                                        ! NOUTGM TOUTSGM TOUTFGM NSPOOLGM     - GLOBAL METEOROLOGICAL OUTPUT INFO
 0                                                               ! NFREQ                              
 0 0 0 0                                                         ! THAS THAF NHAINC FMV                - HARMONIC ANALYSIS PARAMETERS
 0 0 0 0                                                         ! NHASE NHASV NHAGE NHAGV             - CONTROL HARMONIC ANALYSIS AND OUTPUT TO UNITS 51,52,53,54

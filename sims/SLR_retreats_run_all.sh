@@ -10,17 +10,17 @@ echo "Starting simulations $(date)" > $LOG_FILE
 
 SCENARIOS=(
     "S0"
-    "SSP2_2030"
-    "SSP2_2100"
-    "SSP5_2030"
-    "SSP5_2100"
+    "SSP2_2050"
+    "SSP2_2070"
+    "SSP5_2050"
+    "SSP5_2070"
 )
 
 RETREATS=(
-    #"r0"
+    "r0"
     "r1"
-    #"r2"
-    #"r3"
+    "r2"
+    "r3"
 )
 
 run_all() {
