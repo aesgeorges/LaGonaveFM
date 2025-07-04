@@ -1,16 +1,18 @@
 %% Post-processing
 
-%root_dem = '/mnt/Work/LaGonaveFM/';
-dt = 4; %dt should be in memory from running gridmaker, if not, set with same value
-demfile = [root 'datasets/EastCoast_GEBCO_2024.nc']; %EastCoast_GEBCO_2024
-m = load([root 'exports/artibonite_v0.mat']).m;
+root_dem = '/mnt/Work/LaGonaveFM/';
+root = '/mnt/Work/LaGonaveFM/gis-meshmaker/meshmaker/';
+
+dt = 10; %dt should be in memory from running gridmaker, if not, set with same value
+demfile = [root_dem 'datasets/rasters/EastCoast_GEBCO_2024.nc']; %EastCoast_GEBCO_2024
+m = load([root 'exports/ww_gonave_v3.mat']).m;
 %m = interp(m, demfile);
 m = interp(m,demfile,'type', 'depth');
 m = Calc_tau0(m);
 m = bound_courant_number(m,dt);
 m = renum(m);
-write(m, [root 'exports/ww_gonave_v3']);
-plot(m, 'b')
+write(m, [root 'exports/ww_gonave_v3_test']);
+plot(m, 't')
 
 %save('gonave_grid.mat', 'm')
 %write(m, 'gonave_grid')
