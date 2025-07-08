@@ -16,7 +16,7 @@ mannings_n_at_sea_floor
 1                                                               ! NCOR                                - VARIABLE CORIOLIS IN SPACE OPTION PARAMETER
 1                                                               ! NTIP                                - TIDAL POTENTIAL OPTION PARAMETER
 20                                                              ! NWS                                 - WIND STRESS AND BAROMETRIC PRESSURE OPTION PARAMETER
-20                                                               ! NRAMP                               - RAMP FUNCTION OPTION
+8                                                               ! NRAMP                               - RAMP FUNCTION OPTION
 9.81                                                            ! G                                   - ACCELERATION DUE TO GRAVITY - DETERMINES UNITS
 -3                                                              ! TAU0                                - WEIGHTING FACTOR IN GWCE; original, 0.005
 4.829760                                                        ! DTDP                                - TIME STEP (IN SECONDS)
