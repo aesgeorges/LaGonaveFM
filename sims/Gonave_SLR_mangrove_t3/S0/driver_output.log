@@ -1,0 +1,235 @@
+ INFO: Processing --np
+ INFO: Processing --partmesh
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ from alloc_main1: 
+
+memory currently allocated = 2.494 megabytes
+memory high water mark     = 4.733 megabytes
+
+
+memory currently allocated = 2.522 megabytes
+memory high water mark     = 4.733 megabytes
+
+ Global Grid file read successfully.
+INFO: This mesh has 0 weir node pairs.
+INFO: Maximum number of duals for any weir node is 0.
+ maximum co-nodes for any node =           16
+ edge count =        27492
+ 
+ Grid Partition Data
+ METIS 4.0 will require approximately 3.124 megabytes
+ Total Edges Cut =         7287
+INFO: Writing mesh partition to partmesh.txt.
+ INFO: METIS has partitioned nodes successfully.
+
+memory currently allocated = 2.522 megabytes
+memory high water mark     = 4.733 megabytes
+
+ INFO: Processing --np
+ INFO: Processing --prepall
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ File fort.15                                                     
+ WAS FOUND!  Opening & Processing file
+
+ INFO: The SWANOutputControl namelist was not found.
+ INFO: The metControl namelist was not found.
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+ NHSTAR =            5
+ *****************************************************
+ *   Based on input and information extracted from   *
+ *   the ADCIRC UNIT 14 and 15 (grid and horiz run   *
+ *   info) files the following paramter values will  *
+ *   be set:                                         *
+ *                                                   *
+ *       MNPROC =     8                             *
+ *       MNE =    18128      MNP =     9361          *
+ *       MNEI =       9                               *
+ *       MNOPE =      3      MNETA =     97          *
+ *       MNBOU =      7      MNVEL =    501          *
+ *       MNTIF =      8      MNBFR =      8          *
+ *       MNSTAE =     1      MNSTAV =     1          *
+ *       MNSTAC =     1      MNSTAM =     1          *
+ *       MNWP =       1                               *
+ *       MNWLAT =     1      MNWLON =     1          *
+ *       MNFFR =      1                              *
+ *                                                   *
+ *   Also, NO wind forcing will be used,             *
+ *   means and variance calculation will NOT be made,*
+ *   the GWCE matrix will be left in consistent form *
+ *   and an iterative solver will be used            *
+ *****************************************************
+
+ from alloc_main1: 
+
+memory currently allocated = 2.510 megabytes
+memory high water mark     = 4.765 megabytes
+
+
+memory currently allocated = 2.538 megabytes
+memory high water mark     = 4.765 megabytes
+
+ Global Grid file read successfully.
+ INFO: Opening file partmesh.txt
+ INFO: Closed partmesh.txt file.
+ INFO: Start reading in fort.15.
+ nstae=           0
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+
+memory currently allocated = 2.538 megabytes
+memory high water mark     = 4.765 megabytes
+
+ INFO: Fulldomain fort.15 file read successfully.
+ INFO: Initializing the netCDF output files.
+  
+ Determine the parameters MNPP and MNEP
+  Setting MNPP =         1302
+  Setting MNEP =         2438
+ Allocate arrays dimensioned by MNPP and MNEP
+ from alloc_main2: 
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+  
+ Decomposition of grid begins
+ Decomposition Data
+ DOMAIN  RES_NODES  GHOST_NODES  TOT_NODES  ELEMENTS
+ ------  ---------  -----------  ---------  --------
+ GLOBAL                              9361      18128
+ PE0000      1115        124         1239       2352
+ PE0001      1186         82         1268       2438
+ PE0002      1141         78         1219       2345
+ PE0003      1137         70         1207       2286
+ PE0004      1196         22         1218       2260
+ PE0005      1205         51         1256       2255
+ PE0006      1213         89         1302       2394
+ PE0007      1168         98         1266       2396
+ Decomposition successful
+ Writing Local UNIT 14 (Grid) File for each PE
+  
+ Boundary Node Decomposition Data
+ DOMAIN      NOPE    NETA    NBOU  NVEL    NWEIR
+ GLOBAL       3      97       7     500       0
+ PE0000       0       0       1      21       0
+ PE0001       0       0       1      31       0
+ PE0002       0       0       1       8       0
+ PE0003       0       0       1      27       0
+ PE0004       3      74       4      94       0
+ PE0005       1      16       5     221       0
+ PE0006       1       8       5      99       0
+ PE0007       0       0       1      32       0
+ Writing Local UNIT 15 (Run Info) File for each PE
+  
+ Station Data
+ DOMAIN      NSTAE   NSTAV    NSTAC    NSTAM
+ GLOBAL       0       0       0       0
+ PE0000       0       0       0       0
+ PE0001       0       0       0       0
+ PE0002       0       0       0       0
+ PE0003       0       0       0       0
+ PE0004       0       0       0       0
+ PE0005       0       0       0       0
+ PE0006       0       0       0       0
+ PE0007       0       0       0       0
+ ERROR: There was an error reading swan files.
+ WARNING: swan files not preprocessed.
+ Writing Message-Passing Info Files for each PE
+  
+ Communication Data
+ DOMAIN  COMM_PE  %(SURF/VOL)
+ ------  -------  -----------
+ PE0000        4     11.12
+ PE0001        4      6.91
+ PE0002        3      6.84
+ PE0003        3      6.16
+ PE0004        1      1.84
+ PE0005        2      4.23
+ PE0006        3      7.34
+ PE0007        4      8.39
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+
+
+ Writing subdomain Nodal Attributes (unit 13)
+ file for each PE.
+File fort.13 
+ WAS FOUND!  Opening & Processing file.
+
+     Finished processing primitive_weighting_in_continuity_equation                                      
+ for processor range            1  to            8
+     Finished processing mannings_n_at_sea_floor                                                         
+ for processor range            1  to            8
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+ Writing domain-decomposition file for post-processor
+ 
+ INFO: Finished pre-processing input files.
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+ INFO: Searching for ADCIRC subdomain directories:
+ INFO: Looking for './PE0000/fort.14' ...
+ INFO: File './PE0000/fort.14' was found!
+ INFO: The search for the subdomain directory was completed successfully.
+ INFO: The ROOTDIR is  '.'.
+ INFO: The INPUTDIR is './PE0000'.
+ INFO: The GBLINPUTDIR is '.'.
+ INFO: The GLOBALDIR is '.'.
+ INFO: The LOCALDIR is './PE0000'.
+
+ _______________________________________________________________________________
+
+
+                   PROGRAM ADCIRC   VERSION v56.0.1-35-gd2a7c47
+
+     AN ADVANCED CIRCULATION MODEL FOR SHELVES, COASTAL SEAS AND ESTUARIES
+
+
+       -  DEVELOPED BY
+
+          R.A. LUETTICH, JR
+            UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL
+            INSTITUTE OF MARINE SCIENCES
+
+          J.J. WESTERINK 
+            DEPARTMENT OF CIVIL ENGINEERING AND GEOLOGICAL SCIENCES
+            UNIVERSITY OF NOTRE DAME
+
+
+       -  THE ADCIRC SOURCE CODE IS COPYRIGHTED BY
+
+          R.A. LUETTICH, JR. AND J.J. WESTERINK, 1994-2006
+
+       NO PART OF THIS CODE MAY BE REPRODUCED OR REDISTRIBUTED
+          WITHOUT THE WRITTEN PERMISSION OF THE AUTHORS
+
+
+
+ _______________________________________________________________________________
+INFO: initializeMesh: THE NEIGHBOR TABLE IS BEING COMPUTED.
+INFO: initializeMesh: THE NEIGHBOR TABLE IS COMPLETED. THE MINIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 4. 1+THE MAXIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 9. THE PARAMETER MNEI CAN BE SET AS SMALL AS 9.
+ADCIRC Version is v56.0.1-35-gd2a7c47                                                             
+ADCIRC Commit hash is d2a7c47019a945ff2c26b635bc2808168c4d1e61                                        
+
+ _______________________________________________________________________________
+
+
+ LIMITED RUNTIME INFORMATION SECTION 
+
+
+INFO: ADCIRC_Run: Begin timestepping.
+ TIME STEP =     100   0.04% COMPLETE     ITERATIONS =   13     TIME =  0.48297600E+03
+  ELMAX =  1.8147E-007 AT NODE      134  SPEEDMAX =  2.6693E-007 AT NODE      544  ON MYPROC =    0
+ TIME STEP =     200   0.07% COMPLETE     ITERATIONS =   12     TIME =  0.96595200E+03
+  ELMAX =  3.2663E-006 AT NODE      134  SPEEDMAX =  2.4634E-006 AT NODE       54  ON MYPROC =    0
