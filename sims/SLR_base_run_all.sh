@@ -73,6 +73,7 @@ run_all() {
 
         cd "../../"
     done
+    echo "All $BASE_DIR simulations completed at $(date)" | tee -a $LOG_FILE
 }
 
 run_all
