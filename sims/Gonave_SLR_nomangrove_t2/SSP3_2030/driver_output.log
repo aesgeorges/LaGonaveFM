@@ -9921,4 +9921,4 @@ INFO: ADCIRC_Run: Begin timestepping.
  TIME STEP =  465100  99.99% COMPLETE     ITERATIONS =   13     TIME =  0.22463214E+07
   ELMAX =  3.0456E+000 AT NODE      990  SPEEDMAX =  1.8914E-002 AT NODE      135  ON MYPROC =    0
  MPI terminated with Status =            0
-Wallclock time: 9 minutes and 39 seconds.
+Wallclock time: 20 minutes and 13 seconds.

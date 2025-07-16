@@ -42,7 +42,7 @@ run_all() {
         (
             while true; do
                 tput clear
-                echo "=== Running scenario: $scenario ==="
+                echo "=== Running scenario: $scenario  for $BASE_DIR ==="
                 tail -n 20 driver_output.log
                 sleep 1
             done
