@@ -1,3 +1,185 @@
+ INFO: Processing --np
+ INFO: Processing --partmesh
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ from alloc_main1: 
+
+memory currently allocated = 2.494 megabytes
+memory high water mark     = 4.733 megabytes
+
+
+memory currently allocated = 2.522 megabytes
+memory high water mark     = 4.733 megabytes
+
+ Global Grid file read successfully.
+INFO: This mesh has 0 weir node pairs.
+INFO: Maximum number of duals for any weir node is 0.
+ maximum co-nodes for any node =           16
+ edge count =        27492
+ 
+ Grid Partition Data
+ METIS 4.0 will require approximately 3.124 megabytes
+ Total Edges Cut =         7287
+INFO: Writing mesh partition to partmesh.txt.
+ INFO: METIS has partitioned nodes successfully.
+
+memory currently allocated = 2.522 megabytes
+memory high water mark     = 4.733 megabytes
+
+ INFO: Processing --np
+ INFO: Processing --prepall
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ File fort.15                                                     
+ WAS FOUND!  Opening & Processing file
+
+ INFO: The SWANOutputControl namelist was not found.
+ INFO: The metControl namelist was not found.
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+ NHSTAR =            5
+ *****************************************************
+ *   Based on input and information extracted from   *
+ *   the ADCIRC UNIT 14 and 15 (grid and horiz run   *
+ *   info) files the following paramter values will  *
+ *   be set:                                         *
+ *                                                   *
+ *       MNPROC =     8                             *
+ *       MNE =    18128      MNP =     9361          *
+ *       MNEI =       9                               *
+ *       MNOPE =      3      MNETA =     97          *
+ *       MNBOU =      7      MNVEL =    501          *
+ *       MNTIF =      8      MNBFR =      8          *
+ *       MNSTAE =     1      MNSTAV =     1          *
+ *       MNSTAC =     1      MNSTAM =     1          *
+ *       MNWP =       1                               *
+ *       MNWLAT =     1      MNWLON =     1          *
+ *       MNFFR =      1                              *
+ *                                                   *
+ *   Also, NO wind forcing will be used,             *
+ *   means and variance calculation will NOT be made,*
+ *   the GWCE matrix will be left in consistent form *
+ *   and an iterative solver will be used            *
+ *****************************************************
+
+ from alloc_main1: 
+
+memory currently allocated = 2.510 megabytes
+memory high water mark     = 4.765 megabytes
+
+
+memory currently allocated = 2.538 megabytes
+memory high water mark     = 4.765 megabytes
+
+ Global Grid file read successfully.
+ INFO: Opening file partmesh.txt
+ INFO: Closed partmesh.txt file.
+ INFO: Start reading in fort.15.
+ nstae=           0
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+
+memory currently allocated = 2.538 megabytes
+memory high water mark     = 4.765 megabytes
+
+ INFO: Fulldomain fort.15 file read successfully.
+ INFO: Initializing the netCDF output files.
+  
+ Determine the parameters MNPP and MNEP
+  Setting MNPP =         1302
+  Setting MNEP =         2438
+ Allocate arrays dimensioned by MNPP and MNEP
+ from alloc_main2: 
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+  
+ Decomposition of grid begins
+ Decomposition Data
+ DOMAIN  RES_NODES  GHOST_NODES  TOT_NODES  ELEMENTS
+ ------  ---------  -----------  ---------  --------
+ GLOBAL                              9361      18128
+ PE0000      1115        124         1239       2352
+ PE0001      1186         82         1268       2438
+ PE0002      1141         78         1219       2345
+ PE0003      1137         70         1207       2286
+ PE0004      1196         22         1218       2260
+ PE0005      1205         51         1256       2255
+ PE0006      1213         89         1302       2394
+ PE0007      1168         98         1266       2396
+ Decomposition successful
+ Writing Local UNIT 14 (Grid) File for each PE
+  
+ Boundary Node Decomposition Data
+ DOMAIN      NOPE    NETA    NBOU  NVEL    NWEIR
+ GLOBAL       3      97       7     500       0
+ PE0000       0       0       1      21       0
+ PE0001       0       0       1      31       0
+ PE0002       0       0       1       8       0
+ PE0003       0       0       1      27       0
+ PE0004       3      74       4      94       0
+ PE0005       1      16       5     221       0
+ PE0006       1       8       5      99       0
+ PE0007       0       0       1      32       0
+ Writing Local UNIT 15 (Run Info) File for each PE
+  
+ Station Data
+ DOMAIN      NSTAE   NSTAV    NSTAC    NSTAM
+ GLOBAL       0       0       0       0
+ PE0000       0       0       0       0
+ PE0001       0       0       0       0
+ PE0002       0       0       0       0
+ PE0003       0       0       0       0
+ PE0004       0       0       0       0
+ PE0005       0       0       0       0
+ PE0006       0       0       0       0
+ PE0007       0       0       0       0
+ ERROR: There was an error reading swan files.
+ WARNING: swan files not preprocessed.
+ Writing Message-Passing Info Files for each PE
+  
+ Communication Data
+ DOMAIN  COMM_PE  %(SURF/VOL)
+ ------  -------  -----------
+ PE0000        4     11.12
+ PE0001        4      6.91
+ PE0002        3      6.84
+ PE0003        3      6.16
+ PE0004        1      1.84
+ PE0005        2      4.23
+ PE0006        3      7.34
+ PE0007        4      8.39
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+
+
+ Writing subdomain Nodal Attributes (unit 13)
+ file for each PE.
+File fort.13 
+ WAS FOUND!  Opening & Processing file.
+
+     Finished processing sea_surface_height_above_geoid                                                  
+ for processor range            1  to            8
+     Finished processing primitive_weighting_in_continuity_equation                                      
+ for processor range            1  to            8
+     Finished processing mannings_n_at_sea_floor                                                         
+ for processor range            1  to            8
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+ Writing domain-decomposition file for post-processor
+ 
+ INFO: Finished pre-processing input files.
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
  INFO: Searching for ADCIRC subdomain directories:
  INFO: Looking for './PE0000/fort.14' ...
  INFO: File './PE0000/fort.14' was found!
@@ -5418,6 +5600,328 @@ INFO: ADCIRC_Run: Begin timestepping.
   ELMAX =  4.7502E-001 AT NODE      699  SPEEDMAX =  4.5933E-003 AT NODE      428  ON MYPROC =    0
 INFO: writeHotstart:  HOT START OUTPUT WRITTEN TO UNIT 67 AT TIME STEP =    268336 TIME =  0.12959985E+07
  MPI terminated with Status =            0
+ Finished processing ient =            1 iquadrot =            2
+ Finished processing ient =            3 iquadrot =            2
+ Finished processing ient =            2 iquadrot =            1
+ Finished processing ient =            5 iquadrot =            1
+ Finished processing ient =            4 iquadrot =            1
+ Finished processing ient =            7 iquadrot =            2
+ Finished processing ient =            6 iquadrot =            1
+ Finished processing ient =            9 iquadrot =            2
+ Finished processing ient =            8 iquadrot =            1
+ Finished processing ient =           12 iquadrot =            5
+ Finished processing ient =           11 iquadrot =            1
+ Finished processing ient =           10 iquadrot =            1
+ Finished processing ient =           15 iquadrot =            3
+ Finished processing ient =           14 iquadrot =            1
+ Finished processing ient =           13 iquadrot =            1
+ Finished processing ient =           18 iquadrot =            1
+ Finished processing ient =           17 iquadrot =            1
+ Finished processing ient =           16 iquadrot =            1
+ Finished processing ient =           21 iquadrot =            1
+ Finished processing ient =           20 iquadrot =            1
+ Finished processing ient =           19 iquadrot =            1
+ Finished processing ient =           24 iquadrot =            1
+ Finished processing ient =           23 iquadrot =            1
+ Finished processing ient =           22 iquadrot =            1
+ Finished processing ient =           27 iquadrot =            1
+ Finished processing ient =           26 iquadrot =            1
+ Finished processing ient =           25 iquadrot =            1
+ Finished processing ient =           30 iquadrot =            1
+ Finished processing ient =           29 iquadrot =            1
+ Finished processing ient =           28 iquadrot =            1
+ Finished processing ient =           33 iquadrot =            1
+ Finished processing ient =           32 iquadrot =            1
+ Finished processing ient =           31 iquadrot =            1
+ Finished processing ient =           36 iquadrot =            1
+ Finished processing ient =           35 iquadrot =            1
+ Finished processing ient =           34 iquadrot =            1
+ Finished processing ient =           39 iquadrot =            1
+ Finished processing ient =           38 iquadrot =            1
+ Finished processing ient =           37 iquadrot =            1
+ Finished processing ient =           42 iquadrot =            1
+ Finished processing ient =           41 iquadrot =            1
+ Finished processing ient =           40 iquadrot =            1
+ Finished processing ient =           45 iquadrot =            1
+ Finished processing ient =           44 iquadrot =            1
+ Finished processing ient =           43 iquadrot =            1
+ Finished processing ient =           48 iquadrot =            1
+ Finished processing ient =           47 iquadrot =            1
+ Finished processing ient =           46 iquadrot =            1
+ Finished processing ient =           51 iquadrot =            1
+ Finished processing ient =           50 iquadrot =            1
+ Finished processing ient =           49 iquadrot =            1
+ Finished processing ient =           54 iquadrot =            1
+ Finished processing ient =           53 iquadrot =            1
+ Finished processing ient =           52 iquadrot =            1
+ Finished processing ient =           57 iquadrot =            1
+ Finished processing ient =           56 iquadrot =            1
+ Finished processing ient =           55 iquadrot =            1
+ Finished processing ient =           60 iquadrot =            1
+ Finished processing ient =           59 iquadrot =            1
+ Finished processing ient =           58 iquadrot =            1
+ Finished processing ient =           63 iquadrot =            1
+ Finished processing ient =           62 iquadrot =            1
+ Finished processing ient =           61 iquadrot =            1
+ Finished processing ient =           66 iquadrot =            1
+ Finished processing ient =           65 iquadrot =            1
+ Finished processing ient =           64 iquadrot =            1
+ Finished processing ient =           69 iquadrot =            1
+ Finished processing ient =           68 iquadrot =            1
+ Finished processing ient =           67 iquadrot =            1
+ Finished processing ient =           72 iquadrot =            1
+ Finished processing ient =           71 iquadrot =            1
+ Finished processing ient =           70 iquadrot =            1
+ Finished processing ient =           75 iquadrot =            1
+ Finished processing ient =           74 iquadrot =            1
+ Finished processing ient =           73 iquadrot =            1
+ Finished processing ient =           78 iquadrot =            1
+ Finished processing ient =           77 iquadrot =            1
+ Finished processing ient =           76 iquadrot =            1
+ Finished processing ient =           81 iquadrot =            1
+ Finished processing ient =           80 iquadrot =            1
+ Finished processing ient =           79 iquadrot =            1
+ Finished processing ient =           84 iquadrot =            1
+ Finished processing ient =           83 iquadrot =            1
+ Finished processing ient =           82 iquadrot =            1
+ Finished processing ient =           87 iquadrot =            1
+ Finished processing ient =           86 iquadrot =            1
+ Finished processing ient =           85 iquadrot =            1
+ Finished processing ient =           90 iquadrot =            1
+ Finished processing ient =           89 iquadrot =            1
+ Finished processing ient =           88 iquadrot =            1
+ Finished processing ient =           93 iquadrot =            1
+ Finished processing ient =           92 iquadrot =            1
+ Finished processing ient =           91 iquadrot =            1
+ Finished processing ient =           96 iquadrot =            1
+ Finished processing ient =           95 iquadrot =            1
+ Finished processing ient =           94 iquadrot =            1
+ Finished processing ient =           99 iquadrot =            1
+ Finished processing ient =           98 iquadrot =            1
+ Finished processing ient =           97 iquadrot =            1
+ Finished processing ient =          102 iquadrot =            1
+ Finished processing ient =          101 iquadrot =            1
+ Finished processing ient =          100 iquadrot =            1
+ Finished processing ient =          105 iquadrot =            1
+ Finished processing ient =          104 iquadrot =            1
+ Finished processing ient =          103 iquadrot =            1
+ Finished processing ient =          108 iquadrot =            1
+ Finished processing ient =          107 iquadrot =            1
+ Finished processing ient =          106 iquadrot =            1
+ Finished processing ient =          111 iquadrot =            1
+ Finished processing ient =          110 iquadrot =            1
+ Finished processing ient =          109 iquadrot =            1
+ Finished processing ient =          114 iquadrot =            1
+ Finished processing ient =          113 iquadrot =            1
+ Finished processing ient =          112 iquadrot =            1
+ Finished processing ient =          117 iquadrot =            1
+ Finished processing ient =          116 iquadrot =            1
+ Finished processing ient =          115 iquadrot =            1
+ Finished processing ient =          120 iquadrot =            1
+ Finished processing ient =          119 iquadrot =            1
+ Finished processing ient =          118 iquadrot =            1
+ Finished processing ient =          123 iquadrot =            1
+ Finished processing ient =          122 iquadrot =            1
+ Finished processing ient =          121 iquadrot =            1
+ Finished processing ient =          126 iquadrot =            1
+ Finished processing ient =          125 iquadrot =            1
+ Finished processing ient =          124 iquadrot =            1
+ Finished processing ient =          129 iquadrot =            2
+ Finished processing ient =          128 iquadrot =            1
+ Finished processing ient =          127 iquadrot =            1
+ Finished processing ient =          132 iquadrot =            1
+ Finished processing ient =          131 iquadrot =            1
+ Finished processing ient =          130 iquadrot =            1
+ Finished processing ient =          135 iquadrot =            1
+ Finished processing ient =          134 iquadrot =            1
+ Finished processing ient =          133 iquadrot =            1
+ Finished processing ient =          138 iquadrot =            2
+ Finished processing ient =          137 iquadrot =            1
+ Finished processing ient =          136 iquadrot =            1
+ INFO: Processing --np
+ INFO: Processing --partmesh
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ from alloc_main1: 
+
+memory currently allocated = 2.494 megabytes
+memory high water mark     = 4.733 megabytes
+
+
+memory currently allocated = 2.522 megabytes
+memory high water mark     = 4.733 megabytes
+
+ Global Grid file read successfully.
+INFO: This mesh has 0 weir node pairs.
+INFO: Maximum number of duals for any weir node is 0.
+ maximum co-nodes for any node =           16
+ edge count =        27492
+ 
+ Grid Partition Data
+ METIS 4.0 will require approximately 3.124 megabytes
+ Total Edges Cut =         7287
+INFO: Writing mesh partition to partmesh.txt.
+ INFO: METIS has partitioned nodes successfully.
+
+memory currently allocated = 2.522 megabytes
+memory high water mark     = 4.733 megabytes
+
+ INFO: Processing --np
+ INFO: Processing --prepall
+ File                                                      fort.14
+ WAS FOUND!  Opening & Processing file
+
+ File fort.15                                                     
+ WAS FOUND!  Opening & Processing file
+
+ INFO: The SWANOutputControl namelist was not found.
+ INFO: The metControl namelist was not found.
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+ MET Station Locations Contained in fort.15
+ NHSTAR =            0
+ *****************************************************
+ *   Based on input and information extracted from   *
+ *   the ADCIRC UNIT 14 and 15 (grid and horiz run   *
+ *   info) files the following paramter values will  *
+ *   be set:                                         *
+ *                                                   *
+ *       MNPROC =     8                             *
+ *       MNE =    18128      MNP =     9361          *
+ *       MNEI =       9                               *
+ *       MNOPE =      3      MNETA =     97          *
+ *       MNBOU =      7      MNVEL =    501          *
+ *       MNTIF =      8      MNBFR =      8          *
+ *       MNSTAE =     1      MNSTAV =     1          *
+ *       MNSTAC =     1      MNSTAM =     1          *
+ *       MNWP =    9361                               *
+ *       MNWLAT =     1      MNWLON =     1          *
+ *       MNFFR =      1                              *
+ *                                                   *
+ *   Also, NWS=+-20 Generalized Asym. Model is used  *
+ *   means and variance calculation will NOT be made,*
+ *   the GWCE matrix will be left in consistent form *
+ *   and an iterative solver will be used            *
+ *****************************************************
+
+ from alloc_main1: 
+
+memory currently allocated = 2.510 megabytes
+memory high water mark     = 4.765 megabytes
+
+
+memory currently allocated = 2.538 megabytes
+memory high water mark     = 4.765 megabytes
+
+ Global Grid file read successfully.
+ INFO: Opening file partmesh.txt
+ INFO: Closed partmesh.txt file.
+ INFO: Start reading in fort.15.
+ nstae=           0
+ Elevation Station Locations contained in fort.15
+ Velocity Station Locations Contained in fort.15
+ MET Station Locations Contained in fort.15
+
+memory currently allocated = 2.538 megabytes
+memory high water mark     = 4.765 megabytes
+
+ INFO: Fulldomain fort.15 file read successfully.
+ INFO: Initializing the netCDF output files.
+  
+ Determine the parameters MNPP and MNEP
+  Setting MNPP =         1302
+  Setting MNEP =         2438
+ Allocate arrays dimensioned by MNPP and MNEP
+ from alloc_main2: 
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+  
+ Decomposition of grid begins
+ Decomposition Data
+ DOMAIN  RES_NODES  GHOST_NODES  TOT_NODES  ELEMENTS
+ ------  ---------  -----------  ---------  --------
+ GLOBAL                              9361      18128
+ PE0000      1115        124         1239       2352
+ PE0001      1186         82         1268       2438
+ PE0002      1141         78         1219       2345
+ PE0003      1137         70         1207       2286
+ PE0004      1196         22         1218       2260
+ PE0005      1205         51         1256       2255
+ PE0006      1213         89         1302       2394
+ PE0007      1168         98         1266       2396
+ Decomposition successful
+ Writing Local UNIT 14 (Grid) File for each PE
+  
+ Boundary Node Decomposition Data
+ DOMAIN      NOPE    NETA    NBOU  NVEL    NWEIR
+ GLOBAL       3      97       7     500       0
+ PE0000       0       0       1      21       0
+ PE0001       0       0       1      31       0
+ PE0002       0       0       1       8       0
+ PE0003       0       0       1      27       0
+ PE0004       3      74       4      94       0
+ PE0005       1      16       5     221       0
+ PE0006       1       8       5      99       0
+ PE0007       0       0       1      32       0
+ Writing Local UNIT 15 (Run Info) File for each PE
+  
+ Station Data
+ DOMAIN      NSTAE   NSTAV    NSTAC    NSTAM
+ GLOBAL       0       0       0       0
+ PE0000       0       0       0       0
+ PE0001       0       0       0       0
+ PE0002       0       0       0       0
+ PE0003       0       0       0       0
+ PE0004       0       0       0       0
+ PE0005       0       0       0       0
+ PE0006       0       0       0       0
+ PE0007       0       0       0       0
+ ERROR: There was an error reading swan files.
+ WARNING: swan files not preprocessed.
+ Writing Message-Passing Info Files for each PE
+  
+ Communication Data
+ DOMAIN  COMM_PE  %(SURF/VOL)
+ ------  -------  -----------
+ PE0000        4     11.12
+ PE0001        4      6.91
+ PE0002        3      6.84
+ PE0003        3      6.16
+ PE0004        1      1.84
+ PE0005        2      4.23
+ PE0006        3      7.34
+ PE0007        4      8.39
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+
+
+ Writing subdomain Nodal Attributes (unit 13)
+ file for each PE.
+File fort.13 
+ WAS FOUND!  Opening & Processing file.
+
+     Finished processing sea_surface_height_above_geoid                                                  
+ for processor range            1  to            8
+     Finished processing primitive_weighting_in_continuity_equation                                      
+ for processor range            1  to            8
+     Finished processing mannings_n_at_sea_floor                                                         
+ for processor range            1  to            8
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
+ Writing domain-decomposition file for post-processor
+ 
+ INFO: Finished pre-processing input files.
+
+memory currently allocated = 2.895 megabytes
+memory high water mark     = 4.765 megabytes
+
  INFO: Searching for ADCIRC subdomain directories:
  INFO: Looking for './PE0000/fort.14' ...
  INFO: File './PE0000/fort.14' was found!
@@ -9418,3 +9922,4 @@ INFO: ADCIRC_Run: Begin timestepping.
  TIME STEP =  465100  99.99% COMPLETE     ITERATIONS =   14     TIME =  0.22463214E+07
   ELMAX =  1.3754E+000 AT NODE       23  SPEEDMAX =  2.7631E-001 AT NODE       17  ON MYPROC =    0
  MPI terminated with Status =            0
+Wallclock time: 18 minutes and 50 seconds.

@@ -9,7 +9,7 @@ LOG_FILE="${BASE_DIR}/run_all_scenarios.log"
 echo "Starting simulations $(date)" > $LOG_FILE
 
 SCENARIOS=(
-    #"S0"
+    "S0"
     "SSP1_2030"
     "SSP1_2050"
     "SSP1_2070"
