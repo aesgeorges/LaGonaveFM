@@ -9,16 +9,28 @@ LOG_FILE="${BASE_DIR}/run_all_scenarios.log"
 echo "Starting simulations $(date)" > $LOG_FILE
 
 SCENARIOS=(
-    "S0"
-    "SSP2_2050"
-    "SSP2_2070"
-    "SSP5_2050"
-    "SSP5_2070"
+    #"S0"
+    "SSP1_2030"
+    "SSP1_2050"
+    "SSP1_2070"
+    "SSP1_2100"
+    "SSP2_2030"
+    #"SSP2_2050"
+    #"SSP2_2070"
+    "SSP2_2100"
+    "SSP3_2030"
+    "SSP3_2050"
+    "SSP3_2070"
+    "SSP3_2100"
+    "SSP5_2030"
+    #"SSP5_2050"
+    #"SSP5_2070"
+    "SSP5_2100"
 )
 
 RETREATS=(
-    "r0"
-    "r1"
+    #"r0"
+    #"r1"
     "r2"
     "r3"
 )
@@ -35,8 +47,20 @@ run_all() {
             LOG_FILE="../run_all_scenarios.log"
             echo "Starting run for scenario: $scenario at $(date)" | tee -a $LOG_FILE
 
+            # Start a background process to display log updates
+            (
+                while true; do
+                    tput clear
+                    echo "=== Running retreat scenario: $retreat $scenario ==="
+                    tail -n 20 driver_output.log
+                    sleep 1
+                done
+            ) &
+            TAIL_PID=$!
+
             start_time=$(date +%s)
-            ./driver.sh
+            ./driver.sh &> driver_output.log
+            EXIT_CODE=$?
             end_time=$(date +%s)
             runtime=$((end_time - start_time))
             hours=$((runtime / 3600))
@@ -51,6 +75,10 @@ run_all() {
             fi
 
             echo "All scenario runs completed at $(date)" | tee -a $LOG_FILE
+
+            kill $TAIL_PID
+            wait $TAIL_PID 2>/dev/null
+
             cd "../../../"
         done
     done
