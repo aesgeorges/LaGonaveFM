@@ -35,7 +35,7 @@ run_coldstart_phase() {
   ln -sf ../fort.15.coldstart ./fort.15
   adcprep --np 8 --partmesh
   adcprep --np 8 --prepall
-  mpiexec -n 8 ~/adcirc/work/padcirc 2>&1 | tee ../padcirc.log
+  mpiexec -n 8 padcirc 2>&1 | tee ../padcirc.log
   clean_directory
   cd ..
 }
@@ -53,7 +53,7 @@ run_hotstart_phase() {
   mv NWS_20_fort.22 fort.22
   adcprep --np 8 --partmesh
   adcprep --np 8 --prepall
-  mpiexec -n 8 ~/adcirc/work/padcirc 2>&1 | tee -a ../padcirc.log
+  mpiexec -n 8 padcirc 2>&1 | tee -a ../padcirc.log
   clean_directory
   cd ..
 }

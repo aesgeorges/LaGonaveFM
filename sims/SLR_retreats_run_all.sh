@@ -9,15 +9,15 @@ LOG_FILE="${BASE_DIR}/run_all_scenarios.log"
 echo "Starting simulations $(date)" > $LOG_FILE
 
 SCENARIOS=(
-    "S0"
-    "SSP1_2030"
-    "SSP1_2050"
-    "SSP1_2070"
-    "SSP1_2100"
-    "SSP2_2030"
-    "SSP2_2050"
-    "SSP2_2070"
-    "SSP2_2100"
+    #"S0"
+    #"SSP1_2030"
+    #"SSP1_2050"
+    #"SSP1_2070"
+    #"SSP1_2100"
+    #"SSP2_2030"
+    #"SSP2_2050"
+    #"SSP2_2070"
+    #"SSP2_2100"
     "SSP3_2030"
     "SSP3_2050"
     "SSP3_2070"
@@ -31,8 +31,10 @@ SCENARIOS=(
 RETREATS=(
     #"r0"
     #"r1"
-    "r2"
+    #"r2"
     #"r3"
+    "r4"
+    #"r5"
 )
 
 run_all() {
