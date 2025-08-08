@@ -20,12 +20,15 @@ Mangroves play a crucial role in protecting coastal areas from storm surges. Thi
 ## Project Structure
 
 - `analysis`: scripts and notebooks for visualization and analysis.
-- `ch2-resilience`: final runs dedicated to studying the resilience of mangroves.
-- `ch3-protection`: final runs dedicated to studying the protection potential of mangroves.
-- `datasets`: contains any dataset used (meshes, bathymetry, mangrove cover maps, etc.)
+- `notebooks`: extra miscellaneous notebooks
+- `datasets`: contains dataset used (meshes, bathymetry, mangrove cover maps, etc.)
 - `docs`: background info and documentation
-- `scripts`: scripts used for running and analyzing simulations.
+- `codebase`: scripts used for running, analyzing, and visualizing simulations.
 - `staging`: where new ideas are tested and implemented.
+- `sims`: where final runs (attenuation, retreats) are located. (including bash scripts to run them in batches)
+- `gis-meshmaker`: mesh generation with OceanMesh2D
+- `hurricane_track_gen`: hurricane track modifications and visualizations
+- `mannings_cover_gen` : different mannings input files for mangrove vs no mangrove scenarios 
 
 ## Installation
 
@@ -37,11 +40,13 @@ Ensure you have the following software installed:
 - Fortran compiler (e.g., `gfortran`)
 - Python 3.x
 - Required Python packages (listed in `requirements.txt`)
+- MATLAB (for OceanMesh2D)
 
-Scripts for automation and visualization:
+Third-party libraries and tools:
 
 - Kalpana
 - adcircpy
+- OceanMesh2D
 
 ### Installation Steps
 
